@@ -1,6 +1,8 @@
 ﻿using System;
+using KBCore.Refs;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Weapons;
 
 public class PlayerController : MonoBehaviour {
     [Header("Input")]
@@ -13,9 +15,6 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private InputActionReference _lookAction;
     
-    [SerializeField]
-    private InputActionReference _shootAction;
-    
     [Space]
     [SerializeField]
     private float _maxMoveSpeed = 5f;
@@ -26,10 +25,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private float _accelerationSpeed = 10f;
     
-    [Header("Camera")]
-    [SerializeField]
-    private CameraController _cameraController;
-    
+    [Header("Aiming")]
     [SerializeField]
     private Transform _aimTransform;
     
@@ -40,11 +36,12 @@ public class PlayerController : MonoBehaviour {
     private Vector2 _acceleration;
     private float _currentMaxMoveSpeed;
 
+    private void OnValidate() => this.ValidateRefs();
+
     private void Start() {
         _currentMaxMoveSpeed = _maxMoveSpeed;
         _sprintAction.action.started += _ => _currentMaxMoveSpeed = _maxSprintMoveSpeed;
         _sprintAction.action.canceled += _ => _currentMaxMoveSpeed = _maxMoveSpeed;
-        _shootAction.action.performed += _ => _cameraController.Shake();
     }
 
     private void Update() {
