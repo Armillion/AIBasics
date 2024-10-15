@@ -36,8 +36,6 @@ public class PlayerController : MonoBehaviour {
     private Vector2 _acceleration;
     private float _currentMaxMoveSpeed;
 
-    private void OnValidate() => this.ValidateRefs();
-
     private void Start() {
         _currentMaxMoveSpeed = _maxMoveSpeed;
         _sprintAction.action.started += _ => _currentMaxMoveSpeed = _maxSprintMoveSpeed;
