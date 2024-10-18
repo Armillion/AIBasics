@@ -756,7 +756,7 @@ MonoBehaviour:
   _moveAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _sprintAction: {fileID: -7471211009204490832, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _lookAction: {fileID: -5630151704836100654, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
-  _maxMoveSpeed: 5
+  _defaultMaxMoveSpeed: 5
   _maxSprintMoveSpeed: 10
   _accelerationSpeed: 10
   _aimTransform: {fileID: 1613539548}
@@ -1336,6 +1336,10 @@ GameObject:
   - component: {fileID: 2001711496}
   - component: {fileID: 2001711498}
   - component: {fileID: 2001711497}
+  - component: {fileID: 2001711502}
+  - component: {fileID: 2001711501}
+  - component: {fileID: 2001711500}
+  - component: {fileID: 2001711499}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -1388,6 +1392,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxSpeed>k__BackingField: 2
+  _steeringBehavioursMonoBehaviours:
+  - {fileID: 2001711497}
+  - {fileID: 2001711502}
+--- !u!114 &2001711499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfe85c67658340c5b72a4ec087d570ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2001711500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec9d1a5b626403db0dd06b873b3935c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _panicDistance: 10
+  target: {x: 0, y: 0}
+--- !u!114 &2001711501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d3b48ef44945c68dfbef004c380563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deceleration: 0.3
+  target: {x: 0, y: 0}
+--- !u!114 &2001711502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a051596c61b4335be789ee885326f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1154196317}
+  _distanceFromCover: 1
+  _covers: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1395,5 +1457,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1942174383}
   - {fileID: 1154196316}
-  - {fileID: 1106950034}
   - {fileID: 2001711496}
+  - {fileID: 1106950034}
