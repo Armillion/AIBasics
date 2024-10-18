@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,13 +19,13 @@ namespace Zombies.Steering {
         
         private Vector2 _wanderTarget;
 
-        public Vector2 CalculateSteering(Zombie zombie) {
+        public Vector2 CalculateSteering(IVehicle vehicle) {
             _wanderTarget += Random.insideUnitCircle * _wanderJitter;
             _wanderTarget = _wanderTarget.normalized * _wanderRadius;
 
-            Vector2 targetPosition = (Vector2)transform.position + zombie.Velocity.normalized * _wanderDistance + _wanderTarget;
-            Vector2 desiredVelocity = (targetPosition - (Vector2)transform.position).normalized * zombie.MaxSpeed;
-            Vector2 steer = Vector2.ClampMagnitude(desiredVelocity - zombie.Velocity, _maxSteerForce);
+            Vector2 targetPosition = (Vector2)transform.position + vehicle.Velocity.normalized * _wanderDistance + _wanderTarget;
+            Vector2 desiredVelocity = (targetPosition - (Vector2)transform.position).normalized * vehicle.MaxSpeed;
+            Vector2 steer = Vector2.ClampMagnitude(desiredVelocity - vehicle.Velocity, _maxSteerForce);
 
             return steer;
         }
