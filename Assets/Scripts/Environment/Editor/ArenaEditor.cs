@@ -41,6 +41,7 @@ namespace Environment.Editor {
                 Vector2 current = wallAnchors[i];
                 Vector2 next = wallAnchors[(i + 1) % wallAnchors.Length];
                 Handles.DrawLine(current, next);
+                Handles.Label(current + Vector2.up * 0.4f, $"{i}");
             }
         }
 
@@ -57,8 +58,8 @@ namespace Environment.Editor {
                     newPos.y = Mathf.Round(newPos.y / gridSize) * gridSize;
                 }
 
-                wallAnchors[i] = newPos;
                 Undo.RecordObject(arena, "Update Arena Wall Anchor");
+                wallAnchors[i] = newPos;
             }
         }
 

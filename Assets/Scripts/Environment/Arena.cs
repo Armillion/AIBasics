@@ -24,6 +24,11 @@ namespace Environment {
             for (var i = 0; i < 4; i++)
                 _bounds.Encapsulate(_wallAnchors[i]);
         }
+
+        private void OnValidate() {
+            if (!Application.isPlaying)
+                Start();
+        }
 #endif
 
         private void Awake() {
@@ -74,16 +79,17 @@ namespace Environment {
         
         private MoveDirection GetMoveDirectionAtIndex(int x, int y, int xCount, int yCount) {
             var traversableDirections = MoveDirection.None;
+
+            if (!Geometry.PointInPolygon(_grid[y * xCount + x].position, _wallAnchors))
+                return traversableDirections;
             
-            foreach (MoveDirection value in Enum.GetValues(typeof(MoveDirection))) {
-                if (value == MoveDirection.None) continue;
-                
-                (int xIndex, int yIndex) = GetIndexInMoveDirection(value, x, y);
-                
+            foreach (MoveDirection direction in Enum.GetValues(typeof(MoveDirection))) {
+                if (direction == MoveDirection.None) continue;
+                (int xIndex, int yIndex) = GetIndexInMoveDirection(direction, x, y);
                 if (xIndex < 0 || xIndex >= xCount || yIndex < 0 || yIndex >= yCount) continue;
-                
-                if (Geometry.PointInPolygon(_grid[y * xCount + x].position, _wallAnchors))
-                    traversableDirections |= value;
+
+                if (Geometry.PointInPolygon(_grid[yIndex * xCount + xIndex].position, _wallAnchors))
+                    traversableDirections |= direction;
             }
             
             return traversableDirections;
