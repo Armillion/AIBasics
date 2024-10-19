@@ -115,9 +115,10 @@ namespace Shooter.Environment.Editor {
             if (grid == null) return;
             
             float gridSize = _gridSizeField != null ? (float)_gridSizeField.GetValue(arena) : 0.1f;
+            Handles.color = Color.white;
 
             foreach (Cell cell in grid) {
-                Handles.color = cell.traversableDirections == MoveDirection.None ? Color.black : Color.white;
+                if (cell.traversableDirections == MoveDirection.None) continue;
                 Handles.DrawWireCube(cell.position, Vector3.one * 0.1f);
                 
                 foreach (MoveDirection value in Enum.GetValues(typeof(MoveDirection))) {
