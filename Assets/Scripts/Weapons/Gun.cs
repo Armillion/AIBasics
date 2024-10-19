@@ -3,6 +3,7 @@ using ImprovedTimers;
 using KBCore.Refs;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utility;
 
 namespace Weapons {
     public class Gun : MonoBehaviour {
