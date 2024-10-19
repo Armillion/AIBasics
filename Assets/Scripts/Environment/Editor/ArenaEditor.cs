@@ -13,7 +13,6 @@ namespace Environment.Editor {
         private FieldInfo _gridField;
         
         private bool _drawCells;
-        private bool _drawPositionHandles;
         
         private void OnEnable() {
             _levelGeometryField = typeof(Arena).GetField("_levelGeometry", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -26,8 +25,6 @@ namespace Environment.Editor {
             base.OnInspectorGUI();
             
             _drawCells = EditorGUILayout.Toggle("Draw Cells", _drawCells);
-            _drawPositionHandles = EditorGUILayout.Toggle("Draw Position Handles", _drawPositionHandles);
-            
             var arena = (Arena)target;
             
             if (GUILayout.Button("Recreate Arena"))
@@ -43,7 +40,7 @@ namespace Environment.Editor {
             if (levelGeometry == null) return;
 
             DrawWalls(levelGeometry);
-            if (_drawPositionHandles) UpdateWallAnchorsPositions(levelGeometry, arena);
+            UpdateWallAnchorsPositions(levelGeometry, arena);
             UpdateBounds(arena, levelGeometry);
             if (_drawCells) DrawCells(arena);
         }
@@ -56,29 +53,26 @@ namespace Environment.Editor {
                     Vector2 current = polygon[i];
                     Vector2 next = polygon[(i + 1) % polygon.Length];
                     Handles.DrawLine(current, next);
-                    float diskSize = HandleUtility.GetHandleSize(current) * 0.075f;
-                    Handles.DrawSolidDisc(current, Vector3.back, diskSize);
                     Handles.Label(current + Vector2.up * 0.4f, $"{i}");
                 }
             }
         }
 
         private void UpdateWallAnchorsPositions(Polygon[] levelGeometry, Arena arena) {
+            Handles.color = Color.white;
+            
             foreach (Vector2[] polygon in levelGeometry) {
                 for (var i = 0; i < polygon.Length; i++) {
                     EditorGUI.BeginChangeCheck();
-                    Vector3 newPos = Handles.PositionHandle(polygon[i], Quaternion.identity);
+                    float size = HandleUtility.GetHandleSize(polygon[i]) * 0.1f;
+                    Vector3 snap = EditorSnapSettings.snapEnabled ? EditorSnapSettings.move : Vector3.zero;
+                    Vector3 newPos = Handles.FreeMoveHandle(polygon[i], size, snap, Handles.SphereHandleCap);
 
                     if (!EditorGUI.EndChangeCheck()) continue;
                     
-                    // if (_gridSizeField != null) {
-                    //     var gridSize = (float)_gridSizeField.GetValue(arena);
-                    //     newPos.x = Mathf.Round(newPos.x / gridSize) * gridSize;
-                    //     newPos.y = Mathf.Round(newPos.y / gridSize) * gridSize;
-                    // }
-
                     Undo.RecordObject(arena, "Update Arena Wall Anchor");
                     polygon[i] = newPos;
+                    EditorUtility.SetDirty(arena);
                 }
             }
         }
