@@ -11,7 +11,8 @@ namespace Environment {
         South = 1 << 4,
         SouthWest = 1 << 5,
         West = 1 << 6,
-        NorthWest = 1 << 7
+        NorthWest = 1 << 7,
+        All = North | NorthEast | East | SouthEast | South | SouthWest | West | NorthWest
     }
     
     public static class MoveDirectionExtensions {

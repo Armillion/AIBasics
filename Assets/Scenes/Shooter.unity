@@ -490,7 +490,77 @@ MonoBehaviour:
     - {x: 0, y: 4}
     - {x: 0, y: 1}
     - {x: 5, y: 1}
-  _gridSize: 1.5
+  _walls:
+  - vertices:
+    - {x: -49, y: -19}
+    - {x: -49, y: -9}
+  - vertices:
+    - {x: -40, y: -21}
+    - {x: -36, y: -21}
+    - {x: -36, y: -31}
+    - {x: -32, y: -31}
+  - vertices:
+    - {x: -32, y: -22}
+    - {x: -25, y: -22}
+  - vertices:
+    - {x: -32, y: -28}
+    - {x: -32, y: -17}
+  - vertices:
+    - {x: -22, y: -22}
+    - {x: -14, y: -22}
+    - {x: -14, y: -25}
+  - vertices:
+    - {x: -14, y: -29}
+    - {x: -14, y: -33}
+  - vertices:
+    - {x: 5, y: 1}
+    - {x: 17, y: 1}
+  - vertices:
+    - {x: -5, y: 9}
+    - {x: -5, y: 4}
+    - {x: 0, y: 4}
+  - vertices:
+    - {x: 20, y: 1}
+    - {x: 23, y: 1}
+    - {x: 23, y: -2}
+  - vertices:
+    - {x: 23, y: -15}
+    - {x: 23, y: -6}
+  - vertices:
+    - {x: 7, y: -15}
+    - {x: 1, y: -15}
+  - vertices:
+    - {x: 4, y: 23}
+    - {x: 4, y: 30}
+    - {x: 0, y: 30}
+    - {x: 0, y: 41}
+    - {x: -13, y: 41}
+  - vertices:
+    - {x: -16, y: 41}
+    - {x: -18, y: 41}
+    - {x: -18, y: 47}
+  - vertices:
+    - {x: -29, y: -4}
+    - {x: -29, y: -9}
+  - vertices:
+    - {x: -4, y: -41}
+    - {x: -9, y: -41}
+  - vertices:
+    - {x: -1, y: -41}
+    - {x: 4, y: -41}
+  - vertices:
+    - {x: 0, y: -6}
+    - {x: 0, y: -15}
+  - vertices:
+    - {x: 0, y: 1}
+    - {x: 0, y: -2}
+  - vertices:
+    - {x: -8, y: 30}
+    - {x: -8, y: 21}
+  - vertices:
+    - {x: -8, y: 41}
+    - {x: -8, y: 34}
+  _gridSize: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

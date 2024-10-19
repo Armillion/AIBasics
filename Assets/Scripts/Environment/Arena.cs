@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using Utility;
 
@@ -7,7 +8,10 @@ namespace Environment {
         public static Arena Instance { get; private set; }
 
         [SerializeField]
-        private Polygon[] _levelGeometry = new Polygon[4];
+        private Polygon[] _levelGeometry = new Polygon[1];
+        
+        [SerializeField]
+        private Polygon[] _walls = new Polygon[1];
         
         [SerializeField, Min(0.1f)]
         private float _gridSize = 1f;
@@ -20,6 +24,7 @@ namespace Environment {
             _bounds = new Bounds();
             _levelGeometry = new Polygon[1];
             _levelGeometry[0] = new[] { new Vector2(-1f, 1f), new Vector2(1f, 1f), new Vector2(1f, -1f), new Vector2(-1f, -1f) };
+            _walls = Array.Empty<Polygon>();
             
             for (var i = 0; i < 4; i++)
                 _bounds.Encapsulate(_levelGeometry[0][i]);
@@ -78,22 +83,27 @@ namespace Environment {
         }
         
         private MoveDirection GetMoveDirectionAtIndex(int x, int y, int xCount, int yCount) {
-            var traversableDirections = MoveDirection.None;
-            var levelGeometry = new Vector2[_levelGeometry.Length][];
-            
-            for (var i = 0; i < _levelGeometry.Length; i++)
-                levelGeometry[i] = _levelGeometry[i].vertices;
+            Vector2[][] levelGeometry = _levelGeometry.Select(poly => poly.vertices).ToArray();
 
             if (!Geometry.IsPointInPolygon(_grid[y * xCount + x].position, levelGeometry))
-                return traversableDirections;
+                return MoveDirection.None;
             
-            foreach (MoveDirection direction in Enum.GetValues(typeof(MoveDirection))) {
-                if (direction == MoveDirection.None) continue;
-                (int xIndex, int yIndex) = GetIndexInMoveDirection(direction, x, y);
-                if (xIndex < 0 || xIndex >= xCount || yIndex < 0 || yIndex >= yCount) continue;
+            var traversableDirections = MoveDirection.All;
             
-                if (Geometry.IsPointInPolygon(_grid[yIndex * xCount + xIndex].position, levelGeometry))
-                    traversableDirections |= direction;
+            foreach (MoveDirection testedDirection in Enum.GetValues(typeof(MoveDirection))) {
+                if (testedDirection is MoveDirection.None or MoveDirection.All) continue;
+                (int xIndex, int yIndex) = GetIndexInMoveDirection(testedDirection, x, y);
+
+                if (!IsValidIndex(xIndex, yIndex, xCount, yCount)) {
+                    traversableDirections &= ~testedDirection;
+                    continue;
+                }
+                
+                Vector2 startPosition = _grid[y * xCount + x].position;
+                Vector2 endPosition = _grid[yIndex * xCount + xIndex].position;
+
+                if (!IsDirectionTraversable(testedDirection, startPosition, endPosition))
+                    traversableDirections &= ~testedDirection;
             }
             
             return traversableDirections;
@@ -109,6 +119,21 @@ namespace Environment {
             if (moveDirection.IsWesterly()) xIndex--;
             
             return (xIndex, yIndex);
+        }
+        
+        private static bool IsValidIndex(int xIndex, int yIndex, int xCount, int yCount)
+            => xIndex >= 0 && xIndex < xCount && yIndex >= 0 && yIndex < yCount;
+
+        private bool IsDirectionTraversable(MoveDirection direction, Vector2 start, Vector2 end) {
+            foreach (Polygon wall in _walls)
+                if (Geometry.LinesIntersect(start, end, wall, false))
+                    return false;
+
+            foreach (Polygon wall in _levelGeometry)
+                if (Geometry.LinesIntersect(start, end, wall, true))
+                    return false;
+
+            return true;
         }
     }
 }
