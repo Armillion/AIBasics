@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using Utility;
 
-namespace Environment.Editor {
+namespace Shooter.Environment.Editor {
     [CustomEditor(typeof(Arena), true), CanEditMultipleObjects]
     public class ArenaEditor : UnityEditor.Editor {
         private FieldInfo _levelGeometryField;

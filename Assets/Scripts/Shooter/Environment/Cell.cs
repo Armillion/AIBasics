@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Environment {
+namespace Shooter.Environment {
     [Serializable]
     public struct Cell {
         public Vector2 position;

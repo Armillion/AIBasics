@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Environment {
+namespace Shooter.Environment {
     [Flags]
     public enum MoveDirection {
         None = 0,

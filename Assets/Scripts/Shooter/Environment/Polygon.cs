@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Environment {
+namespace Shooter.Environment {
     [Serializable]
     public struct Polygon {
         public Vector2[] vertices;

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace Environment {
+namespace Shooter.Environment {
     public class WallAnchor : MonoBehaviour {
 #if UNITY_EDITOR
         private void Reset() {

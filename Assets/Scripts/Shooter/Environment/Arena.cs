@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using Utility;
 
-namespace Environment {
+namespace Shooter.Environment {
     public class Arena : MonoBehaviour {
         public static Arena Instance { get; private set; }
 
