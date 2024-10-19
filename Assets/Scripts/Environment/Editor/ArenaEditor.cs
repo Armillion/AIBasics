@@ -1,75 +1,96 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using Utility;
 
 namespace Environment.Editor {
     [CustomEditor(typeof(Arena), true), CanEditMultipleObjects]
     public class ArenaEditor : UnityEditor.Editor {
-        private FieldInfo _wallAnchorsField;
+        private FieldInfo _levelGeometryField;
         private FieldInfo _gridSizeField;
         private FieldInfo _boundsField;
         private FieldInfo _gridField;
         
+        private bool _drawCells;
+        private bool _drawPositionHandles;
+        
         private void OnEnable() {
-            _wallAnchorsField = typeof(Arena).GetField("_wallAnchors", BindingFlags.NonPublic | BindingFlags.Instance);
+            _levelGeometryField = typeof(Arena).GetField("_levelGeometry", BindingFlags.NonPublic | BindingFlags.Instance);
             _gridSizeField = typeof(Arena).GetField("_gridSize", BindingFlags.NonPublic | BindingFlags.Instance);
             _boundsField = typeof(Arena).GetField("_bounds", BindingFlags.NonPublic | BindingFlags.Instance);
             _gridField = typeof(Arena).GetField("_grid", BindingFlags.NonPublic | BindingFlags.Instance);
+        }
+        
+        public override void OnInspectorGUI() {
+            base.OnInspectorGUI();
+            
+            _drawCells = EditorGUILayout.Toggle("Draw Cells", _drawCells);
+            _drawPositionHandles = EditorGUILayout.Toggle("Draw Position Handles", _drawPositionHandles);
+            
+            var arena = (Arena)target;
+            
+            if (GUILayout.Button("Recreate Arena"))
+                arena.RecreateArena();
         }
 
         private void OnSceneGUI() {
             var arena = (Arena)target;
             
-            if (_wallAnchorsField == null) return;
+            if (_levelGeometryField == null) return;
             
-            var wallAnchors = (Vector2[])_wallAnchorsField.GetValue(arena);
-            if (wallAnchors == null || wallAnchors.Length < 2) return;
+            var levelGeometry = (Polygon[])_levelGeometryField.GetValue(arena);
+            if (levelGeometry == null) return;
 
-            DrawWalls(wallAnchors);
-            UpdateWallAnchorsPositions(wallAnchors, arena);
-            UpdateBounds(arena, wallAnchors);
-            DrawCells(arena);
+            DrawWalls(levelGeometry);
+            if (_drawPositionHandles) UpdateWallAnchorsPositions(levelGeometry, arena);
+            UpdateBounds(arena, levelGeometry);
+            if (_drawCells) DrawCells(arena);
         }
 
-        private static void DrawWalls(Vector2[] wallAnchors) {
-            Handles.color = Color.cyan;
-
-            for (var i = 0; i < wallAnchors.Length; i++) {
-                Vector2 current = wallAnchors[i];
-                Vector2 next = wallAnchors[(i + 1) % wallAnchors.Length];
-                Handles.DrawLine(current, next);
-                Handles.Label(current + Vector2.up * 0.4f, $"{i}");
-            }
-        }
-
-        private void UpdateWallAnchorsPositions(Vector2[] wallAnchors, Arena arena) {
-            for (var i = 0; i < wallAnchors.Length; i++) {
-                EditorGUI.BeginChangeCheck();
-                Vector3 newPos = Handles.PositionHandle(wallAnchors[i], Quaternion.identity);
-
-                if (!EditorGUI.EndChangeCheck()) continue;
+        private static void DrawWalls(Polygon[] levelGeometry) {
+            foreach (Vector2[] polygon in levelGeometry) {
+                Handles.color = Geometry.IsPolygonClockwise(polygon) ? Color.green : Color.red;
                 
-                if (_gridSizeField != null) {
-                    var gridSize = (float)_gridSizeField.GetValue(arena);
-                    newPos.x = Mathf.Round(newPos.x / gridSize) * gridSize;
-                    newPos.y = Mathf.Round(newPos.y / gridSize) * gridSize;
+                for (var i = 0; i < polygon.Length; i++) {
+                    Vector2 current = polygon[i];
+                    Vector2 next = polygon[(i + 1) % polygon.Length];
+                    Handles.DrawLine(current, next);
+                    float diskSize = HandleUtility.GetHandleSize(current) * 0.075f;
+                    Handles.DrawSolidDisc(current, Vector3.back, diskSize);
+                    Handles.Label(current + Vector2.up * 0.4f, $"{i}");
                 }
-
-                Undo.RecordObject(arena, "Update Arena Wall Anchor");
-                wallAnchors[i] = newPos;
             }
         }
 
-        private void UpdateBounds(Arena arena, Vector2[] wallAnchors) {
+        private void UpdateWallAnchorsPositions(Polygon[] levelGeometry, Arena arena) {
+            foreach (Vector2[] polygon in levelGeometry) {
+                for (var i = 0; i < polygon.Length; i++) {
+                    EditorGUI.BeginChangeCheck();
+                    Vector3 newPos = Handles.PositionHandle(polygon[i], Quaternion.identity);
+
+                    if (!EditorGUI.EndChangeCheck()) continue;
+                    
+                    // if (_gridSizeField != null) {
+                    //     var gridSize = (float)_gridSizeField.GetValue(arena);
+                    //     newPos.x = Mathf.Round(newPos.x / gridSize) * gridSize;
+                    //     newPos.y = Mathf.Round(newPos.y / gridSize) * gridSize;
+                    // }
+
+                    Undo.RecordObject(arena, "Update Arena Wall Anchor");
+                    polygon[i] = newPos;
+                }
+            }
+        }
+
+        private void UpdateBounds(Arena arena, Polygon[] levelGeometry) {
             if (_boundsField == null) return;
 
             var bounds = new Bounds();
-            
-            foreach (Vector2 anchor in wallAnchors)
-                bounds.Encapsulate(anchor);
+
+            foreach (Vector2[] polygon in levelGeometry)
+                foreach (Vector2 anchor in polygon)
+                    bounds.Encapsulate(anchor);
             
             _boundsField.SetValue(arena, bounds);
             Handles.color = Color.blue;
@@ -88,25 +109,25 @@ namespace Environment.Editor {
                 Handles.color = cell.traversableDirections == MoveDirection.None ? Color.red : Color.green;
                 Handles.DrawWireCube(cell.position, Vector3.one * 0.1f);
                 
-                foreach (MoveDirection value in Enum.GetValues(typeof(MoveDirection))) {
-                    if (value == MoveDirection.None) continue;
-                    if (!cell.traversableDirections.HasFlag(value)) continue;
-
-                    // Hacky but it works
-                    Vector2 direction = value switch {
-                        MoveDirection.North => Vector2.up,
-                        MoveDirection.NorthEast => Vector2.one,
-                        MoveDirection.East => Vector2.right,
-                        MoveDirection.SouthEast => new Vector2(1, -1),
-                        MoveDirection.South => Vector2.down,
-                        MoveDirection.SouthWest => new Vector2(-1, -1),
-                        MoveDirection.West => Vector2.left,
-                        MoveDirection.NorthWest => new Vector2(-1, 1),
-                        _ => Vector2.zero
-                    };
-                        
-                    Handles.DrawLine(cell.position, cell.position + direction * gridSize);
-                }
+                // foreach (MoveDirection value in Enum.GetValues(typeof(MoveDirection))) {
+                //     if (value == MoveDirection.None) continue;
+                //     if (!cell.traversableDirections.HasFlag(value)) continue;
+                //
+                //     // Hacky but it works
+                //     Vector2 direction = value switch {
+                //         MoveDirection.North => Vector2.up,
+                //         MoveDirection.NorthEast => Vector2.one,
+                //         MoveDirection.East => Vector2.right,
+                //         MoveDirection.SouthEast => new Vector2(1, -1),
+                //         MoveDirection.South => Vector2.down,
+                //         MoveDirection.SouthWest => new Vector2(-1, -1),
+                //         MoveDirection.West => Vector2.left,
+                //         MoveDirection.NorthWest => new Vector2(-1, 1),
+                //         _ => Vector2.zero
+                //     };
+                //         
+                //     Handles.DrawLine(cell.position, cell.position + direction * gridSize);
+                // }
             }
         }
     }

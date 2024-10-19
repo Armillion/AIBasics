@@ -7,7 +7,7 @@ namespace Environment {
         public static Arena Instance { get; private set; }
 
         [SerializeField]
-        private Vector2[] _wallAnchors = new Vector2[4];
+        private Polygon[] _levelGeometry = new Polygon[4];
         
         [SerializeField, Min(0.1f)]
         private float _gridSize = 1f;
@@ -17,17 +17,12 @@ namespace Environment {
 
 #if UNITY_EDITOR
         private void Reset() {
-            _wallAnchors = new Vector2[4];
             _bounds = new Bounds();
-            _wallAnchors = new[] { new Vector2(-1f, 1f), new Vector2(1f, 1f), new Vector2(1f, -1f), new Vector2(-1f, -1f) };
-
+            _levelGeometry = new Polygon[1];
+            _levelGeometry[0] = new[] { new Vector2(-1f, 1f), new Vector2(1f, 1f), new Vector2(1f, -1f), new Vector2(-1f, -1f) };
+            
             for (var i = 0; i < 4; i++)
-                _bounds.Encapsulate(_wallAnchors[i]);
-        }
-
-        private void OnValidate() {
-            if (!Application.isPlaying)
-                Start();
+                _bounds.Encapsulate(_levelGeometry[0][i]);
         }
 #endif
 
@@ -42,10 +37,15 @@ namespace Environment {
         }
 
         private void Start() {
+            RecreateArena();
+        }
+
+        public void RecreateArena() {
             _bounds = new Bounds();
-            
-            foreach (Vector2 wallAnchor in _wallAnchors)
-                _bounds.Encapsulate(wallAnchor);
+
+            foreach (Vector2[] polygon in _levelGeometry)
+                foreach (Vector2 wallAnchor in polygon)
+                    _bounds.Encapsulate(wallAnchor);
 
             CreateGrid();
         }
@@ -79,16 +79,20 @@ namespace Environment {
         
         private MoveDirection GetMoveDirectionAtIndex(int x, int y, int xCount, int yCount) {
             var traversableDirections = MoveDirection.None;
+            var levelGeometry = new Vector2[_levelGeometry.Length][];
+            
+            for (var i = 0; i < _levelGeometry.Length; i++)
+                levelGeometry[i] = _levelGeometry[i].vertices;
 
-            if (!Geometry.PointInPolygon(_grid[y * xCount + x].position, _wallAnchors))
+            if (!Geometry.IsPointInPolygon(_grid[y * xCount + x].position, levelGeometry))
                 return traversableDirections;
             
             foreach (MoveDirection direction in Enum.GetValues(typeof(MoveDirection))) {
                 if (direction == MoveDirection.None) continue;
                 (int xIndex, int yIndex) = GetIndexInMoveDirection(direction, x, y);
                 if (xIndex < 0 || xIndex >= xCount || yIndex < 0 || yIndex >= yCount) continue;
-
-                if (Geometry.PointInPolygon(_grid[yIndex * xCount + xIndex].position, _wallAnchors))
+            
+                if (Geometry.IsPointInPolygon(_grid[yIndex * xCount + xIndex].position, levelGeometry))
                     traversableDirections |= direction;
             }
             
