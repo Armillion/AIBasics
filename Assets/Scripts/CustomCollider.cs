@@ -1,22 +1,25 @@
+using System;
 using System.Collections.Generic;
+using KBCore.Refs;
 using UnityEngine;
 using Zombies;
+using Zombies.Steering;
 
-public class CustomCollider : MonoBehaviour
+[RequireComponent(typeof(Obstacle))]
+public class CustomCollider : MonoBehaviour, ISteeringBehaviour
 {
-    private Vector2 _velocity;
     public List<Obstacle> _obstacles;
 
     [SerializeField] private float _minDetectionRange = 0.5f;
 
     [SerializeField] private List<Obstacle> taggedObjects;
-    [SerializeField] private Obstacle thisObstacle;
+    [SerializeField, Self] private Obstacle thisObstacle;
+
+    private void OnValidate() => this.ValidateRefs();
 
     void Start()
     {
-        _velocity = GetComponent<IVehicle>().Velocity;
         taggedObjects = new List<Obstacle>();
-        thisObstacle = GetComponent<Obstacle>();
     }
 
     
@@ -25,9 +28,9 @@ public class CustomCollider : MonoBehaviour
         
     }
 
-    Vector2 ObstacleAvoidance()
+    public Vector2 CalculateSteering(IVehicle vehicle)
     {
-        float DetectionRange = _velocity.magnitude + _minDetectionRange;
+        float DetectionRange = vehicle.Velocity.magnitude + _minDetectionRange;
 
         foreach(Obstacle obstacleInstance in _obstacles)
         {

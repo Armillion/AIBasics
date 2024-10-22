@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float obstacleRadius = 30f;
+    public float obstacleRadius = 3f;
 
     void OnDrawGizmosSelected()
     {
