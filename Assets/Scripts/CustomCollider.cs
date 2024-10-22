@@ -10,7 +10,7 @@ public class CustomCollider : MonoBehaviour
 
     void Start()
     {
-        _velocity = GetComponent<PlayerController>()._velocity;
+        _velocity = GetComponent<PlayerController>().Velocity;
     }
 
     
@@ -51,5 +51,7 @@ public class CustomCollider : MonoBehaviour
                 }
             }
         }
+        
+        return Vector2.zero;
     }
 }

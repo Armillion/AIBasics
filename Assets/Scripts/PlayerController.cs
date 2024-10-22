@@ -1,10 +1,9 @@
-﻿using System;
-using KBCore.Refs;
+﻿using KBCore.Refs;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Weapons;
+using Zombies;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour, IVehicle {
     [Header("Input")]
     [SerializeField]
     private InputActionReference _moveAction;
@@ -17,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     
     [Space]
     [SerializeField]
-    private float _maxMoveSpeed = 5f;
+    private float _defaultMaxMoveSpeed  = 5f;
     
     [SerializeField]
     private float _maxSprintMoveSpeed = 7.5f;
@@ -30,18 +29,21 @@ public class PlayerController : MonoBehaviour {
     private Transform _aimTransform;
     
     [SerializeField, Min(0f)]
-    private flosat _maxAimDistance = 2f;
+    private float _maxAimDistance = 2f;
     
-    public Vector2 _velocity;
+    public float MaxSpeed { get; private set; }
+    public Vector2 Position => transform.position;
+    public Vector2 Velocity { get; private set; }
+    
     private Vector2 _acceleration;
     private float _currentMaxMoveSpeed;
 
     private void OnValidate() => this.ValidateRefs();
 
     private void Start() {
-        _currentMaxMoveSpeed = _maxMoveSpeed;
+        _currentMaxMoveSpeed = _defaultMaxMoveSpeed ;
         _sprintAction.action.started += _ => _currentMaxMoveSpeed = _maxSprintMoveSpeed;
-        _sprintAction.action.canceled += _ => _currentMaxMoveSpeed = _maxMoveSpeed;
+        _sprintAction.action.canceled += _ => _currentMaxMoveSpeed = _defaultMaxMoveSpeed ;
     }
 
     private void Update() {
@@ -52,8 +54,8 @@ public class PlayerController : MonoBehaviour {
     private void Move() {
         var moveInput = _moveAction.action.ReadValue<Vector2>();
         _acceleration = Vector2.Lerp(_acceleration, moveInput * _currentMaxMoveSpeed, _accelerationSpeed * Time.deltaTime);
-        _velocity = Vector2.Lerp(_velocity, _acceleration, _accelerationSpeed * Time.deltaTime);
-        transform.position += (Vector3)_velocity * Time.deltaTime;
+        Velocity = Vector2.Lerp(Velocity, _acceleration, _accelerationSpeed * Time.deltaTime);
+        transform.position += (Vector3)Velocity * Time.deltaTime;
     }
 
     private void Look() {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DefaultNamespace {
+namespace Zombies {
     public interface IVehicle {
         float MaxSpeed { get; }
         Vector2 Position { get; }
