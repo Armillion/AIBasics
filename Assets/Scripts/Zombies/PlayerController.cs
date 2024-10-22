@@ -1,5 +1,4 @@
-﻿using KBCore.Refs;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Zombies {
@@ -37,8 +36,6 @@ namespace Zombies {
     
         private Vector2 _acceleration;
         private float _currentMaxMoveSpeed;
-
-        private void OnValidate() => this.ValidateRefs();
 
         private void Start() {
             _currentMaxMoveSpeed = _defaultMaxMoveSpeed ;
