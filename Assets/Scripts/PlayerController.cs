@@ -30,9 +30,9 @@ public class PlayerController : MonoBehaviour {
     private Transform _aimTransform;
     
     [SerializeField, Min(0f)]
-    private float _maxAimDistance = 2f;
+    private flosat _maxAimDistance = 2f;
     
-    private Vector2 _velocity;
+    public Vector2 _velocity;
     private Vector2 _acceleration;
     private float _currentMaxMoveSpeed;
 
