@@ -1,19 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zombies;
 
 public class CustomCollider : MonoBehaviour
 {
     private Vector2 _velocity;
-    public List<GameObject> _obstacles;
+    public List<Obstacle> _obstacles;
 
     [SerializeField] private float _minDetectionRange = 0.5f;
 
-    [SerializeField] private List<GameObject> taggedObjects;
+    [SerializeField] private List<Obstacle> taggedObjects;
+    [SerializeField] private Obstacle thisObstacle;
 
     void Start()
     {
-        _velocity = GetComponent<PlayerController>().Velocity;
-        taggedObjects = new List<GameObject>();
+        _velocity = GetComponent<IVehicle>().Velocity;
+        taggedObjects = new List<Obstacle>();
+        thisObstacle = GetComponent<Obstacle>();
     }
 
     
@@ -26,24 +29,24 @@ public class CustomCollider : MonoBehaviour
     {
         float DetectionRange = _velocity.magnitude + _minDetectionRange;
 
-        foreach(GameObject obstacle in _obstacles)
+        foreach(Obstacle obstacleInstance in _obstacles)
         {
-            if(Vector2.Distance(transform.position,obstacle.transform.position) < DetectionRange &&
-               !taggedObjects.Contains(obstacle))
+            if(Vector2.Distance(transform.position, obstacleInstance.gameObject.transform.position) < DetectionRange &&
+               !taggedObjects.Contains(obstacleInstance))
             {
-                taggedObjects.Add(obstacle);
+                taggedObjects.Add(obstacleInstance);
             }
-            else if(taggedObjects.Contains(obstacle))
+            else if(taggedObjects.Contains(obstacleInstance))
             {
-                taggedObjects.Remove(obstacle);
+                taggedObjects.Remove(obstacleInstance);
             }
         }
 
-        GameObject ClosestObstacleInRange = null;
-        float distToCOIR = 0;
-        Vector2 COIRLocalPos;
+        Obstacle ClosestObstacleInRange = null;
+        float distToCOIR = float.MaxValue;   
+        Vector2 COIRLocalPos = new Vector2;
 
-        foreach(GameObject obstacle in _obstacles)
+        foreach(Obstacle obstacle in _obstacles)
         {
             if(taggedObjects.Contains(obstacle))
             {
@@ -51,11 +54,42 @@ public class CustomCollider : MonoBehaviour
 
                 if(locpos.x >= 0)
                 {
+                    float expandedRadius = obstacle.obstacleRadius + thisObstacle.obstacleRadius;
 
+                    if(Mathf.Abs(locpos.y) < expandedRadius)
+                    {
+                        float cX = locpos.x;
+                        float cY = locpos.y;
+
+                        float sqrtPart = Mathf.Sqrt(expandedRadius*expandedRadius - cY*cY);
+
+                        float ip = cX - sqrtPart;
+
+                        if(ip <= 0)
+                        {
+                            ip = cX + sqrtPart;
+                        }
+
+                        if(ip < distToCOIR)
+                        {
+                            distToCOIR = ip;
+                            ClosestObstacleInRange = obstacle;
+                            COIRLocalPos = locpos;
+                        }
+                    }
                 }
             }
         }
+
+        Vector2 steerForce = Vector2.zero;
         
-        return Vector2.zero;
+        if(ClosestObstacleInRange != null)
+        {
+            float multiCulti = 1f + (DetectionRange - COIRLocalPos.x) / DetectionRange;
+            steerForce.y = (ClosestObstacleInRange.obstacleRadius - COIRLocalPos.y) * multiCulti;
+            steerForce.x = (ClosestObstacleInRange.obstacleRadius - COIRLocalPos.x) + 0.2f;
+        }
+        
+        return transform.TransformVector(steerForce);
     }
 }
