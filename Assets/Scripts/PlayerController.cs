@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour, IVehicle {
     
     public float MaxSpeed { get; private set; }
     public Vector2 Position => transform.position;
-    public Vector2 Velocity { get; private set; }
+    public Vector2 Velocity { get;   private set; }
     
     private Vector2 _acceleration;
     private float _currentMaxMoveSpeed;

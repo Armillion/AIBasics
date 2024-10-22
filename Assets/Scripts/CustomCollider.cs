@@ -8,9 +8,12 @@ public class CustomCollider : MonoBehaviour
 
     [SerializeField] private float _minDetectionRange = 0.5f;
 
+    [SerializeField] private List<GameObject> taggedObjects;
+
     void Start()
     {
         _velocity = GetComponent<PlayerController>().Velocity;
+        taggedObjects = new List<GameObject>();
     }
 
     
@@ -25,13 +28,14 @@ public class CustomCollider : MonoBehaviour
 
         foreach(GameObject obstacle in _obstacles)
         {
-            if(Vector2.Distance(transform.position,obstacle.transform.position) < DetectionRange)
+            if(Vector2.Distance(transform.position,obstacle.transform.position) < DetectionRange &&
+               !taggedObjects.Contains(obstacle))
             {
-                obstacle.tag = "Marked";
+                taggedObjects.Add(obstacle);
             }
-            else
+            else if(taggedObjects.Contains(obstacle))
             {
-                obstacle.tag = "Untagged";
+                taggedObjects.Remove(obstacle);
             }
         }
 
@@ -41,7 +45,7 @@ public class CustomCollider : MonoBehaviour
 
         foreach(GameObject obstacle in _obstacles)
         {
-            if(obstacle.tag == "Marked")
+            if(taggedObjects.Contains(obstacle))
             {
                 Vector2 locpos = transform.InverseTransformPoint(obstacle.transform.position);
 
