@@ -44,7 +44,7 @@ public class CustomCollider : MonoBehaviour
 
         Obstacle ClosestObstacleInRange = null;
         float distToCOIR = float.MaxValue;   
-        Vector2 COIRLocalPos = new Vector2;
+        Vector2 COIRLocalPos = Vector2.zero;
 
         foreach(Obstacle obstacle in _obstacles)
         {
