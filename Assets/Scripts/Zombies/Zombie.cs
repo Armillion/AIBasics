@@ -1,40 +1,42 @@
 ﻿using System;
+using Gaskellgames;
+using KBCore.Refs;
 using UnityEngine;
 using Zombies.Steering;
 
 namespace Zombies {
     public class Zombie : MonoBehaviour, IVehicle {
-        [field: SerializeField, Min(0f)]
+        [field: SerializeField, UnityEngine.Min(0f)]
         public float MaxSpeed { get; private set; } = 2f;
 
         [SerializeField]
-        private MonoBehaviour[] _steeringBehavioursMonoBehaviours;
+        private Component[] _steeringBehaviourComponents;
         
         public Vector2 Position => transform.position;
-        public Vector2 Velocity { get; private set; }
+        [field: SerializeField, ReadOnly] public Vector2 Velocity { get; private set; }
         
         private ISteeringBehaviour[] _steeringBehaviours;
 
         private void OnValidate() {
-            if (_steeringBehavioursMonoBehaviours == null) return;
+            if (_steeringBehaviourComponents == null) return;
 
-            foreach (MonoBehaviour monoBehaviour in _steeringBehavioursMonoBehaviours)
-                if (!monoBehaviour.TryGetComponent<ISteeringBehaviour>(out _))
-                    Debug.LogError($"{monoBehaviour.GetType().Name} does not implement ISteeringBehaviour", monoBehaviour);
+            foreach (Component component in _steeringBehaviourComponents)
+                if (component && component is not ISteeringBehaviour)
+                    Debug.LogError($"{component.GetType().Name} does not implement ISteeringBehaviour", component);
         }
         
         private void Start() {
-            _steeringBehaviours = new ISteeringBehaviour[_steeringBehavioursMonoBehaviours.Length];
+            _steeringBehaviours = new ISteeringBehaviour[_steeringBehaviourComponents.Length];
             
-            for (var i = 0; i < _steeringBehavioursMonoBehaviours.Length; i++)
-                _steeringBehaviours[i] = _steeringBehavioursMonoBehaviours[i].GetComponent<ISteeringBehaviour>();
+            for (var i = 0; i < _steeringBehaviourComponents.Length; i++)
+                _steeringBehaviours[i] = _steeringBehaviourComponents[i] as ISteeringBehaviour;
         }
 
         private void Update() {
             Vector2 steering = Vector2.zero;
             
             foreach (ISteeringBehaviour steeringBehaviour in _steeringBehaviours)
-                steering = steeringBehaviour.CalculateSteering(this);
+                steering += steeringBehaviour.CalculateSteering(this);
             
             Velocity += steering * Time.deltaTime;
             Velocity = Vector2.ClampMagnitude(Velocity, MaxSpeed);

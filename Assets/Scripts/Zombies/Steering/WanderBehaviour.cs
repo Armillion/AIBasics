@@ -33,7 +33,7 @@ namespace Zombies.Steering {
             if (!enabled) return;
             
             Gizmos.matrix = transform.localToWorldMatrix;
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.white;
             Vector3 circleCenter = Vector3.right * _wanderDistance;
             Gizmos.DrawLine(Vector3.zero, circleCenter);
             Gizmos.DrawWireSphere(circleCenter, _wanderRadius);
