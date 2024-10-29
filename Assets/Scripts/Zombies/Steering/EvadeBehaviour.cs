@@ -1,4 +1,5 @@
 ﻿using System;
+using KBCore.Refs;
 using UnityEngine;
 
 namespace Zombies.Steering {
@@ -6,14 +7,13 @@ namespace Zombies.Steering {
     public class EvadeBehaviour : MonoBehaviour, ISteeringBehaviour {
         public IVehicle pursuer;
 
+        [SerializeField, Self]
         private FleeBehaviour _fleeBehaviour;
-
-        private void Start() {
-            _fleeBehaviour = GetComponent<FleeBehaviour>();
-        }
+        
+        private void OnValidate() => this.ValidateRefs();
 
         public Vector2 CalculateSteering(IVehicle vehicle) {
-            if (pursuer == null) return Vector2.zero;
+            if (pursuer == null || !_fleeBehaviour) return Vector2.zero;
             
             Vector2 toPursuer = pursuer.Position - (Vector2)transform.position;
             float lookAheadTime = toPursuer.magnitude / (vehicle.MaxSpeed + pursuer.Velocity.magnitude);

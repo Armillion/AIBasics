@@ -2123,10 +2123,10 @@ GameObject:
   - component: {fileID: 2001711498}
   - component: {fileID: 2001711497}
   - component: {fileID: 2001711502}
+  - component: {fileID: 2001711503}
   - component: {fileID: 2001711501}
   - component: {fileID: 2001711500}
   - component: {fileID: 2001711499}
-  - component: {fileID: 2001711503}
   - component: {fileID: 2001711504}
   m_Layer: 0
   m_Name: Zombie Template
@@ -2181,11 +2181,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxSpeed>k__BackingField: 2
   _steeringBehaviours:
+  - _component: {fileID: 2001711502}
+    weight: 1
   - _component: {fileID: 2001711503}
     weight: 1
   - _component: {fileID: 2001711497}
     weight: 1
-  <Velocity>k__BackingField: {x: 0, y: 0}
 --- !u!114 &2001711499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2198,6 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe85c67658340c5b72a4ec087d570ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fleeBehaviour: {fileID: 2001711500}
 --- !u!114 &2001711500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2238,9 +2240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a051596c61b4335be789ee885326f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 1154196317}
-  _distanceFromCover: 1
+  pursuerComponent: {fileID: 1154196317}
   _arena: {fileID: 853516248}
+  _distanceFromCover: 1
+  _threatDistance: 10
+  _arriveBehaviour: {fileID: 2001711501}
+  _evadeBehaviour: {fileID: 2001711499}
 --- !u!114 &2001711503
 MonoBehaviour:
   m_ObjectHideFlags: 0

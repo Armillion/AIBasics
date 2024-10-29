@@ -9,9 +9,15 @@ namespace Zombies {
         private struct SteeringBehaviourConfig {
             [SerializeField]
             private Component _component;
+            public float weight;
             
             public ISteeringBehaviour Behaviour => _component as ISteeringBehaviour;
-            public float weight;
+
+            public void OnValidate(Component validator = null) {
+                if (!_component || Behaviour != null) return;
+                Debug.LogError($"{_component} does not implement {nameof(ISteeringBehaviour)}", validator);
+                _component = null;
+            }
         }
         
         [field: SerializeField, UnityEngine.Min(0f)]
@@ -21,8 +27,13 @@ namespace Zombies {
         private SteeringBehaviourConfig[] _steeringBehaviours;
         
         public Vector2 Position => transform.position;
-        [field: SerializeField, ReadOnly] public Vector2 Velocity { get; private set; }
-        
+        public Vector2 Velocity { get; private set; }
+
+        private void OnValidate() {
+            foreach (SteeringBehaviourConfig steeringBehaviour in _steeringBehaviours)
+                steeringBehaviour.OnValidate(this);
+        }
+
         private void Update() {
             Vector2 steering = Vector2.zero;
             

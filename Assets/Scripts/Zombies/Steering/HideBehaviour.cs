@@ -1,4 +1,5 @@
 ﻿using System;
+using KBCore.Refs;
 using UnityEngine;
 using Zombies.Environment;
 
@@ -6,20 +7,28 @@ namespace Zombies.Steering {
     [RequireComponent(typeof(ArriveBehaviour), typeof(EvadeBehaviour))]
     public class HideBehaviour : MonoBehaviour, ISteeringBehaviour {
         [SerializeField]
-        private PlayerController _player;
-        
-        [SerializeField, Min(0f)]
-        private float _distanceFromCover = 1f;
+        private Component pursuerComponent;
         
         [SerializeField]
         private Arena _arena;
         
+        [SerializeField, Min(0f)]
+        private float _distanceFromCover = 1f;
+        
+        
+        [SerializeField, Self]
         private ArriveBehaviour _arriveBehaviour;
+        
+        [SerializeField, Self]
         private EvadeBehaviour _evadeBehaviour;
+        
+        private IVehicle Pursuer => pursuerComponent as IVehicle;
 
-        private void Start() {
-            _arriveBehaviour = GetComponent<ArriveBehaviour>();
-            _evadeBehaviour = GetComponent<EvadeBehaviour>();
+        private void OnValidate() {
+            this.ValidateRefs();
+            if (pursuerComponent && Pursuer != null) return;
+            Debug.LogError($"{pursuerComponent} does not implement {nameof(IVehicle)}", this);
+            pursuerComponent = null;
         }
 
         public Vector2 CalculateSteering(IVehicle vehicle) {
@@ -37,7 +46,7 @@ namespace Zombies.Steering {
             }
             
             if (Mathf.Approximately(closestCoverDistance, float.MaxValue)) {
-                _evadeBehaviour.pursuer = _player;
+                _evadeBehaviour.pursuer = Pursuer;
                 return _evadeBehaviour.CalculateSteering(vehicle);
             }
             
@@ -47,7 +56,7 @@ namespace Zombies.Steering {
         
         private Vector2 GetHidingSpot(Vector2 obstaclePosition, float obstacleRadius) {
             float distanceFromCenter = obstacleRadius + _distanceFromCover;
-            Vector2 directionToObstacle = (obstaclePosition - _player.Position).normalized;
+            Vector2 directionToObstacle = (obstaclePosition - Pursuer.Position).normalized;
             return directionToObstacle * distanceFromCenter + obstaclePosition;
         }
     }
