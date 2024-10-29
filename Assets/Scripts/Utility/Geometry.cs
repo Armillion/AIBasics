@@ -2,6 +2,41 @@
 
 namespace Utility {
     public static class Geometry {
+        public static bool IsPointInPolygon(Vector2 point, Vector2[][] polygons) {
+            var windingNumber = 0;
+
+            foreach (Vector2[] polygon in polygons)
+                windingNumber += CalculateWindingNumber(point, polygon);
+
+            return windingNumber != 0;
+        }
+        
+        public static bool IsPointInPolygon(Vector2 point, Vector2[] polygon)
+            => CalculateWindingNumber(point, polygon) != 0;
+
+        private static int CalculateWindingNumber(Vector2 point, Vector2[] polygon) {
+            var windingNumber = 0;
+            int numPoints = polygon.Length;
+
+            for (int i = 0, j = numPoints - 1; i < numPoints; j = i++) {
+                Vector2 vertex1 = polygon[i];
+                Vector2 vertex2 = polygon[j];
+
+                if (vertex1.y <= point.y) {
+                    if (vertex2.y > point.y && IsLeft(vertex1, vertex2, point) > 0)
+                        windingNumber++;
+                } else {
+                    if (vertex2.y <= point.y && IsLeft(vertex1, vertex2, point) < 0)
+                        windingNumber--;
+                }
+            }
+
+            return windingNumber;
+        }
+        
+        private static float IsLeft(Vector2 v1, Vector2 v2, Vector2 point)
+            => (v2.x - v1.x) * (point.y - v1.y) - (point.x - v1.x) * (v2.y - v1.y);
+        
         public static bool IsPolygonClockwise(Vector2[] polygon) {
             float signedArea = CalculateSignedArea(polygon);
             return signedArea < 0;
@@ -39,5 +74,8 @@ namespace Utility {
 
             return isClosedShape && LinesIntersect(a, b, polygon[^1], polygon[0]);
         }
+        
+        public static bool IsInsideCircle(Vector2 point, Vector2 center, float radius)
+            => Vector2.Distance(point, center) <= radius;
     }
 }

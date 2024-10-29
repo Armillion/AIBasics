@@ -1,14 +1,22 @@
-﻿using Shooter.Environment;
+﻿using System;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
 namespace Zombies.Environment.Editor {
     [CustomEditor(typeof(Arena), true), CanEditMultipleObjects]
     public class ArenaEditor : UnityEditor.Editor {
+        private FieldInfo _boundsField;
+        
+        private void OnEnable() {
+            _boundsField = typeof(Arena).GetField("_bounds", BindingFlags.NonPublic | BindingFlags.Instance);
+        }
+
         private void OnSceneGUI() {
             var arena = (Arena)target;
             DrawWalls(arena.Walls);
             UpdateWallAnchorsPositions(arena.Walls, arena);
+            UpdateBounds(arena);
         }
 
         private static void DrawWalls(Polygon levelGeometry) {
@@ -40,6 +48,18 @@ namespace Zombies.Environment.Editor {
                 polygon[i] = newPos;
                 EditorUtility.SetDirty(arena);
             }
+        }
+
+        private void UpdateBounds(Arena arena) {
+            if (_boundsField == null) return;
+            var bounds = new Bounds();
+            
+            foreach (Vector2 anchor in arena.Walls.vertices)
+                bounds.Encapsulate(anchor);
+            
+            _boundsField.SetValue(arena, bounds);
+            Handles.color = Color.white;
+            Handles.DrawWireCube(bounds.center, bounds.size);
         }
     }
 }

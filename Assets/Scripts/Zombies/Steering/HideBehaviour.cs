@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Zombies.Environment;
 
 namespace Zombies.Steering {
     [RequireComponent(typeof(ArriveBehaviour), typeof(EvadeBehaviour))]
@@ -11,7 +12,7 @@ namespace Zombies.Steering {
         private float _distanceFromCover = 1f;
         
         [SerializeField]
-        private Transform[] _covers;
+        private Arena _arena;
         
         private ArriveBehaviour _arriveBehaviour;
         private EvadeBehaviour _evadeBehaviour;
@@ -25,8 +26,8 @@ namespace Zombies.Steering {
             var closestCoverDistance = float.MaxValue;
             Vector2 closestCoverPosition = Vector2.zero;
             
-            foreach (Transform cover in _covers) {
-                Vector2 hidingSpot = GetHidingSpot(cover.position, cover.localScale.x / 2f);
+            foreach (Obstacle cover in _arena.Obstacles) {
+                Vector2 hidingSpot = GetHidingSpot(cover.transform.position, cover.transform.localScale.x / 2f);
                 float distanceToHidingSpot = Vector2.Distance(hidingSpot, transform.position);
 
                 if (distanceToHidingSpot >= closestCoverDistance) continue;

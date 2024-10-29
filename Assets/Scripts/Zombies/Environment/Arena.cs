@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using KBCore.Refs;
-using Shooter.Environment;
 using UnityEngine;
+using Utility;
+using Random = UnityEngine.Random;
 
 namespace Zombies.Environment {
     public class Arena : MonoBehaviour {
@@ -14,6 +16,8 @@ namespace Zombies.Environment {
         
         public IReadOnlyCollection<Obstacle> Obstacles => _obstacles;
 
+        private Bounds _bounds;
+        
 #if UNITY_EDITOR
         private void Reset() {
             Walls = new Polygon {
@@ -28,5 +32,35 @@ namespace Zombies.Environment {
 #endif
 
         private void OnValidate() => this.ValidateRefs();
+
+        private void Awake() {
+            _bounds = new Bounds(Walls.vertices[0], Vector3.zero);
+            
+            foreach (Vector2 vertex in Walls.vertices)
+                _bounds.Encapsulate(vertex);
+            
+            Debug.Log($"Bounds: {_bounds}");
+        }
+
+        private Vector2 RandomPoint() => new(
+            Random.Range(_bounds.min.x, _bounds.max.x),
+            Random.Range(_bounds.min.y, _bounds.max.y)
+        );
+
+        public Vector2 RandomSpawnablePoint() {
+            const int maxAttempts = 100;
+
+            for (var i = 0; i < maxAttempts; i++) {
+                Vector2 point = RandomPoint();
+
+                if (Geometry.IsPointInPolygon(point, Walls) && !IsPointInObstacle(point))
+                    return point;
+            }
+            
+            return Vector2.zero;
+        }
+        
+        private bool IsPointInObstacle(Vector2 point)
+            => _obstacles.Any(obstacle => Geometry.IsInsideCircle(point, obstacle.transform.position, obstacle.Radius));
     }
 }

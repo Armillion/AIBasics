@@ -1,42 +1,33 @@
 ﻿using System;
 using Gaskellgames;
-using KBCore.Refs;
 using UnityEngine;
 using Zombies.Steering;
 
 namespace Zombies {
     public class Zombie : MonoBehaviour, IVehicle {
+        [Serializable]
+        private struct SteeringBehaviourConfig {
+            [SerializeField]
+            private Component _component;
+            
+            public ISteeringBehaviour Behaviour => _component as ISteeringBehaviour;
+            public float weight;
+        }
+        
         [field: SerializeField, UnityEngine.Min(0f)]
         public float MaxSpeed { get; private set; } = 2f;
 
         [SerializeField]
-        private Component[] _steeringBehaviourComponents;
+        private SteeringBehaviourConfig[] _steeringBehaviours;
         
         public Vector2 Position => transform.position;
         [field: SerializeField, ReadOnly] public Vector2 Velocity { get; private set; }
         
-        private ISteeringBehaviour[] _steeringBehaviours;
-
-        private void OnValidate() {
-            if (_steeringBehaviourComponents == null) return;
-
-            foreach (Component component in _steeringBehaviourComponents)
-                if (component && component is not ISteeringBehaviour)
-                    Debug.LogError($"{component.GetType().Name} does not implement ISteeringBehaviour", component);
-        }
-        
-        private void Start() {
-            _steeringBehaviours = new ISteeringBehaviour[_steeringBehaviourComponents.Length];
-            
-            for (var i = 0; i < _steeringBehaviourComponents.Length; i++)
-                _steeringBehaviours[i] = _steeringBehaviourComponents[i] as ISteeringBehaviour;
-        }
-
         private void Update() {
             Vector2 steering = Vector2.zero;
             
-            foreach (ISteeringBehaviour steeringBehaviour in _steeringBehaviours)
-                steering += steeringBehaviour.CalculateSteering(this);
+            foreach (SteeringBehaviourConfig steeringBehaviour in _steeringBehaviours)
+                steering += steeringBehaviour.Behaviour.CalculateSteering(this) * steeringBehaviour.weight;
             
             Velocity += steering * Time.deltaTime;
             Velocity = Vector2.ClampMagnitude(Velocity, MaxSpeed);
