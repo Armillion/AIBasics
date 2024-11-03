@@ -14,10 +14,6 @@ namespace Shooter.FSM {
             
             _current.State?.Update();
         }
-        
-        public void FixedUpdate() {
-            _current.State?.FixedUpdate();
-        }
 
         public void SetState(IState state) {
             _current = _nodes[state.GetType()];

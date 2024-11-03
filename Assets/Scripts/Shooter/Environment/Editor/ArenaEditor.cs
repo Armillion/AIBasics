@@ -11,7 +11,6 @@ namespace Shooter.Environment.Editor {
         private FieldInfo _wallsField;
         private FieldInfo _gridSizeField;
         private FieldInfo _boundsField;
-        private FieldInfo _gridField;
         
         private bool _drawCells;
         
@@ -20,7 +19,6 @@ namespace Shooter.Environment.Editor {
             _wallsField = typeof(Arena).GetField("_walls", BindingFlags.NonPublic | BindingFlags.Instance);
             _gridSizeField = typeof(Arena).GetField("_gridSize", BindingFlags.NonPublic | BindingFlags.Instance);
             _boundsField = typeof(Arena).GetField("_bounds", BindingFlags.NonPublic | BindingFlags.Instance);
-            _gridField = typeof(Arena).GetField("_grid", BindingFlags.NonPublic | BindingFlags.Instance);
         }
         
         public override void OnInspectorGUI() {
@@ -109,21 +107,18 @@ namespace Shooter.Environment.Editor {
         }
         
         private void DrawCells(Arena arena) {
-            if (_gridField == null) return;
-            
-            var grid = (Cell[])_gridField.GetValue(arena);
-            if (grid == null) return;
+            if (arena.Grid == null) return;
             
             float gridSize = _gridSizeField != null ? (float)_gridSizeField.GetValue(arena) : 0.1f;
             Handles.color = Color.white;
 
-            foreach (Cell cell in grid) {
-                if (cell.traversableDirections == MoveDirection.None) continue;
+            foreach (Cell cell in arena.Grid) {
+                if (cell.TraversableDirections == MoveDirection.None) continue;
                 Handles.DrawWireCube(cell.position, Vector3.one * 0.1f);
                 
                 foreach (MoveDirection value in Enum.GetValues(typeof(MoveDirection))) {
                     if (value == MoveDirection.None) continue;
-                    if (!cell.traversableDirections.HasFlag(value)) continue;
+                    if (!cell.TraversableDirections.HasFlag(value)) continue;
                 
                     // Hacky but it works
                     Vector2 direction = value switch {
