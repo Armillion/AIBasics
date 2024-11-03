@@ -8,6 +8,7 @@ using Shooter.UtilityAI.Considerations;
 using UnityEngine;
 
 namespace Shooter.Agents {
+    [RequireComponent(typeof(Health))]
     public class Agent : MonoBehaviour {
         private static readonly List<Agent> _agents = new();
 
@@ -15,6 +16,9 @@ namespace Shooter.Agents {
 
         [SerializeField]
         private List<Consideration> _considerations;
+        
+        [SerializeField, Self]
+        private Health _health;
         
         [SerializeField, Child]
         private SpriteRenderer _spriteRenderer;
