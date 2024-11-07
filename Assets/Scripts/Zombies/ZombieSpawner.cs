@@ -1,4 +1,5 @@
 ﻿using System;
+using ImprovedTimers;
 using UnityEngine;
 using Zombies.Environment;
 
@@ -20,7 +21,15 @@ namespace Zombies {
         [SerializeField, Min(0f)]
         private float _spawnRate = 1f;
         
-        private int _zombieCount;
+        private FrequencyTimer _spawnTimer;
+        private int _spawnedZombies;
+
+        private void Awake() {
+            int ticksPerSecond = Mathf.CeilToInt(1f / _spawnRate);
+            _spawnTimer = new FrequencyTimer(ticksPerSecond);
+            _spawnTimer.OnTick += TrySpawnZombie;
+            _spawnTimer.Start();
+        }
 
         private void Start() {
             _zombieTemplate.gameObject.SetActive(false);
@@ -29,16 +38,16 @@ namespace Zombies {
                 SpawnZombie();
         }
 
-        private void Update() {
-            if (Time.time % _spawnRate == 0 && _arena.Obstacles.Count > 0 && _arena.Obstacles.Count < _maxZombieCount) {
-                SpawnZombie();
-            }
+        private void TrySpawnZombie() {
+            if (Zombie.ZombieCount >= _maxZombieCount) return;
+            SpawnZombie();
         }
 
         private void SpawnZombie() {
             Zombie zombie = Instantiate(_zombieTemplate, _arena.RandomSpawnablePoint(), Quaternion.identity);
             zombie.gameObject.SetActive(true);
-            zombie.gameObject.name = $"Zombie {_zombieCount++}";
+            _spawnedZombies++;
+            zombie.gameObject.name = $"Zombie {_spawnedZombies}";
         }
     }
 }

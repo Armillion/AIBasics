@@ -1048,8 +1048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arena: {fileID: 853516248}
   _zombieTemplate: {fileID: 2001711498}
-  _initialZombieCount: 1
-  _maxZombieCount: 1
+  _initialZombieCount: 10
+  _maxZombieCount: 100
   _spawnRate: 1
 --- !u!1 &257295726
 GameObject:
@@ -7384,6 +7384,8 @@ GameObject:
   - component: {fileID: 2001711501}
   - component: {fileID: 2001711500}
   - component: {fileID: 2001711499}
+  - component: {fileID: 2001711505}
+  - component: {fileID: 2001711506}
   - component: {fileID: 2001711504}
   m_Layer: 0
   m_Name: Zombie Template
@@ -7422,7 +7424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wanderRadius: 2
   _wanderDistance: 2
-  _wanderJitter: 0.5
+  _wanderJitter: 0.4
 --- !u!114 &2001711498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7435,14 +7437,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11193070014240bb8227e665b775fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxSpeed>k__BackingField: 3
+  _player: {fileID: 0}
+  <MaxSpeed>k__BackingField: 3.5
   _steeringBehaviours:
   - _component: {fileID: 2001711503}
     weight: 1
   - _component: {fileID: 2001711502}
-    weight: 1
+    weight: 1.5
   - _component: {fileID: 2001711497}
-    weight: 1
+    weight: 0.75
+  _groupingRadius: 3.5
+  _attackGroupSize: 5
+  _pursuitBehaviour: {fileID: 2001711505}
 --- !u!114 &2001711499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7482,8 +7488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d3b48ef44945c68dfbef004c380563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deceleration: 0.3
   target: {x: 0, y: 0}
+  _deceleration: 0.3
 --- !u!114 &2001711502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7532,6 +7538,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0.5
   _visual: {fileID: 180257590}
+--- !u!114 &2001711505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925d1891c70a4d848d376966dc915860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _seekBehaviour: {fileID: 2001711506}
+--- !u!114 &2001711506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29024dbf9dc746e3b8dc253d593ecea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {x: 0, y: 0}
+  _steeringForce: 2
 --- !u!1 &2002649178
 GameObject:
   m_ObjectHideFlags: 0

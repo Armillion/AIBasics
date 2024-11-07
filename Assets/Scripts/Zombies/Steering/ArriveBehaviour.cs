@@ -2,10 +2,10 @@
 
 namespace Zombies.Steering {
     public class ArriveBehaviour : MonoBehaviour, ISteeringBehaviour {
+        public Vector2 target;
+        
         [SerializeField, Min(0f)]
         private float _deceleration = 0.3f;
-        
-        public Vector2 target;
         
         public Vector2 CalculateSteering(IVehicle vehicle) {
             Vector2 toTarget = target - (Vector2)transform.position;
