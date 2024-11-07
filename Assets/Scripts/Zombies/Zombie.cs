@@ -1,9 +1,9 @@
 ﻿using System;
-using Gaskellgames;
 using UnityEngine;
 using Zombies.Steering;
 
 namespace Zombies {
+    [SelectionBase]
     public class Zombie : MonoBehaviour, IVehicle {
         [Serializable]
         private struct SteeringBehaviourConfig {
@@ -20,7 +20,7 @@ namespace Zombies {
             }
         }
         
-        [field: SerializeField, UnityEngine.Min(0f)]
+        [field: SerializeField, Min(0f)]
         public float MaxSpeed { get; private set; } = 2f;
 
         [SerializeField]
@@ -35,13 +35,10 @@ namespace Zombies {
         }
 
         private void Update() {
-            Vector2 steering = Vector2.zero;
-            
-            foreach (SteeringBehaviourConfig steeringBehaviour in _steeringBehaviours)
-                steering += steeringBehaviour.Behaviour.CalculateSteering(this) * steeringBehaviour.weight;
+            Vector2 steering = CalculateSteering();
             
             Velocity += steering * Time.deltaTime;
-            Velocity = Vector2.ClampMagnitude(Velocity, MaxSpeed);
+            // Velocity = Vector2.ClampMagnitude(Velocity, MaxSpeed);
 
             transform.position += (Vector3)Velocity * Time.deltaTime;
 
@@ -49,6 +46,33 @@ namespace Zombies {
             
             float angle = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+
+        private Vector2 CalculateSteering() {
+            Vector2 steering = Vector2.zero;
+
+            foreach (SteeringBehaviourConfig steeringBehaviour in _steeringBehaviours) {
+                Vector2 forceToAdd = steeringBehaviour.Behaviour.CalculateSteering(this) * steeringBehaviour.weight;
+                if (!AccumulateForce(ref steering, forceToAdd)) break;
+            }
+
+            return steering;
+        }
+
+        private bool AccumulateForce(ref Vector2 accumulatedForce, Vector2 forceToAdd) {
+            float magnitudeSoFar = accumulatedForce.magnitude;
+            float magnitudeRemaining = MaxSpeed - magnitudeSoFar;
+            
+            if (magnitudeRemaining <= 0f) return false;
+            
+            float magnitudeToAdd = forceToAdd.magnitude;
+            
+            if (magnitudeToAdd < magnitudeRemaining)
+                accumulatedForce += forceToAdd;
+            else
+                accumulatedForce += forceToAdd.normalized * magnitudeRemaining;
+            
+            return true;
         }
     }
 }

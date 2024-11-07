@@ -38,8 +38,6 @@ namespace Zombies.Environment {
             
             foreach (Vector2 vertex in Walls.vertices)
                 _bounds.Encapsulate(vertex);
-            
-            Debug.Log($"Bounds: {_bounds}");
         }
 
         private Vector2 RandomPoint() => new(
