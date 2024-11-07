@@ -35,12 +35,14 @@ public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
 
         foreach(Obstacle obstacleInstance in arena.Obstacles)
         {
-            if(Vector2.Distance(transform.position, obstacleInstance.gameObject.transform.position) < DetectionRange &&
-               !taggedObjects.Contains(obstacleInstance))
+            if(Vector2.Distance(transform.position, obstacleInstance.gameObject.transform.position) < DetectionRange)
             {
-                taggedObjects.Add(obstacleInstance);
+                if (!taggedObjects.Contains(obstacleInstance))
+                {
+                    taggedObjects.Add(obstacleInstance);
+                }
             }
-            else if(taggedObjects.Contains(obstacleInstance))
+            else 
             {
                 taggedObjects.Remove(obstacleInstance);
             }
@@ -94,7 +96,7 @@ public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
             steerForce.x = (ClosestObstacleInRange.radius - COIRLocalPos.x) + 0.2f;
         }
         
-        Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce, Color.green, 0.1f);
+        Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce, Color.yellow, 0.1f);
         return transform.TransformVector(steerForce);
     }
 }
