@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Zombies.Environment.Editor {
     [CustomEditor(typeof(Arena), true), CanEditMultipleObjects]
-    public class ArenaEditor : UnityEditor.Editor {
+    public partial class ArenaEditor : UnityEditor.Editor {
         private FieldInfo _boundsField;
         
         private void OnEnable() {

@@ -61,6 +61,6 @@ namespace Zombies.Environment {
         }
         
         private bool IsPointInObstacle(Vector2 point)
-            => _obstacles.Any(obstacle => Geometry.IsInsideCircle(point, obstacle.transform.position, obstacle.Radius));
+            => _obstacles.Any(obstacle => Geometry.IsInsideCircle(point, obstacle.transform.position, obstacle.radius));
     }
 }

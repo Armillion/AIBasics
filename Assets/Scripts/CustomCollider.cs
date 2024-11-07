@@ -58,7 +58,7 @@ public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
 
                 if(locpos.x >= 0)
                 {
-                    float expandedRadius = obstacle.Radius + thisObstacle.Radius;
+                    float expandedRadius = obstacle.radius + thisObstacle.radius;
 
                     if(Mathf.Abs(locpos.y) < expandedRadius)
                     {
@@ -90,8 +90,8 @@ public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
         if(ClosestObstacleInRange != null)
         {
             float multiCulti = 1f + (DetectionRange - COIRLocalPos.x) / DetectionRange;
-            steerForce.y = (ClosestObstacleInRange.Radius - COIRLocalPos.y) * multiCulti;
-            steerForce.x = (ClosestObstacleInRange.Radius - COIRLocalPos.x) + 0.2f;
+            steerForce.y = (ClosestObstacleInRange.radius - COIRLocalPos.y) * multiCulti;
+            steerForce.x = (ClosestObstacleInRange.radius - COIRLocalPos.x) + 0.2f;
         }
         
         Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce, Color.green, 0.1f);

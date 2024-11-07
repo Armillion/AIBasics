@@ -2,16 +2,17 @@
 using UnityEngine;
 
 namespace Zombies.Environment {
+    [SelectionBase]
     public class Obstacle : MonoBehaviour {
-        [field: SerializeField, Min(0f)]
-        public float Radius { get; private set; } = 3f;
+        [SerializeField, Min(0f)]
+        public float radius = 3f;
         
         [SerializeField]
         private Transform _visual;
 
         private void OnValidate() {
             if (_visual)
-                _visual.localScale = new Vector3(Radius, Radius, 1f);
+                _visual.localScale = new Vector3(radius, radius, 1f);
         }
     }
 }

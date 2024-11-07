@@ -15,6 +15,8 @@ namespace Zombies.Steering {
         [SerializeField, Min(0f)]
         private float _distanceFromCover = 1f;
         
+        [SerializeField, Min(0f)]
+        private float _threatDistance = 10f;
         
         [SerializeField, Self]
         private ArriveBehaviour _arriveBehaviour;
@@ -32,11 +34,14 @@ namespace Zombies.Steering {
         }
 
         public Vector2 CalculateSteering(IVehicle vehicle) {
+            if (Vector2.Distance(transform.position, Pursuer.Position) > _threatDistance)
+                return Vector2.zero;
+            
             var closestCoverDistance = float.MaxValue;
             Vector2 closestCoverPosition = Vector2.zero;
             
             foreach (Obstacle cover in _arena.Obstacles) {
-                Vector2 hidingSpot = GetHidingSpot(cover.transform.position, cover.transform.localScale.x / 2f);
+                Vector2 hidingSpot = GetHidingSpot(cover.transform.position, cover.radius);
                 float distanceToHidingSpot = Vector2.Distance(hidingSpot, transform.position);
 
                 if (distanceToHidingSpot >= closestCoverDistance) continue;
