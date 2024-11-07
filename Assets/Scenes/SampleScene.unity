@@ -7437,18 +7437,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11193070014240bb8227e665b775fa63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 1154196317}
   <MaxSpeed>k__BackingField: 3.5
-  _steeringBehaviours:
+  _defaultSteeringBehaviours:
   - _component: {fileID: 2001711503}
     weight: 1
   - _component: {fileID: 2001711502}
     weight: 1.5
   - _component: {fileID: 2001711497}
     weight: 0.75
+  _chaseSteeringBehaviours:
+  - _component: {fileID: 2001711503}
+    weight: 1
+  - _component: {fileID: 2001711505}
+    weight: 1
   _groupingRadius: 3.5
   _attackGroupSize: 5
-  _pursuitBehaviour: {fileID: 2001711505}
 --- !u!114 &2001711499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7550,6 +7554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 925d1891c70a4d848d376966dc915860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target: {fileID: 1154196317}
   _seekBehaviour: {fileID: 2001711506}
 --- !u!114 &2001711506
 MonoBehaviour:

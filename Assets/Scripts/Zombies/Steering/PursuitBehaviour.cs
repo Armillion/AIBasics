@@ -1,14 +1,18 @@
 ﻿using System;
 using KBCore.Refs;
 using UnityEngine;
+using Utility.SerializeInterface;
 
 namespace Zombies.Steering {
     [RequireComponent(typeof(SeekBehaviour))]
     public class PursuitBehaviour : MonoBehaviour, ISteeringBehaviour {
-        public IVehicle Target { get; set; }
+        [SerializeField, RequireInterface(typeof(IVehicle))]
+        private MonoBehaviour _target;
                 
         [SerializeField, Self]
         private SeekBehaviour _seekBehaviour;
+        
+        private IVehicle Target => _target as IVehicle;
 
         private void OnValidate() => this.ValidateRefs();
 

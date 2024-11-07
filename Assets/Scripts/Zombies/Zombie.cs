@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using KBCore.Refs;
 using Unity.Cinemachine;
 using UnityEngine;
 using Zombies.Steering;
@@ -9,7 +8,6 @@ using Zombies.Steering;
 namespace Zombies {
     [SelectionBase]
     [SaveDuringPlay]
-    [RequireComponent(typeof(PursuitBehaviour))]
     public class Zombie : MonoBehaviour, IVehicle {
         [Serializable]
         private struct SteeringBehaviourConfig {
@@ -37,7 +35,10 @@ namespace Zombies {
         public float MaxSpeed { get; private set; } = 2f;
 
         [SerializeField]
-        private SteeringBehaviourConfig[] _steeringBehaviours;
+        private SteeringBehaviourConfig[] _defaultSteeringBehaviours;
+
+        [SerializeField]
+        private SteeringBehaviourConfig[] _chaseSteeringBehaviours;
 
         [Header("Grouping")]
         [SerializeField, Min(0f)]
@@ -46,23 +47,14 @@ namespace Zombies {
         [SerializeField, Min(1)]
         private int _attackGroupSize = 5;
 
-        [SerializeField, Self]
-        private PursuitBehaviour _pursuitBehaviour;
-
         public Vector2 Position => transform.position;
         public Vector2 Velocity { get; private set; }
         
         private bool _isChasingPlayer = false;
 
         private void OnValidate() {
-            this.ValidateRefs();
-
-            foreach (SteeringBehaviourConfig steeringBehaviour in _steeringBehaviours)
+            foreach (SteeringBehaviourConfig steeringBehaviour in _defaultSteeringBehaviours)
                 steeringBehaviour.OnValidate(this);
-        }
-
-        private void Awake() {
-            _pursuitBehaviour.Target = _player;
         }
 
         private void OnEnable() => _zombies.Add(this);
@@ -76,7 +68,7 @@ namespace Zombies {
             if (!_isChasingPlayer && IsAttackGroupAssembled())
                 _isChasingPlayer = true;
             
-            Vector2 steering = _isChasingPlayer ? _pursuitBehaviour.CalculateSteering(this) : CalculateSteering();
+            Vector2 steering = _isChasingPlayer ? CalculateSteering(_chaseSteeringBehaviours) : CalculateSteering(_defaultSteeringBehaviours);
             Steer(steering);
         }
 
@@ -101,10 +93,10 @@ namespace Zombies {
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
 
-        private Vector2 CalculateSteering() {
+        private Vector2 CalculateSteering(SteeringBehaviourConfig[] steeringBehaviours) {
             Vector2 steering = Vector2.zero;
 
-            foreach (SteeringBehaviourConfig steeringBehaviour in _steeringBehaviours) {
+            foreach (SteeringBehaviourConfig steeringBehaviour in steeringBehaviours) {
                 Vector2 forceToAdd = steeringBehaviour.Behaviour.CalculateSteering(this) * steeringBehaviour.weight;
                 // Debug.Log($"{steeringBehaviour.Behaviour.GetType().Name}: adds {forceToAdd.magnitude}. Remaining: {MaxSpeed - steering.magnitude}");
                 if (!AccumulateForce(ref steering, forceToAdd)) break;
