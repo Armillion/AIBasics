@@ -4,7 +4,6 @@ using KBCore.Refs;
 using Shooter.Agents.States;
 using Shooter.Environment;
 using Shooter.FSM;
-using Shooter.UtilityAI.Considerations;
 using UnityEngine;
 
 namespace Shooter.Agents {
@@ -13,9 +12,6 @@ namespace Shooter.Agents {
         private static readonly List<Agent> _agents = new();
 
         public static IReadOnlyList<Agent> Agents => _agents;
-
-        [SerializeField]
-        private List<Consideration> _considerations;
         
         [SerializeField, Self]
         private Health _health;
