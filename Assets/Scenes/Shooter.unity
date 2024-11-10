@@ -768,6 +768,7 @@ MonoBehaviour:
     - {x: -35, y: -15}
     - {x: -32, y: -15}
   _gridSize: 3
+  <Grid>k__BackingField: []
 --- !u!1 &1781443098
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,9 +802,9 @@ MonoBehaviour:
   _arena: {fileID: 1730838801}
   _agentsConfig:
   - team: 1
-    count: 5
+    count: 1
   - team: 2
-    count: 5
+    count: 0
   <TickSpeed>k__BackingField: 0.5
 --- !u!4 &1781443100
 Transform:

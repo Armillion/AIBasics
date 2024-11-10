@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Shooter.Environment {
     public static class ArenaHelper {
-        public static Vector2 GetRandomPointInArena(this Arena arena, Vector2 position, float radius, int maxAttempts = 10) {
+        public static Vector2 GetRandomPointInsideArena(this Arena arena, Vector2 position, float radius, int maxAttempts = 10) {
             for (var i = 0; i < maxAttempts; i++) {
                 Vector2 randomPoint = position + Random.insideUnitCircle * radius;
                 if (!arena.TryGetValidCellPosition(ref randomPoint)) continue;

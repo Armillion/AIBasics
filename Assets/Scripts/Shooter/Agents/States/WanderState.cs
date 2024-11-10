@@ -34,7 +34,7 @@ namespace Shooter.Agents.States {
         public override void OnExit() { }
      
         private bool FindNewWanderDestination() {
-            Vector2 randomDestination = _arena.GetRandomPointInArena(agent.transform.position, _wanderRadius);
+            Vector2 randomDestination = _arena.GetRandomPointInsideArena(agent.transform.position, _wanderRadius);
             _path = _arena.FindPath(agent.transform.position, randomDestination)?.ToList();
 
             if (_path == null || _path.Count <= 1) {

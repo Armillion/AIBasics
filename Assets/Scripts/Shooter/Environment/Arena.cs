@@ -52,8 +52,13 @@ namespace Shooter.Environment {
 
             if (!IsValidIndex(x, y))
                 return false;
+
+            int index = y * XCellCount + x;
             
-            position = Grid[y * XCellCount + x].position;
+            if (Grid[index].TraversableDirections == MoveDirection.None)
+                return false;
+            
+            position = Grid[index].position;
             return true;
         }
 
@@ -110,7 +115,7 @@ namespace Shooter.Environment {
                 Vector2 startPosition = Grid[y * XCellCount + x].position;
                 Vector2 endPosition = Grid[yIndex * XCellCount + xIndex].position;
 
-                if (!IsDirectionTraversable(testedDirection, startPosition, endPosition))
+                if (!IsStraightPathTraversable(startPosition, endPosition))
                     traversableDirections &= ~testedDirection;
             }
             
@@ -132,7 +137,7 @@ namespace Shooter.Environment {
         private bool IsValidIndex(int xIndex, int yIndex)
             => xIndex >= 0 && xIndex < XCellCount && yIndex >= 0 && yIndex < YCellCount;
 
-        private bool IsDirectionTraversable(MoveDirection direction, Vector2 start, Vector2 end) {
+        private bool IsStraightPathTraversable(Vector2 start, Vector2 end) {
             foreach (Polygon wall in _walls)
                 if (Geometry.LinesIntersect(start, end, wall, false))
                     return false;
