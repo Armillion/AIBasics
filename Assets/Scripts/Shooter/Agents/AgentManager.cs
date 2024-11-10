@@ -24,27 +24,47 @@ namespace Shooter.Agents {
 
         [field: SerializeField, Min(0.1f)]
         public float TickSpeed { get; private set; } = 0.5f;
+        
+        public bool IsGamePaused => !_tickTimer?.IsRunning ?? false;
 
         private FrequencyTimer _tickTimer;
 
+        // private void OnValidate() => SetupTickTimer();
+
         private void Awake() {
+            if (Instance != null) {
+                Destroy(gameObject);
+                return;
+            }
+            
             Instance = this;
         }
 
+        public static void Tick() {
+            foreach (Agent agent in Agent.Agents)
+                agent.Tick();
+        }
+
+        public void ResumeGame() => _tickTimer?.Resume();
+        
+        public void PauseGame() => _tickTimer?.Pause();
+
         private void Start() {
-            int ticksPerSecond = Mathf.RoundToInt(1f / TickSpeed);
-            _tickTimer = new FrequencyTimer(ticksPerSecond);
-            _tickTimer.OnTick += Tick;
-            _tickTimer.Start();
-            
+            SetupTickTimer();
+
             foreach (AgentsConfig config in _agentsConfig)
                 for (var i = 0; i < config.count; i++)
                     _agentSpawner.SpawnAgent(_arena, config.team);
         }
 
-        private static void Tick() {
-            foreach (Agent agent in Agent.Agents)
-                agent.Tick();
+        private void SetupTickTimer() {
+            _tickTimer?.Stop();
+            _tickTimer?.Dispose();
+            
+            int ticksPerSecond = Mathf.RoundToInt(1f / TickSpeed);
+            _tickTimer = new FrequencyTimer(ticksPerSecond);
+            _tickTimer.OnTick += Tick;
+            _tickTimer.Start();
         }
     }
 }
