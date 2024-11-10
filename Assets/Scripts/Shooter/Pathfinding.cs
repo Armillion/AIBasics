@@ -73,28 +73,28 @@ namespace Shooter {
             List<int> neighbours = new();
             
             if (traversableDirections.HasFlag(MoveDirection.North))
-                neighbours.Add(index - gridWidth);
+                neighbours.Add(index + gridWidth);
             
             if (traversableDirections.HasFlag(MoveDirection.NorthEast))
-                neighbours.Add(index - gridWidth + 1);
+                neighbours.Add(index + gridWidth + 1);
             
             if (traversableDirections.HasFlag(MoveDirection.East))
                 neighbours.Add(index + 1);
 
             if (traversableDirections.HasFlag(MoveDirection.SouthEast))
-                neighbours.Add(index + gridWidth + 1);
+                neighbours.Add(index - gridWidth + 1);
             
             if (traversableDirections.HasFlag(MoveDirection.South))
-                neighbours.Add(index + gridWidth);
+                neighbours.Add(index - gridWidth);
             
             if (traversableDirections.HasFlag(MoveDirection.SouthWest))
-                neighbours.Add(index + gridWidth - 1);
+                neighbours.Add(index - gridWidth - 1);
             
             if (traversableDirections.HasFlag(MoveDirection.West))
                 neighbours.Add(index - 1);
             
             if (traversableDirections.HasFlag(MoveDirection.NorthWest))
-                neighbours.Add(index - gridWidth - 1);
+                neighbours.Add(index + gridWidth - 1);
             
             return neighbours;
         }

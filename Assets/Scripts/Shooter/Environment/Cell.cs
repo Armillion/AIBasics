@@ -6,6 +6,8 @@ namespace Shooter.Environment {
     [Serializable]
     public struct Cell : IEqualityComparer<Cell> {
         public Vector2 position;
+        
+        [field: SerializeField]
         public MoveDirection TraversableDirections { get; set; }
 
         public bool Equals(Cell x, Cell y)
