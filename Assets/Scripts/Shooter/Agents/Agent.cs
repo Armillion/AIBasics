@@ -46,9 +46,10 @@ namespace Shooter.Agents {
             _stateMachine.SetState(wanderState);
         }
         
-        public void Tick() {
-            _stateMachine.Update();
-        }
+        public void Tick() => _stateMachine.Update();
+
+        public void MoveTo(Vector2 destination, Ease ease = Ease.Linear) 
+            => Tween.Position(transform, destination, AgentManager.Instance.TickSpeed, ease);
 
         private void OnDrawGizmosSelected() {
             Gizmos.color = Color.cyan;

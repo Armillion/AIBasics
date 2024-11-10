@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using PrimeTween;
 using Shooter.Environment;
 using UnityEngine;
 
@@ -25,10 +26,17 @@ namespace Shooter.Agents.States {
 
             _index++;
             
-            for (int i = _index; i < _path.Count - 1; i++)
-                Debug.DrawLine(_path[i], _path[i + 1], Color.cyan, AgentManager.Instance.TickSpeed);
+            // for (int i = _index; i < _path!.Count - 1; i++)
+            //     Debug.DrawLine(_path[i], _path[i + 1], Color.cyan, AgentManager.Instance.TickSpeed);
             
-            agent.transform.position = _path![_index];
+            var ease = Ease.Linear;
+            
+            if (_index == 1)
+                ease = Ease.InSine;
+            else if (_index == _path!.Count - 1)
+                ease = Ease.OutSine;
+            
+            agent.MoveTo(_path![_index], ease);
         }
 
         public override void OnExit() { }
