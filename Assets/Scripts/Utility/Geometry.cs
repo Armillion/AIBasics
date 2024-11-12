@@ -39,5 +39,25 @@ namespace Utility {
 
             return isClosedShape && LinesIntersect(a, b, polygon[^1], polygon[0]);
         }
+
+        public static Vector2 Rotate(Vector2 v, float degrees)
+        {
+            float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
+            float cos = Mathf.Cos(degrees * Mathf.Deg2Rad);
+
+            float tx = v.x;
+            float ty = v.y;
+            v.x = (cos * tx) - (sin * ty);
+            v.y = (sin * tx) + (cos * ty);
+            return v;
+        }
+
+        public static Vector3 Homo(Vector2 pt) => new Vector3(pt.x, pt.y, 1f);
+
+        public static Vector2 intersectPoint(Vector2 a1, Vector2 a2, Vector2 b1, Vector2 b2)
+        {
+            Vector3 cc = Vector3.Cross(Vector3.Cross(Homo(a1), Homo(a2)), Vector3.Cross(Homo(b1), Homo(b2)));
+            return ((Vector2)cc) / cc.z;
+        }
     }
 }
