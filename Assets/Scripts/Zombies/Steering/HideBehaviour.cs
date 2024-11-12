@@ -1,32 +1,47 @@
 ﻿using System;
+using KBCore.Refs;
 using UnityEngine;
+using Zombies.Environment;
 
 namespace Zombies.Steering {
     [RequireComponent(typeof(ArriveBehaviour), typeof(EvadeBehaviour))]
     public class HideBehaviour : MonoBehaviour, ISteeringBehaviour {
         [SerializeField]
-        private PlayerController _player;
+        private Component pursuerComponent;
+        
+        [SerializeField]
+        private Arena _arena;
         
         [SerializeField, Min(0f)]
         private float _distanceFromCover = 1f;
         
-        [SerializeField]
-        private Transform[] _covers;
+        [SerializeField, Min(0f)]
+        private float _threatDistance = 10f;
         
+        [SerializeField, Self]
         private ArriveBehaviour _arriveBehaviour;
+        
+        [SerializeField, Self]
         private EvadeBehaviour _evadeBehaviour;
+        
+        private IVehicle Pursuer => pursuerComponent as IVehicle;
 
-        private void Start() {
-            _arriveBehaviour = GetComponent<ArriveBehaviour>();
-            _evadeBehaviour = GetComponent<EvadeBehaviour>();
+        private void OnValidate() {
+            this.ValidateRefs();
+            if (pursuerComponent && Pursuer != null) return;
+            Debug.LogError($"{pursuerComponent} does not implement {nameof(IVehicle)}", this);
+            pursuerComponent = null;
         }
 
         public Vector2 CalculateSteering(IVehicle vehicle) {
+            if (Vector2.Distance(transform.position, Pursuer.Position) > _threatDistance)
+                return Vector2.zero;
+            
             var closestCoverDistance = float.MaxValue;
             Vector2 closestCoverPosition = Vector2.zero;
             
-            foreach (Transform cover in _covers) {
-                Vector2 hidingSpot = GetHidingSpot(cover.position, cover.localScale.x / 2f);
+            foreach (Obstacle cover in _arena.Obstacles) {
+                Vector2 hidingSpot = GetHidingSpot(cover.transform.position, cover.radius);
                 float distanceToHidingSpot = Vector2.Distance(hidingSpot, transform.position);
 
                 if (distanceToHidingSpot >= closestCoverDistance) continue;
@@ -36,7 +51,7 @@ namespace Zombies.Steering {
             }
             
             if (Mathf.Approximately(closestCoverDistance, float.MaxValue)) {
-                _evadeBehaviour.pursuer = _player;
+                _evadeBehaviour.pursuer = Pursuer;
                 return _evadeBehaviour.CalculateSteering(vehicle);
             }
             
@@ -46,7 +61,7 @@ namespace Zombies.Steering {
         
         private Vector2 GetHidingSpot(Vector2 obstaclePosition, float obstacleRadius) {
             float distanceFromCenter = obstacleRadius + _distanceFromCover;
-            Vector2 directionToObstacle = (obstaclePosition - _player.Position).normalized;
+            Vector2 directionToObstacle = (obstaclePosition - Pursuer.Position).normalized;
             return directionToObstacle * distanceFromCenter + obstaclePosition;
         }
     }

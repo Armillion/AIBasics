@@ -8,39 +8,32 @@ using Zombies.Steering;
 
 [RequireComponent(typeof(Obstacle))]
 public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
-    [SerializeField]
-    private Arena arena;
-
     [SerializeField] private float _minDetectionRange = 0.5f;
 
-    [SerializeField] private List<Obstacle> taggedObjects;
+    [SerializeField] private List<Obstacle> taggedObjects = new();
     [SerializeField, Self] private Obstacle thisObstacle;
 
     private void OnValidate() => this.ValidateRefs();
-
-    void Start()
-    {
-        taggedObjects = new List<Obstacle>();
-    }
-
-    
-    void Update()
-    {
-        
-    }
 
     public Vector2 CalculateSteering(IVehicle vehicle)
     {
         float DetectionRange = vehicle.Velocity.magnitude + _minDetectionRange;
 
-        foreach(Obstacle obstacleInstance in arena.Obstacles)
+        foreach(Obstacle obstacleInstance in Obstacle.all)
         {
-            if(Vector2.Distance(transform.position, obstacleInstance.gameObject.transform.position) < DetectionRange &&
-               !taggedObjects.Contains(obstacleInstance))
+            if(obstacleInstance == thisObstacle)
             {
-                taggedObjects.Add(obstacleInstance);
+                continue;
             }
-            else if(taggedObjects.Contains(obstacleInstance))
+            
+            if(Vector2.Distance(transform.position, obstacleInstance.gameObject.transform.position) < DetectionRange)
+            {
+                if (!taggedObjects.Contains(obstacleInstance))
+                {
+                    taggedObjects.Add(obstacleInstance);
+                }
+            }
+            else 
             {
                 taggedObjects.Remove(obstacleInstance);
             }
@@ -50,36 +43,33 @@ public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
         float distToCOIR = float.MaxValue;   
         Vector2 COIRLocalPos = Vector2.zero;
 
-        foreach(Obstacle obstacle in arena.Obstacles)
+        foreach(Obstacle obstacle in taggedObjects)
         {
-            if(taggedObjects.Contains(obstacle))
+            Vector2 locpos = transform.InverseTransformPoint(obstacle.transform.position);
+
+            if(locpos.x >= 0)
             {
-                Vector2 locpos = transform.InverseTransformPoint(obstacle.transform.position);
+                float expandedRadius = obstacle.radius + thisObstacle.radius;
 
-                if(locpos.x >= 0)
+                if(Mathf.Abs(locpos.y) < expandedRadius)
                 {
-                    float expandedRadius = obstacle.Radius + thisObstacle.Radius;
+                    float cX = locpos.x;
+                    float cY = locpos.y;
 
-                    if(Mathf.Abs(locpos.y) < expandedRadius)
+                    float sqrtPart = Mathf.Sqrt(expandedRadius*expandedRadius - cY*cY);
+
+                    float ip = cX - sqrtPart;
+
+                    if(ip <= 0)
                     {
-                        float cX = locpos.x;
-                        float cY = locpos.y;
+                        ip = cX + sqrtPart;
+                    }
 
-                        float sqrtPart = Mathf.Sqrt(expandedRadius*expandedRadius - cY*cY);
-
-                        float ip = cX - sqrtPart;
-
-                        if(ip <= 0)
-                        {
-                            ip = cX + sqrtPart;
-                        }
-
-                        if(ip < distToCOIR)
-                        {
-                            distToCOIR = ip;
-                            ClosestObstacleInRange = obstacle;
-                            COIRLocalPos = locpos;
-                        }
+                    if(ip < distToCOIR)
+                    {
+                        distToCOIR = ip;
+                        ClosestObstacleInRange = obstacle;
+                        COIRLocalPos = locpos;
                     }
                 }
             }
@@ -90,11 +80,11 @@ public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
         if(ClosestObstacleInRange != null)
         {
             float multiCulti = 1f + (DetectionRange - COIRLocalPos.x) / DetectionRange;
-            steerForce.y = (ClosestObstacleInRange.Radius - COIRLocalPos.y) * multiCulti;
-            steerForce.x = (ClosestObstacleInRange.Radius - COIRLocalPos.x) + 0.2f;
+            steerForce.y = (ClosestObstacleInRange.radius - COIRLocalPos.y) * multiCulti;
+            steerForce.x = (ClosestObstacleInRange.radius - COIRLocalPos.x) + 0.2f;
         }
         
-        Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce, Color.green, 0.1f);
+        Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce, Color.yellow, 0.1f);
         return transform.TransformVector(steerForce);
     }
 }
