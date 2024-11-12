@@ -11,18 +11,6 @@ public class WallAvoidance : MonoBehaviour
     [SerializeField] private Arena enviornment;
 
     private Vector2[] feelers = new Vector2[3];
-    
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public Vector2 avoidWalls()
     {
@@ -31,19 +19,42 @@ public class WallAvoidance : MonoBehaviour
         float IPdist = 0f;
         float closestIPdist = float.MaxValue;
 
-        int closestWall = -1;
+        Vector2 closestWall = null;
 
-        Vector2 steerForce, point, closestPoint;
+        Vector2 steerForce = Vector2.zero, point, closestPoint;
 
         foreach(Vector2 feeler in feelers)
         {
-            foreach(Vector2 wall in enviornment.Walls) 
-            { 
-                if(Utility.Geometry.LinesIntersect((Vector2)transform.position),feeler,)
+            foundClosestWall = false;
+            Vector2 previousWallPoint = null;
+
+            foreach(Vector2 wallPoint in enviornment.Walls)
+            {
+                if (previousWallPoint != null)
+                {
+                    if (Utility.Geometry.LinesIntersect((Vector2)transform.position,feeler,previousWallPoint,wallPiont,point))
+                    {
+                        IPdist = Vector2.Distance((Vector2)transform.position,point);
+
+                        if(IPdist < closestIPdist)
+                        {
+                            closestIPdist = IPdist;
+                            closestPoint = point;
+                            closestWall = wallPoint;
+                        }
+                    }
+                }
+            }
+
+            if (foundClosestWall)
+            {
+                Vector2 overshoot = feeler.position - closestPoint;
+
+                steerForce = overshoot; //needs to be multiplied by a wall normal
             }
         }
 
-        return Vector2.zero;
+        return steerForce;
     }
 
     void CreateFeelers()
