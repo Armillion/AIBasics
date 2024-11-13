@@ -1048,8 +1048,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arena: {fileID: 853516248}
   _zombieTemplate: {fileID: 2001711498}
-  _initialZombieCount: 10
-  _maxZombieCount: 100
+  _initialZombieCount: 1
+  _maxZombieCount: 1
   _spawnRate: 1
 --- !u!1 &257295726
 GameObject:
@@ -3239,10 +3239,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Walls>k__BackingField:
     vertices:
-    - {x: -40, y: -40}
-    - {x: 40, y: -40}
-    - {x: 40, y: 40}
-    - {x: -40, y: 40}
+    - {x: -5, y: -5}
+    - {x: 5, y: -5}
+    - {x: 5, y: 5}
+    - {x: -5, y: 5}
   _obstacles:
   - {fileID: 2078953424}
   - {fileID: 1629047525}
@@ -7381,6 +7381,7 @@ GameObject:
   - component: {fileID: 2001711497}
   - component: {fileID: 2001711502}
   - component: {fileID: 2001711503}
+  - component: {fileID: 2001711507}
   - component: {fileID: 2001711501}
   - component: {fileID: 2001711500}
   - component: {fileID: 2001711499}
@@ -7442,10 +7443,12 @@ MonoBehaviour:
   _defaultSteeringBehaviours:
   - _component: {fileID: 2001711503}
     weight: 1
+  - _component: {fileID: 2001711507}
+    weight: 10
   - _component: {fileID: 2001711502}
-    weight: 1.5
+    weight: 0
   - _component: {fileID: 2001711497}
-    weight: 0.75
+    weight: 1
   _chaseSteeringBehaviours:
   - _component: {fileID: 2001711503}
     weight: 1
@@ -7524,7 +7527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2acf7e13f603a6a45998ee2dc6122f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arena: {fileID: 853516248}
   _minDetectionRange: 2.5
   taggedObjects: []
   thisObstacle: {fileID: 2001711504}
@@ -7570,6 +7572,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {x: 0, y: 0}
   _steeringForce: 2
+--- !u!114 &2001711507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9013d19783252684cae7dd8161b77e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feelerLength: 3
+  feelerAngle: 60
+  enviornment: {fileID: 853516248}
 --- !u!1 &2002649178
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
                 Vector2 direction = closestWall.Value.Item2 - closestWall.Value.Item1;
                 Vector2 normal = new Vector2(-direction.y, direction.x).normalized;
                 Debug.DrawRay(closestPoint, normal, Color.red);
-                steerForce = overshoot * normal; //needs to be multiplied by a wall normal
+                steerForce = overshoot.magnitude * normal; //needs to be multiplied by a wall normal
             }
             
         }
@@ -67,18 +67,15 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
 
     void CreateFeelers()
     {
-        feelers[0] = (Vector2)transform.position + (Vector2.right*feelerLength);
-        feelers[1] = (Vector2)transform.position + Utility.Geometry.Rotate((Vector2.right * feelerLength), feelerAngle);
-        feelers[2] = (Vector2)transform.position + Utility.Geometry.Rotate((Vector2.right * feelerLength), -feelerAngle);
+        feelers[0] = (Vector2)transform.position + ((Vector2)transform.right*feelerLength);
+        feelers[1] = (Vector2)transform.position + Utility.Geometry.Rotate(((Vector2)transform.right * feelerLength), feelerAngle);
+        feelers[2] = (Vector2)transform.position + Utility.Geometry.Rotate(((Vector2)transform.right * feelerLength), -feelerAngle);
     }
 
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        Gizmos.matrix = transform.localToWorldMatrix;
         
         foreach(Vector2 feeler in feelers)
-            Gizmos.DrawLine(transform.TransformPoint(Vector3.zero), feeler);
-        
-        Gizmos.matrix = Matrix4x4.identity;
+            Gizmos.DrawLine(transform.position, feeler);
     }
 }
