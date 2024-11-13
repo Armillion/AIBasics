@@ -7,7 +7,7 @@ using Zombies.Environment;
 using Zombies.Steering;
 
 [RequireComponent(typeof(Obstacle))]
-public class CustomCollider : MonoBehaviour, ISteeringBehaviour {
+public class ObstacleAvoidance : MonoBehaviour, ISteeringBehaviour {
     [SerializeField] private float _minDetectionRange = 0.5f;
 
     [SerializeField] private List<Obstacle> taggedObjects = new();
