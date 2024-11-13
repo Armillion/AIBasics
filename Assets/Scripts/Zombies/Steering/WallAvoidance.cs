@@ -50,6 +50,18 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
                 previousWallPoint = wallPoint;
             }
 
+            if (Utility.Geometry.LinesIntersect((Vector2)transform.position, feeler, previousWallPoint.Value, enviornment.Walls[0], out point))
+            {
+                IPdist = Vector2.Distance((Vector2)transform.position, point);
+
+                if (IPdist < closestIPdist)
+                {
+                    closestIPdist = IPdist;
+                    closestPoint = point;
+                    closestWall = (previousWallPoint.Value, enviornment.Walls[0]);
+                }
+            }
+
             if (closestWall != null)
             {
                 Vector2 overshoot = feeler - closestPoint;
@@ -57,6 +69,7 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
                 Vector2 normal = new Vector2(-direction.y, direction.x).normalized;
                 Debug.DrawRay(closestPoint, normal, Color.red);
                 steerForce = overshoot.magnitude * normal; //needs to be multiplied by a wall normal
+                Debug.Log(steerForce);
             }
             
         }
