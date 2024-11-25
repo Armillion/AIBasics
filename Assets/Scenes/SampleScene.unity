@@ -128,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 363139}
   - component: {fileID: 363138}
+  - component: {fileID: 363140}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -147,7 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.8123481
+  _collider: {fileID: 363140}
+  radius: 0.90617406
   _visual: {fileID: 172594743}
 --- !u!4 &363139
 Transform:
@@ -165,6 +167,19 @@ Transform:
   - {fileID: 172594743}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.90617406
 --- !u!1 &8574930
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8574932}
   - component: {fileID: 8574931}
+  - component: {fileID: 8574933}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -194,7 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.0381129
+  _collider: {fileID: 8574933}
+  radius: 1.0190564
   _visual: {fileID: 2002649179}
 --- !u!4 &8574932
 Transform:
@@ -212,6 +229,19 @@ Transform:
   - {fileID: 2002649179}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8574933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.0190564
 --- !u!1 &40384622
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61902042}
   - component: {fileID: 61902041}
+  - component: {fileID: 61902043}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -415,7 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.8641303
+  _collider: {fileID: 61902043}
+  radius: 0.9320651
   _visual: {fileID: 1141588680}
 --- !u!4 &61902042
 Transform:
@@ -433,6 +465,19 @@ Transform:
   - {fileID: 1141588680}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61902043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61902040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.9320651
 --- !u!1 &64041709
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 75544581}
   - component: {fileID: 75544580}
+  - component: {fileID: 75544582}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -549,7 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.259448
+  _collider: {fileID: 75544582}
+  radius: 0.629724
   _visual: {fileID: 436461359}
 --- !u!4 &75544581
 Transform:
@@ -567,6 +614,19 @@ Transform:
   - {fileID: 436461359}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &75544582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75544579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.629724
 --- !u!1 &145677531
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,6 +930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185104350}
   - component: {fileID: 185104349}
+  - component: {fileID: 185104351}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -889,7 +950,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5584123
+  _collider: {fileID: 185104351}
+  radius: 0.77920616
   _visual: {fileID: 259400509}
 --- !u!4 &185104350
 Transform:
@@ -907,6 +969,19 @@ Transform:
   - {fileID: 259400509}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &185104351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185104348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.77920616
 --- !u!1 &221375208
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,6 +992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 221375210}
   - component: {fileID: 221375209}
+  - component: {fileID: 221375211}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -936,7 +1012,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.2543426
+  _collider: {fileID: 221375211}
+  radius: 1.1271713
   _visual: {fileID: 481974128}
 --- !u!4 &221375210
 Transform:
@@ -954,6 +1031,19 @@ Transform:
   - {fileID: 481974128}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &221375211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221375208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.1271713
 --- !u!1 &237433727
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1054,7 @@ GameObject:
   m_Component:
   - component: {fileID: 237433729}
   - component: {fileID: 237433728}
+  - component: {fileID: 237433730}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -983,7 +1074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.407837
+  _collider: {fileID: 237433730}
+  radius: 0.7039185
   _visual: {fileID: 1923531825}
 --- !u!4 &237433729
 Transform:
@@ -1001,6 +1093,19 @@ Transform:
   - {fileID: 1923531825}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &237433730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237433727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.7039185
 --- !u!1 &252899447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,8 +1153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arena: {fileID: 853516248}
   _zombieTemplate: {fileID: 2001711498}
-  _initialZombieCount: 1
-  _maxZombieCount: 1
+  _initialZombieCount: 20
+  _maxZombieCount: 100
   _spawnRate: 1
 --- !u!1 &257295726
 GameObject:
@@ -1496,6 +1601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417108797}
   - component: {fileID: 417108796}
+  - component: {fileID: 417108798}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -1515,7 +1621,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.3522788
+  _collider: {fileID: 417108798}
+  radius: 0.6761394
   _visual: {fileID: 1538548487}
 --- !u!4 &417108797
 Transform:
@@ -1533,6 +1640,19 @@ Transform:
   - {fileID: 1538548487}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417108798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417108795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6761394
 --- !u!1 &418207661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1717,6 +1837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 438721174}
   - component: {fileID: 438721173}
+  - component: {fileID: 438721175}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -1736,7 +1857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.267705
+  _collider: {fileID: 438721175}
+  radius: 1.1338525
   _visual: {fileID: 893930613}
 --- !u!4 &438721174
 Transform:
@@ -1754,6 +1876,19 @@ Transform:
   - {fileID: 893930613}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &438721175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438721172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.1338525
 --- !u!1 &440694391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 440694392}
   - component: {fileID: 440694393}
+  - component: {fileID: 440694394}
   m_Layer: 0
   m_Name: 'Obstacle(Clone) '
   m_TagString: Untagged
@@ -1799,8 +1935,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.683945
+  _collider: {fileID: 440694394}
+  radius: 0.8419725
   _visual: {fileID: 1142614767}
+--- !u!114 &440694394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440694391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.8419725
 --- !u!1 &478450779
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,6 +2214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 507792763}
   - component: {fileID: 507792762}
+  - component: {fileID: 507792764}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -2083,7 +2234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2503746
+  _collider: {fileID: 507792764}
+  radius: 0.6251873
   _visual: {fileID: 1495668515}
 --- !u!4 &507792763
 Transform:
@@ -2101,6 +2253,19 @@ Transform:
   - {fileID: 1495668515}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &507792764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507792761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6251873
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587981267}
   - component: {fileID: 587981266}
+  - component: {fileID: 587981268}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -2474,7 +2640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.0407033
+  _collider: {fileID: 587981268}
+  radius: 1.0203516
   _visual: {fileID: 1706372001}
 --- !u!4 &587981267
 Transform:
@@ -2492,6 +2659,19 @@ Transform:
   - {fileID: 1706372001}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &587981268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587981265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.0203516
 --- !u!1 &591863719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,6 +2856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622793336}
   - component: {fileID: 622793335}
+  - component: {fileID: 622793337}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -2695,7 +2876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.4015968
+  _collider: {fileID: 622793337}
+  radius: 0.7007984
   _visual: {fileID: 1565256065}
 --- !u!4 &622793336
 Transform:
@@ -2713,6 +2895,19 @@ Transform:
   - {fileID: 1565256065}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622793337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622793334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.7007984
 --- !u!1 &623626546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,6 +2964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648901738}
   - component: {fileID: 648901737}
+  - component: {fileID: 648901739}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -2788,7 +2984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.8524187
+  _collider: {fileID: 648901739}
+  radius: 0.92620933
   _visual: {fileID: 676907704}
 --- !u!4 &648901738
 Transform:
@@ -2806,6 +3003,19 @@ Transform:
   - {fileID: 676907704}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &648901739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648901736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.92620933
 --- !u!1 &662684554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2816,6 +3026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 662684555}
   - component: {fileID: 662684556}
+  - component: {fileID: 662684557}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -2851,8 +3062,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.7342582
+  _collider: {fileID: 662684557}
+  radius: 0.8671291
   _visual: {fileID: 540865575}
+--- !u!114 &662684557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662684554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.8671291
 --- !u!1 &676907703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,6 +3175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 747074610}
   - component: {fileID: 747074609}
+  - component: {fileID: 747074611}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -2969,7 +3195,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2870257
+  _collider: {fileID: 747074611}
+  radius: 0.64351285
   _visual: {fileID: 331708860}
 --- !u!4 &747074610
 Transform:
@@ -2987,6 +3214,19 @@ Transform:
   - {fileID: 331708860}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747074611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747074608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.64351285
 --- !u!1 &751685845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,6 +3324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759895647}
   - component: {fileID: 759895646}
+  - component: {fileID: 759895648}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3103,7 +3344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.4663122
+  _collider: {fileID: 759895648}
+  radius: 0.7331561
   _visual: {fileID: 320515852}
 --- !u!4 &759895647
 Transform:
@@ -3121,6 +3363,19 @@ Transform:
   - {fileID: 320515852}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &759895648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759895645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.7331561
 --- !u!1 &778715841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,10 +3494,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Walls>k__BackingField:
     vertices:
-    - {x: -5, y: -5}
-    - {x: 5, y: -5}
-    - {x: 5, y: 5}
-    - {x: -5, y: 5}
+    - {x: -40, y: -40}
+    - {x: 40, y: -40}
+    - {x: 40, y: 40}
+    - {x: -40, y: 40}
   _obstacles:
   - {fileID: 2078953424}
   - {fileID: 1629047525}
@@ -3362,6 +3617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 884327172}
   - component: {fileID: 884327173}
+  - component: {fileID: 884327174}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3397,8 +3653,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.4766812
+  _collider: {fileID: 884327174}
+  radius: 1.2383406
   _visual: {fileID: 1666668033}
+--- !u!114 &884327174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884327171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.2383406
 --- !u!1 &886548715
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 920264821}
   - component: {fileID: 920264822}
+  - component: {fileID: 920264823}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3705,8 +3976,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2526033
+  _collider: {fileID: 920264823}
+  radius: 0.62630165
   _visual: {fileID: 886548716}
+--- !u!114 &920264823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920264820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.62630165
 --- !u!1 &976037943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,6 +4002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976037944}
   - component: {fileID: 976037945}
+  - component: {fileID: 976037946}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3752,8 +4038,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.8795393
+  _collider: {fileID: 976037946}
+  radius: 0.9397696
   _visual: {fileID: 1983702585}
+--- !u!114 &976037946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976037943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.9397696
 --- !u!1 &983381229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,6 +4064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983381231}
   - component: {fileID: 983381230}
+  - component: {fileID: 983381232}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3783,7 +4084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.3742872
+  _collider: {fileID: 983381232}
+  radius: 0.6871436
   _visual: {fileID: 1425955964}
 --- !u!4 &983381231
 Transform:
@@ -3801,6 +4103,19 @@ Transform:
   - {fileID: 1425955964}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &983381232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983381229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6871436
 --- !u!1 &998711556
 GameObject:
   m_ObjectHideFlags: 0
@@ -3811,6 +4126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 998711557}
   - component: {fileID: 998711558}
+  - component: {fileID: 998711559}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3846,8 +4162,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.0490978
+  _collider: {fileID: 998711559}
+  radius: 1.0245489
   _visual: {fileID: 1756938421}
+--- !u!114 &998711559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998711556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.0245489
 --- !u!1 &1029854320
 GameObject:
   m_ObjectHideFlags: 0
@@ -3945,6 +4275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1047900271}
   - component: {fileID: 1047900270}
+  - component: {fileID: 1047900272}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -3964,7 +4295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2526033
+  _collider: {fileID: 1047900272}
+  radius: 0.62630165
   _visual: {fileID: 45189468}
 --- !u!4 &1047900271
 Transform:
@@ -3982,6 +4314,19 @@ Transform:
   - {fileID: 45189468}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1047900272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047900269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.62630165
 --- !u!1 &1106950032
 GameObject:
   m_ObjectHideFlags: 0
@@ -4079,6 +4424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1112817011}
   - component: {fileID: 1112817010}
+  - component: {fileID: 1112817012}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -4098,7 +4444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.4205363
+  _collider: {fileID: 1112817012}
+  radius: 0.71026814
   _visual: {fileID: 1167047090}
 --- !u!4 &1112817011
 Transform:
@@ -4116,6 +4463,19 @@ Transform:
   - {fileID: 1167047090}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1112817012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112817009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.71026814
 --- !u!1 &1141588679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,6 +4976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1274074272}
   - component: {fileID: 1274074271}
+  - component: {fileID: 1274074273}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -4635,7 +4996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.1741631
+  _collider: {fileID: 1274074273}
+  radius: 0.58708155
   _visual: {fileID: 1209671223}
 --- !u!4 &1274074272
 Transform:
@@ -4653,6 +5015,19 @@ Transform:
   - {fileID: 1209671223}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274074273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274074270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.58708155
 --- !u!1 &1332828313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,6 +5038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1332828315}
   - component: {fileID: 1332828314}
+  - component: {fileID: 1332828316}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -4682,7 +5058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.2206798
+  _collider: {fileID: 1332828316}
+  radius: 1.1103399
   _visual: {fileID: 1459750128}
 --- !u!4 &1332828315
 Transform:
@@ -4700,6 +5077,19 @@ Transform:
   - {fileID: 1459750128}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1332828316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332828313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.1103399
 --- !u!1 &1393061913
 GameObject:
   m_ObjectHideFlags: 0
@@ -4884,6 +5274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1442833180}
   - component: {fileID: 1442833179}
+  - component: {fileID: 1442833181}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -4903,7 +5294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.272341
+  _collider: {fileID: 1442833181}
+  radius: 0.6361705
   _visual: {fileID: 1467615181}
 --- !u!4 &1442833180
 Transform:
@@ -4921,6 +5313,19 @@ Transform:
   - {fileID: 1467615181}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1442833181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442833178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6361705
 --- !u!1 &1459750127
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,6 +5748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1556621004}
   - component: {fileID: 1556621003}
+  - component: {fileID: 1556621005}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -5362,7 +5768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.7357974
+  _collider: {fileID: 1556621005}
+  radius: 0.8678987
   _visual: {fileID: 778715842}
 --- !u!4 &1556621004
 Transform:
@@ -5380,6 +5787,19 @@ Transform:
   - {fileID: 778715842}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1556621005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556621002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.8678987
 --- !u!1 &1565256064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5595,6 +6015,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629047526}
   - component: {fileID: 1629047525}
+  - component: {fileID: 1629047527}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -5614,7 +6035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.551067
+  _collider: {fileID: 1629047527}
+  radius: 0.7755335
   _visual: {fileID: 1193693425}
 --- !u!4 &1629047526
 Transform:
@@ -5632,6 +6054,19 @@ Transform:
   - {fileID: 1193693425}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629047527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629047524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.7755335
 --- !u!1 &1633179861
 GameObject:
   m_ObjectHideFlags: 0
@@ -5642,6 +6077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1633179863}
   - component: {fileID: 1633179862}
+  - component: {fileID: 1633179864}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -5661,7 +6097,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2137918
+  _collider: {fileID: 1633179864}
+  radius: 0.6068959
   _visual: {fileID: 145677532}
 --- !u!4 &1633179863
 Transform:
@@ -5679,6 +6116,19 @@ Transform:
   - {fileID: 145677532}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633179864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633179861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6068959
 --- !u!1 &1634975189
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,6 +6139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1634975191}
   - component: {fileID: 1634975190}
+  - component: {fileID: 1634975192}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -5708,7 +6159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.3803515
+  _collider: {fileID: 1634975192}
+  radius: 1.1901758
   _visual: {fileID: 2060598396}
 --- !u!4 &1634975191
 Transform:
@@ -5726,6 +6178,19 @@ Transform:
   - {fileID: 2060598396}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1634975192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634975189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.1901758
 --- !u!1 &1666668032
 GameObject:
   m_ObjectHideFlags: 0
@@ -5910,6 +6375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1678560370}
   - component: {fileID: 1678560369}
+  - component: {fileID: 1678560371}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -5929,7 +6395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.3481834
+  _collider: {fileID: 1678560371}
+  radius: 0.6740917
   _visual: {fileID: 257295727}
 --- !u!4 &1678560370
 Transform:
@@ -5947,6 +6414,19 @@ Transform:
   - {fileID: 257295727}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1678560371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678560368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6740917
 --- !u!1 &1680019656
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,6 +6437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1680019658}
   - component: {fileID: 1680019657}
+  - component: {fileID: 1680019659}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -5976,7 +6457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.2699392
+  _collider: {fileID: 1680019659}
+  radius: 0.6349696
   _visual: {fileID: 543215417}
 --- !u!4 &1680019658
 Transform:
@@ -5994,6 +6476,19 @@ Transform:
   - {fileID: 543215417}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1680019659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680019656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.6349696
 --- !u!1 &1704311756
 GameObject:
   m_ObjectHideFlags: 0
@@ -6158,6 +6653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1704396962}
   - component: {fileID: 1704396961}
+  - component: {fileID: 1704396963}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -6177,7 +6673,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.8091543
+  _collider: {fileID: 1704396963}
+  radius: 0.90457714
   _visual: {fileID: 1571273993}
 --- !u!4 &1704396962
 Transform:
@@ -6195,6 +6692,19 @@ Transform:
   - {fileID: 1571273993}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1704396963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704396960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.90457714
 --- !u!1 &1706372000
 GameObject:
   m_ObjectHideFlags: 0
@@ -6553,6 +7063,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1796707414}
   - component: {fileID: 1796707415}
+  - component: {fileID: 1796707416}
   m_Layer: 0
   m_Name: 'Obstacle(Clone) '
   m_TagString: Untagged
@@ -6588,8 +7099,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.4766812
+  _collider: {fileID: 1796707416}
+  radius: 1.2383406
   _visual: {fileID: 1760545569}
+--- !u!114 &1796707416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796707413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.2383406
 --- !u!1 &1836338360
 GameObject:
   m_ObjectHideFlags: 0
@@ -6600,6 +7125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1836338362}
   - component: {fileID: 1836338361}
+  - component: {fileID: 1836338363}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -6619,7 +7145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.6021602
+  _collider: {fileID: 1836338363}
+  radius: 0.8010801
   _visual: {fileID: 40384623}
 --- !u!4 &1836338362
 Transform:
@@ -6637,6 +7164,19 @@ Transform:
   - {fileID: 40384623}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836338363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836338360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.8010801
 --- !u!1 &1877201360
 GameObject:
   m_ObjectHideFlags: 0
@@ -6647,6 +7187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1877201362}
   - component: {fileID: 1877201361}
+  - component: {fileID: 1877201363}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -6666,7 +7207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.4246233
+  _collider: {fileID: 1877201363}
+  radius: 1.2123116
   _visual: {fileID: 591863720}
 --- !u!4 &1877201362
 Transform:
@@ -6684,6 +7226,19 @@ Transform:
   - {fileID: 591863720}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1877201363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877201360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.2123116
 --- !u!1 &1896706613
 GameObject:
   m_ObjectHideFlags: 0
@@ -6694,6 +7249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896706615}
   - component: {fileID: 1896706614}
+  - component: {fileID: 1896706616}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -6713,7 +7269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5338666
+  _collider: {fileID: 1896706616}
+  radius: 0.7669333
   _visual: {fileID: 64041710}
 --- !u!4 &1896706615
 Transform:
@@ -6731,6 +7288,19 @@ Transform:
   - {fileID: 64041710}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896706616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896706613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.7669333
 --- !u!1 &1907251030
 GameObject:
   m_ObjectHideFlags: 0
@@ -6741,6 +7311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907251032}
   - component: {fileID: 1907251031}
+  - component: {fileID: 1907251033}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -6760,7 +7331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.3426366
+  _collider: {fileID: 1907251033}
+  radius: 1.1713183
   _visual: {fileID: 1909040687}
 --- !u!4 &1907251032
 Transform:
@@ -6778,6 +7350,19 @@ Transform:
   - {fileID: 1909040687}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907251033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907251030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.1713183
 --- !u!1 &1909040686
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,6 +7547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932354647}
   - component: {fileID: 1932354646}
+  - component: {fileID: 1932354648}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -6981,7 +7567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.683945
+  _collider: {fileID: 1932354648}
+  radius: 0.8419725
   _visual: {fileID: 1029854321}
 --- !u!4 &1932354647
 Transform:
@@ -6999,6 +7586,19 @@ Transform:
   - {fileID: 1029854321}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1932354648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932354645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.8419725
 --- !u!1 &1942174379
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,6 +7750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959228168}
   - component: {fileID: 1959228167}
+  - component: {fileID: 1959228169}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -7169,7 +7770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.9455811
+  _collider: {fileID: 1959228169}
+  radius: 0.97279054
   _visual: {fileID: 175186242}
 --- !u!4 &1959228168
 Transform:
@@ -7187,6 +7789,19 @@ Transform:
   - {fileID: 175186242}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959228169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959228166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.97279054
 --- !u!1 &1962211121
 GameObject:
   m_ObjectHideFlags: 0
@@ -7197,6 +7812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1962211123}
   - component: {fileID: 1962211122}
+  - component: {fileID: 1962211124}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -7216,7 +7832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.2905517
+  _collider: {fileID: 1962211124}
+  radius: 1.1452758
   _visual: {fileID: 418207662}
 --- !u!4 &1962211123
 Transform:
@@ -7234,6 +7851,19 @@ Transform:
   - {fileID: 418207662}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1962211124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962211121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.1452758
 --- !u!1 &1979135317
 GameObject:
   m_ObjectHideFlags: 0
@@ -7244,6 +7874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1979135318}
   - component: {fileID: 1979135319}
+  - component: {fileID: 1979135320}
   m_Layer: 0
   m_Name: 'Obstacle(Clone) '
   m_TagString: Untagged
@@ -7279,8 +7910,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.4766812
+  _collider: {fileID: 1979135320}
+  radius: 1.2383406
   _visual: {fileID: 751685846}
+--- !u!114 &1979135320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979135317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.2383406
 --- !u!1 &1983702584
 GameObject:
   m_ObjectHideFlags: 0
@@ -7388,6 +8033,7 @@ GameObject:
   - component: {fileID: 2001711505}
   - component: {fileID: 2001711506}
   - component: {fileID: 2001711504}
+  - component: {fileID: 2001711508}
   m_Layer: 0
   m_Name: Zombie Template
   m_TagString: Untagged
@@ -7542,7 +8188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
+  _collider: {fileID: 2001711508}
+  radius: 0.25
   _visual: {fileID: 180257590}
 --- !u!114 &2001711505
 MonoBehaviour:
@@ -7587,6 +8234,19 @@ MonoBehaviour:
   feelerLength: 3
   feelerAngle: 60
   enviornment: {fileID: 853516248}
+--- !u!114 &2001711508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001711495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.25
 --- !u!1 &2002649178
 GameObject:
   m_ObjectHideFlags: 0
@@ -7684,6 +8344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032460943}
   - component: {fileID: 2032460944}
+  - component: {fileID: 2032460945}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -7719,8 +8380,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.7776606
+  _collider: {fileID: 2032460945}
+  radius: 0.8888303
   _visual: {fileID: 1670618661}
+--- !u!114 &2032460945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032460942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.8888303
 --- !u!1 &2060598395
 GameObject:
   m_ObjectHideFlags: 0
@@ -7818,6 +8493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2078953426}
   - component: {fileID: 2078953424}
+  - component: {fileID: 2078953427}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -7837,7 +8513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2.5
+  _collider: {fileID: 2078953427}
+  radius: 1.25
   _visual: {fileID: 297970781}
 --- !u!4 &2078953426
 Transform:
@@ -7855,6 +8532,19 @@ Transform:
   - {fileID: 297970781}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2078953427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078953423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.25
 --- !u!1 &2112819612
 GameObject:
   m_ObjectHideFlags: 0
@@ -7865,6 +8555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2112819614}
   - component: {fileID: 2112819613}
+  - component: {fileID: 2112819615}
   m_Layer: 0
   m_Name: Obstacle(Clone)
   m_TagString: Untagged
@@ -7884,7 +8575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0d11e5d7a51479081d9151c5914873f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1.5322063
+  _collider: {fileID: 2112819615}
+  radius: 0.76610315
   _visual: {fileID: 490777813}
 --- !u!4 &2112819614
 Transform:
@@ -7902,6 +8594,19 @@ Transform:
   - {fileID: 490777813}
   m_Father: {fileID: 853516249}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112819615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112819612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.76610315
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

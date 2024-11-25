@@ -26,10 +26,10 @@ namespace Physics {
             static void OnPlayModeState(PlayModeStateChange state) {
                 if (state == PlayModeStateChange.ExitingPlayMode) {
                     PlayerLoopSystem currentPlayerLoop = PlayerLoop.GetCurrentPlayerLoop();
-                    RemoveSimplePhysics2D<Update>(ref currentPlayerLoop);
+                    RemoveSimplePhysics2D<FixedUpdate>(ref currentPlayerLoop);
                     PlayerLoop.SetPlayerLoop(currentPlayerLoop);
                     
-                    TimerManager.Clear();
+                    SimplePhysics2D.Clear();
                 }
             }
 #endif

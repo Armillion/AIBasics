@@ -16,7 +16,7 @@ namespace Physics {
                     if (collider1 == collider2) continue;
                     
                     Vector2 direction = collider2.transform.position - collider1.transform.position;
-                    float overlap = collider1.Radius + collider2.Radius - direction.magnitude;
+                    float overlap = collider1.radius + collider2.radius - direction.magnitude;
                     
                     if (overlap >= 0) 
                         collider1.transform.position -= (Vector3)direction.normalized * overlap * 0.5f;
@@ -25,8 +25,11 @@ namespace Physics {
         }
         
         public static void RegisterGeometry(Polygon[] closedGeometry, Polygon[] walls) {
-            _closedGeometry.AddRange(closedGeometry);
-            _walls.AddRange(walls);
+            if (closedGeometry != null)
+                _closedGeometry.AddRange(closedGeometry);
+
+            if (walls != null)
+                _walls.AddRange(walls);
         }
         
         public static void DeregisterGeometry(Polygon[] closedGeometry, Polygon[] walls) {
@@ -76,13 +79,19 @@ namespace Physics {
                 if (ignoreColliders != null && ignoreColliders.Contains(collider))
                     continue;
 
-                if (Geometry.RayIntersectsCircle(origin, direction, collider.transform.position, collider.Radius, out Vector2 intersection1, out Vector2 intersection2)) {
+                if (Geometry.RayIntersectsCircle(origin, direction, collider.transform.position, collider.radius, out Vector2 intersection1, out Vector2 intersection2)) {
                     Vector2 point = Vector2.Distance(origin, intersection1) < Vector2.Distance(origin, intersection2) ? intersection1 : intersection2;
                     hits.Add(new SimpleRaycastHit2D { point = point, transform = collider.transform });
                 }
             }
             
             return hits.ToArray();
+        }
+
+        public static void Clear() {
+            _closedGeometry.Clear();
+            _walls.Clear();
+            _colliders.Clear();
         }
     }
 }
