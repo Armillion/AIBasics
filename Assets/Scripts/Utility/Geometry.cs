@@ -69,14 +69,16 @@ namespace Utility {
             return t is >= 0 and <= 1 && u is >= 0 and <= 1;
         }
 
-        public static bool LinesIntersect(Vector2 a, Vector2 b, Vector2[] polygon, bool isClosedShape) {
+        public static bool LinesIntersect(Vector2 a, Vector2 b, Vector2[] polygon, bool isClosedShape, out Vector2 point) {
+            point = Vector2.zero;
+            
             for (var i = 0; i < polygon.Length - 1; i++) {
                 Vector2 c = polygon[i];
                 Vector2 d = polygon[i + 1];
-                if (LinesIntersect(a, b, c, d, out _)) return true;
+                if (LinesIntersect(a, b, c, d, out point)) return true;
             }
 
-            return isClosedShape && LinesIntersect(a, b, polygon[^1], polygon[0], out _);
+            return isClosedShape && LinesIntersect(a, b, polygon[^1], polygon[0], out point);
         }
 
         public static Vector2 Rotate(Vector2 v, float degrees) {
@@ -91,5 +93,36 @@ namespace Utility {
         }
         public static bool IsInsideCircle(Vector2 point, Vector2 center, float radius)
             => Vector2.Distance(point, center) <= radius;
+
+        public static bool RayIntersectsCircle(
+            Vector2 rayOrigin,
+            Vector2 rayDirection,
+            Vector2 circleCenter,
+            float circleRadius,
+            out Vector2 intersection1,
+            out Vector2 intersection2
+        ) {
+            intersection1 = Vector2.zero;
+            intersection2 = Vector2.zero;
+
+            Vector2 originToCenter = circleCenter - rayOrigin;
+
+            float projection = Vector2.Dot(originToCenter, rayDirection);
+            Vector2 closestPoint = rayOrigin + projection * rayDirection;
+
+            float closestDistSq = (circleCenter - closestPoint).sqrMagnitude;
+            float radiusSq = circleRadius * circleRadius;
+
+            if (closestDistSq > radiusSq)
+                return false;
+
+            float offset = Mathf.Sqrt(radiusSq - closestDistSq);
+
+            intersection1 = closestPoint - offset * rayDirection;
+            intersection2 = closestPoint + offset * rayDirection;
+
+            return Vector2.Dot(intersection1 - rayOrigin, rayDirection) >= 0 ||
+                   Vector2.Dot(intersection2 - rayOrigin, rayDirection) >= 0;
+        }
     }
 }
