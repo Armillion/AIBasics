@@ -10,20 +10,11 @@ namespace Physics {
         private static readonly List<Polygon> _walls = new();
         private static readonly List<SimpleCircleCollider> _colliders = new();
 
-        public static void EnsureZeroOverlap() {
-            foreach (SimpleCircleCollider collider1 in _colliders) {
-                foreach (SimpleCircleCollider collider2 in _colliders) {
-                    if (collider1 == collider2) continue;
-                    
-                    Vector2 direction = collider2.transform.position - collider1.transform.position;
-                    float overlap = collider1.radius + collider2.radius - direction.magnitude;
-                    
-                    if (overlap >= 0) 
-                        collider1.transform.position -= (Vector3)direction.normalized * overlap * 0.5f;
-                }
-            }
+        public static void SimulatePhysicsStep() {
+            EnsureWallsZeroOverlap();
+            EnsureColliderZeroOverlap();
         }
-        
+
         public static void RegisterGeometry(Polygon[] closedGeometry, Polygon[] walls) {
             if (closedGeometry != null)
                 _closedGeometry.AddRange(closedGeometry);
@@ -92,6 +83,21 @@ namespace Physics {
             _closedGeometry.Clear();
             _walls.Clear();
             _colliders.Clear();
+        }
+        
+        private static void EnsureColliderZeroOverlap() {
+            foreach (SimpleCircleCollider collider1 in _colliders) {
+                foreach (SimpleCircleCollider collider2 in _colliders) {
+                    if (collider1.gameObject.isStatic || collider1 == collider2) continue;
+                    
+                    Vector2 direction = collider2.transform.position - collider1.transform.position;
+                    float overlap = collider1.radius + collider2.radius - direction.magnitude;
+                    float pushFactor = collider2.gameObject.isStatic ? 1f : 0.5f;
+                    
+                    if (overlap >= 0) 
+                        collider1.transform.position -= (Vector3)direction.normalized * overlap * pushFactor;
+                }
+            }
         }
     }
 }

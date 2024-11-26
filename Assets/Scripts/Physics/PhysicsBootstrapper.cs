@@ -41,7 +41,7 @@ namespace Physics {
         private static bool InsertSimplePhysics2D<T>(ref PlayerLoopSystem loop, int index) {
             s_PhysicsSystem = new PlayerLoopSystem {
                 type = typeof(SimplePhysics2D),
-                updateDelegate = SimplePhysics2D.EnsureZeroOverlap,
+                updateDelegate = SimplePhysics2D.SimulatePhysicsStep,
                 subSystemList = null
             };
             
