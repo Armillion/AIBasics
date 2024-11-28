@@ -7,7 +7,7 @@ namespace Zombies.Steering {
     [RequireComponent(typeof(ArriveBehaviour), typeof(EvadeBehaviour))]
     public class HideBehaviour : MonoBehaviour, ISteeringBehaviour {
         [SerializeField]
-        private Component pursuerComponent;
+        private Component _pursuerComponent;
         
         [SerializeField]
         private Arena _arena;
@@ -24,13 +24,13 @@ namespace Zombies.Steering {
         [SerializeField, Self]
         private EvadeBehaviour _evadeBehaviour;
         
-        private IVehicle Pursuer => pursuerComponent as IVehicle;
+        private IVehicle Pursuer => _pursuerComponent as IVehicle;
 
         private void OnValidate() {
             this.ValidateRefs();
-            if (pursuerComponent && Pursuer != null) return;
-            Debug.LogError($"{pursuerComponent} does not implement {nameof(IVehicle)}", this);
-            pursuerComponent = null;
+            if (_pursuerComponent && Pursuer != null) return;
+            Debug.LogError($"{_pursuerComponent} does not implement {nameof(IVehicle)}", this);
+            _pursuerComponent = null;
         }
 
         public Vector2 CalculateSteering(IVehicle vehicle) {

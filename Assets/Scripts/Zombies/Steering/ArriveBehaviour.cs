@@ -15,7 +15,7 @@ namespace Zombies.Steering {
             
             float speed = distance / _deceleration;
             speed = Mathf.Min(speed, vehicle.MaxSpeed);
-            Vector2 desiredVelocity = toTarget.normalized * speed / distance;
+            Vector2 desiredVelocity = toTarget * speed / distance;
             return desiredVelocity - vehicle.Velocity;
         }
     }
