@@ -11,6 +11,9 @@ namespace Zombies {
         [SerializeField]
         private Zombie _zombieTemplate;
         
+        [SerializeField]
+        private ZombieManager _zombieManager;
+        
         [Header("Spawning")]
         [SerializeField, Min(0)]
         private int _initialZombieCount = 20;
@@ -39,12 +42,13 @@ namespace Zombies {
         }
 
         private void TrySpawnZombie() {
-            if (Zombie.ZombieCount >= _maxZombieCount) return;
+            if (_zombieManager.Zombies.Count >= _maxZombieCount) return;
             SpawnZombie();
         }
 
         private void SpawnZombie() {
             Zombie zombie = Instantiate(_zombieTemplate, _arena.RandomSpawnablePoint(), Quaternion.identity);
+            zombie.Init(_zombieManager);
             zombie.gameObject.SetActive(true);
             _spawnedZombies++;
             zombie.gameObject.name = $"Zombie {_spawnedZombies}";

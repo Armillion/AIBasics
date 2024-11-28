@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Cinemachine;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
 using Zombies.Steering;
 
@@ -25,9 +27,6 @@ namespace Zombies {
             }
         }
 
-        private static readonly HashSet<Zombie> _zombies = new();
-        public static int ZombieCount => _zombies.Count;
-
         [SerializeField]
         private PlayerController _player;
 
@@ -36,23 +35,26 @@ namespace Zombies {
 
         [field: SerializeField, Min(0f)]
         public float MaxSteerForce { get; private set; } = 5f;
-        
+
         [SerializeField]
         private SteeringBehaviourConfig[] _defaultSteeringBehaviours;
 
         [SerializeField]
         private SteeringBehaviourConfig[] _chaseSteeringBehaviours;
 
-        [Header("Grouping")]
-        [SerializeField, Min(0f)]
-        private float _groupingRadius = 2f;
-
-        [SerializeField, Min(1)]
-        private int _attackGroupSize = 5;
-
         public Vector2 Position => transform.position;
         public Vector2 Velocity { get; private set; }
         
+        public bool IsChasingPlayer {
+            get => _isChasingPlayer;
+
+            set {
+                if (_isChasingPlayer) return;
+                _isChasingPlayer = value;
+            }
+        }
+
+        private ZombieManager _zombieManager;
         private bool _isChasingPlayer;
 
         private void OnValidate() {
@@ -60,27 +62,27 @@ namespace Zombies {
                 steeringBehaviour.OnValidate(this);
         }
 
-        private void OnEnable() => _zombies.Add(this);
-
-        private void OnDisable() {
-            if (_zombies.Contains(this))
-                _zombies.Remove(this);
+        private void OnEnable() {
+            if (_zombieManager)
+                _zombieManager.Register(this);
         }
 
-        private void Update() {
-            if (!_isChasingPlayer && IsAttackGroupAssembled())
-                _isChasingPlayer = true;
-            
-            Vector2 steering = _isChasingPlayer ? CalculateSteering(_chaseSteeringBehaviours) : CalculateSteering(_defaultSteeringBehaviours);
+        private void OnDisable() {
+            if (_zombieManager)
+                _zombieManager.Deregister(this);
+        }
+
+        public void GameTick() {
+            Vector2 steering = _isChasingPlayer
+                ? CalculateSteering(_chaseSteeringBehaviours)
+                : CalculateSteering(_defaultSteeringBehaviours);
+
             Steer(steering);
         }
 
-        private bool IsAttackGroupAssembled() {
-            int closeZombies = _zombies.Where(zombie => zombie != this).Count(
-                zombie => Vector2.Distance(Position, zombie.Position) <= _groupingRadius
-            );
-
-            return closeZombies >= _attackGroupSize;
+        public void Init(ZombieManager zombieManager) {
+            _zombieManager = zombieManager;
+            _zombieManager.Register(this);
         }
 
         private void Steer(Vector2 steering) {
@@ -98,7 +100,7 @@ namespace Zombies {
             Vector2 steering = Vector2.zero;
             Color[] debugColors = { Color.red, Color.yellow, Color.green, Color.cyan, Color.blue };
             int i = 0;
-            
+
             foreach (SteeringBehaviourConfig steeringBehaviour in steeringBehaviours) {
                 Vector2 forceToAdd = steeringBehaviour.Behaviour.CalculateSteering(this) * steeringBehaviour.weight;
                 if (!AccumulateForce(ref steering, forceToAdd, debugColors[i++])) break;
@@ -119,15 +121,10 @@ namespace Zombies {
                 accumulatedForce += forceToAdd;
             else
                 accumulatedForce += forceToAdd.normalized * magnitudeRemaining;
-            
+
             Debug.DrawRay(transform.position, accumulatedForce, debugColor);
 
             return true;
-        }
-
-        private void OnDrawGizmosSelected() {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(transform.position, _groupingRadius);
         }
     }
 }
