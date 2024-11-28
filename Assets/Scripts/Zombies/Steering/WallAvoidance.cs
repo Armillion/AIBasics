@@ -69,7 +69,6 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
                 Vector2 normal = new Vector2(-direction.y, direction.x).normalized;
                 Debug.DrawRay(closestPoint, normal, Color.red);
                 steerForce = overshoot.magnitude * normal; //needs to be multiplied by a wall normal
-                Debug.Log(steerForce);
             }
             
         }

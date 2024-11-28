@@ -85,6 +85,23 @@ namespace Physics {
             _colliders.Clear();
         }
         
+        private static void EnsureWallsZeroOverlap() {
+            // foreach (SimpleCircleCollider collider in _colliders) {
+            //     foreach (Polygon walls in _walls) {
+            //         var vertices = (Vector2[])walls;
+            //         
+            //         for (var i = 0; i < vertices.Length; i++) {
+            //             Vector2 direction = vertices[i] - vertices[(i + 1) % vertices.Length];
+            //             Vector2 normal = new Vector2(-direction.y, direction.x).normalized;
+            //             Vector2 overlap = normal * (collider.radius - Vector2.Dot(normal, (Vector2)collider.transform.position - vertices[i]));
+            //             
+            //             if (overlap.magnitude > 0)
+            //                 collider.transform.position += (Vector3)overlap;
+            //         }
+            //     }
+            // }
+        }
+        
         private static void EnsureColliderZeroOverlap() {
             foreach (SimpleCircleCollider collider1 in _colliders) {
                 foreach (SimpleCircleCollider collider2 in _colliders) {

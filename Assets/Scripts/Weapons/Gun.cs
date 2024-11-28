@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Linq;
 using ImprovedTimers;
 using KBCore.Refs;
+using Physics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zombies;
 
 namespace Weapons {
     public class Gun : MonoBehaviour {
@@ -80,6 +83,17 @@ namespace Weapons {
             Bullet bullet = Instantiate(_bulletTemplate, transform.position, transform.rotation);
             bullet.gameObject.SetActive(true);
             bullet.Fire();
+
+            SimpleRaycastHit2D[] hits = SimplePhysics2D.RaycastAll(transform.position, transform.right);
+            IOrderedEnumerable<SimpleRaycastHit2D> distanceOrderedHits = hits.OrderBy(hit => Vector3.Distance(transform.position, hit.transform.position));
+
+            foreach (SimpleRaycastHit2D hit in distanceOrderedHits) {
+                if (hit.transform.gameObject.isStatic)
+                    break;
+                
+                if (hit.transform.TryGetComponent(out Zombie zombie))
+                    Destroy(zombie.gameObject);
+            }
             
             ShootVisuals();
             _fireRateTimer.Start();
