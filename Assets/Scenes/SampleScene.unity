@@ -2986,6 +2986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groupingRadius: 3.5
   _attackGroupSize: 5
+  _arena: {fileID: 853516248}
 --- !u!4 &646365714
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ namespace Zombies.Environment {
         private Obstacle[] _obstacles = Array.Empty<Obstacle>();
         
         public IReadOnlyCollection<Obstacle> Obstacles => _obstacles;
+        public Vector2 Center => _bounds.center;
+        public Vector2 Size => _bounds.size;
 
         private Bounds _bounds;
         
