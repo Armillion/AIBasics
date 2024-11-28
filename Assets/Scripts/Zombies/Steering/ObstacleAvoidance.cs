@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using KBCore.Refs;
+using SpacePartitioning;
 using UnityEngine;
 using Zombies;
 using Zombies.Environment;
@@ -10,43 +11,38 @@ using Zombies.Steering;
 public class ObstacleAvoidance : MonoBehaviour, ISteeringBehaviour {
     [SerializeField] private float _minDetectionRange = 0.5f;
 
-    [SerializeField] private List<Obstacle> taggedObjects = new();
     [SerializeField, Self] private Obstacle thisObstacle;
+    [SerializeField] private Arena _arena;
+    
+    private static CellSpacePartition<Obstacle> s_SpacePartition;
+    private static bool s_SpacePartitionUpdated;
 
     private void OnValidate() => this.ValidateRefs();
+    
+    private void Start() {
+        s_SpacePartition ??= new CellSpacePartition<Obstacle>(_arena.Center, _arena.Size, _minDetectionRange);
+        s_SpacePartition.Add(thisObstacle);
+    }
+
+    private void OnEnable() => s_SpacePartition?.Add(thisObstacle);
+    private void OnDisable() => s_SpacePartition?.Remove(thisObstacle);
 
     public Vector2 CalculateSteering(IVehicle vehicle)
     {
         float DetectionRange = vehicle.Velocity.magnitude + _minDetectionRange;
 
-        foreach(Obstacle obstacleInstance in Obstacle.all)
+        // HACK
+        if (!s_SpacePartitionUpdated)
         {
-            
-            if(obstacleInstance == thisObstacle)
-            {
-                continue;
-            }
-            
-            if(Vector2.Distance(transform.position, obstacleInstance.gameObject.transform.position) < DetectionRange)
-            {
-                if (!taggedObjects.Contains(obstacleInstance))
-                {
-                    taggedObjects.Add(obstacleInstance);
-                }
-            }
-            else 
-            {
-                taggedObjects.Remove(obstacleInstance);
-            }
+            s_SpacePartition.UpdatePositions();
+            s_SpacePartitionUpdated = true;
         }
-
+        
+        IEnumerable<Obstacle> taggedObjects = s_SpacePartition.GetNearbyEntities(vehicle.Position, DetectionRange);
+        
         Obstacle ClosestObstacleInRange = null;
         float distToCOIR = float.MaxValue;   
         Vector2 COIRLocalPos = Vector2.zero;
-
-        for (int i = taggedObjects.Count - 1; i >= 0; i--)
-            if (!taggedObjects[i])
-                taggedObjects.Remove(taggedObjects[i]);
 
         foreach(Obstacle obstacle in taggedObjects)
         {
@@ -91,4 +87,6 @@ public class ObstacleAvoidance : MonoBehaviour, ISteeringBehaviour {
         
         return transform.TransformVector(steerForce);
     }
+
+    private void LateUpdate() => s_SpacePartitionUpdated = false;
 }

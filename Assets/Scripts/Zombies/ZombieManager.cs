@@ -18,10 +18,10 @@ namespace Zombies {
         public IReadOnlyCollection<Zombie> Zombies => _zombies;
 
         private readonly HashSet<Zombie> _zombies = new ();
-        private CellSpacePartition _spacePartition;
+        private CellSpacePartition<Zombie> _spacePartition;
 
         private void Start() {
-            _spacePartition = new CellSpacePartition(_arena.Center, _arena.Size, _groupingRadius);
+            _spacePartition = new CellSpacePartition<Zombie>(_arena.Center, _arena.Size, _groupingRadius);
         }
 
         private void Update() {
@@ -35,16 +35,16 @@ namespace Zombies {
 
         public void Register(Zombie zombie) {
             _zombies.Add(zombie);
-            _spacePartition.Add(zombie.transform);
+            _spacePartition.Add(zombie);
         }
 
         public void Deregister(Zombie zombie) {
             _zombies.Remove(zombie);
-            _spacePartition.Remove(zombie.transform);
+            _spacePartition.Remove(zombie);
         }
         
         private void HandleGrouping(Zombie zombie) {
-            int closeCount = _spacePartition.GetNearbyEntities(zombie.Position, _groupingRadius).Count(n => n != zombie.transform);
+            int closeCount = _spacePartition.GetNearbyEntities(zombie.Position, _groupingRadius).Count(n => n != zombie);
             
             if (closeCount >= _attackGroupSize)
                 zombie.IsChasingPlayer = true;

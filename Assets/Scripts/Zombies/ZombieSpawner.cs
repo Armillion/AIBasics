@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using ImprovedTimers;
 using UnityEngine;
 using Zombies.Environment;
@@ -34,7 +35,8 @@ namespace Zombies {
             _spawnTimer.Start();
         }
 
-        private void Start() {
+        private IEnumerator Start() {
+            yield return null;
             _zombieTemplate.gameObject.SetActive(false);
             
             for (var i = 0; i < _initialZombieCount; i++)

@@ -8235,8 +8235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minDetectionRange: 2.5
-  taggedObjects: []
   thisObstacle: {fileID: 2001711504}
+  _arena: {fileID: 853516248}
 --- !u!114 &2001711504
 MonoBehaviour:
   m_ObjectHideFlags: 0

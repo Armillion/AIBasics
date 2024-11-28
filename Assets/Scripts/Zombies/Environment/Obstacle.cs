@@ -8,8 +8,6 @@ namespace Zombies.Environment {
     [SelectionBase]
     [RequireComponent(typeof(SimpleCircleCollider))]
     public class Obstacle : MonoBehaviour {
-        public static readonly HashSet<Obstacle> all = new();
-        
         [SerializeField, Self]
         private SimpleCircleCollider _collider;
         
@@ -25,9 +23,5 @@ namespace Zombies.Environment {
             if (_visual)
                 _visual.localScale = new Vector3(radius * 2f, radius * 2f, 1f);
         }
-
-        private void OnEnable() => all.Add(this);
-
-        private void OnDisable() => all.Remove(this);
     }
 }
