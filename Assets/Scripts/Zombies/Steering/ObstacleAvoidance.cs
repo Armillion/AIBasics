@@ -21,6 +21,7 @@ public class ObstacleAvoidance : MonoBehaviour, ISteeringBehaviour {
 
         foreach(Obstacle obstacleInstance in Obstacle.all)
         {
+            
             if(obstacleInstance == thisObstacle)
             {
                 continue;
@@ -42,6 +43,10 @@ public class ObstacleAvoidance : MonoBehaviour, ISteeringBehaviour {
         Obstacle ClosestObstacleInRange = null;
         float distToCOIR = float.MaxValue;   
         Vector2 COIRLocalPos = Vector2.zero;
+
+        for (int i = taggedObjects.Count - 1; i >= 0; i--)
+            if (!taggedObjects[i])
+                taggedObjects.Remove(taggedObjects[i]);
 
         foreach(Obstacle obstacle in taggedObjects)
         {
