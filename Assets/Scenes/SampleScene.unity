@@ -1153,9 +1153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arena: {fileID: 853516248}
   _zombieTemplate: {fileID: 2001711498}
-  _initialZombieCount: 1
-  _maxZombieCount: 1
-  _spawnRate: 1
+  _initialZombieCount: 20
+  _maxZombieCount: 100
+  _spawnRate: 0.5
 --- !u!1 &257295726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8103,13 +8103,13 @@ MonoBehaviour:
   <MaxSteerForce>k__BackingField: 8
   _defaultSteeringBehaviours:
   - _component: {fileID: 2001711507}
-    weight: 1
+    weight: 1.5
   - _component: {fileID: 2001711503}
     weight: 1
   - _component: {fileID: 2001711502}
     weight: 1
   - _component: {fileID: 2001711497}
-    weight: 0
+    weight: 0.5
   _chaseSteeringBehaviours:
   - _component: {fileID: 2001711503}
     weight: 1
@@ -8173,7 +8173,7 @@ MonoBehaviour:
   _pursuerComponent: {fileID: 1154196317}
   _arena: {fileID: 853516248}
   _distanceFromCover: 1
-  _threatDistance: 25
+  _threatDistance: 17.5
   _arriveBehaviour: {fileID: 2001711501}
   _evadeBehaviour: {fileID: 2001711499}
 --- !u!114 &2001711503
