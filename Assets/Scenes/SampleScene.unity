@@ -1153,8 +1153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arena: {fileID: 853516248}
   _zombieTemplate: {fileID: 2001711498}
-  _initialZombieCount: 20
-  _maxZombieCount: 100
+  _initialZombieCount: 1
+  _maxZombieCount: 1
   _spawnRate: 1
 --- !u!1 &257295726
 GameObject:
@@ -4660,6 +4660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1154196316}
   - component: {fileID: 1154196317}
+  - component: {fileID: 1154196318}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Untagged
@@ -4705,6 +4706,19 @@ MonoBehaviour:
   _accelerationSpeed: 10
   _aimTransform: {fileID: 1613539548}
   _maxAimDistance: 1.5
+--- !u!114 &1154196318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154196315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.5
 --- !u!1 &1167047089
 GameObject:
   m_ObjectHideFlags: 0
@@ -8085,16 +8099,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1154196317}
-  <MaxSpeed>k__BackingField: 5
+  <MaxSpeed>k__BackingField: 3
+  <MaxSteerForce>k__BackingField: 8
   _defaultSteeringBehaviours:
-  - _component: {fileID: 2001711503}
-    weight: 1
   - _component: {fileID: 2001711507}
     weight: 1
+  - _component: {fileID: 2001711503}
+    weight: 1
   - _component: {fileID: 2001711502}
-    weight: 2
+    weight: 1
   - _component: {fileID: 2001711497}
-    weight: 0.5
+    weight: 0
   _chaseSteeringBehaviours:
   - _component: {fileID: 2001711503}
     weight: 1
@@ -8155,7 +8170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a051596c61b4335be789ee885326f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursuerComponent: {fileID: 1154196317}
+  _pursuerComponent: {fileID: 1154196317}
   _arena: {fileID: 853516248}
   _distanceFromCover: 1
   _threatDistance: 25

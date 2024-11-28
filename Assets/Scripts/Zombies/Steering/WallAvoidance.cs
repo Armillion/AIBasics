@@ -14,7 +14,7 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
 
     private Vector2[] feelers = new Vector2[3];
 
-    public Vector2 CalculateSteering(IVehicle _)
+    public Vector2 CalculateSteering(IVehicle vehicle)
     {
         CreateFeelers();
 
@@ -67,13 +67,12 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
                 Vector2 overshoot = feeler - closestPoint;
                 Vector2 direction = closestWall.Value.Item2 - closestWall.Value.Item1;
                 Vector2 normal = new Vector2(-direction.y, direction.x).normalized;
-                Debug.DrawRay(closestPoint, normal, Color.red);
+                Debug.DrawRay(closestPoint, normal, Color.blue);
                 steerForce = overshoot.magnitude * normal; //needs to be multiplied by a wall normal
             }
             
         }
 
-        Debug.DrawLine((Vector2)transform.position, transform.TransformPoint(steerForce), Color.green);
         return steerForce;
     }
 
@@ -82,12 +81,5 @@ public class WallAvoidance : MonoBehaviour, ISteeringBehaviour
         feelers[0] = (Vector2)transform.position + ((Vector2)transform.right*feelerLength);
         feelers[1] = (Vector2)transform.position + Utility.Geometry.Rotate(((Vector2)transform.right * feelerLength), feelerAngle);
         feelers[2] = (Vector2)transform.position + Utility.Geometry.Rotate(((Vector2)transform.right * feelerLength), -feelerAngle);
-    }
-
-    private void OnDrawGizmosSelected() {
-        Gizmos.color = Color.red;
-        
-        foreach(Vector2 feeler in feelers)
-            Gizmos.DrawLine(transform.position, feeler);
     }
 }

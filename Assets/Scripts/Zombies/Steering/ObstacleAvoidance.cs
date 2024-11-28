@@ -84,7 +84,6 @@ public class ObstacleAvoidance : MonoBehaviour, ISteeringBehaviour {
             steerForce.x = (ClosestObstacleInRange.radius - COIRLocalPos.x) + 0.2f;
         }
         
-        Debug.DrawLine(transform.position, transform.position + (Vector3)steerForce, Color.yellow, 0.1f);
         return transform.TransformVector(steerForce);
     }
 }

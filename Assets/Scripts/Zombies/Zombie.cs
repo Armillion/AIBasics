@@ -34,6 +34,9 @@ namespace Zombies {
         [field: SerializeField, Min(0f)]
         public float MaxSpeed { get; private set; } = 2f;
 
+        [field: SerializeField, Min(0f)]
+        public float MaxSteerForce { get; private set; } = 5f;
+        
         [SerializeField]
         private SteeringBehaviourConfig[] _defaultSteeringBehaviours;
 
@@ -50,7 +53,7 @@ namespace Zombies {
         public Vector2 Position => transform.position;
         public Vector2 Velocity { get; private set; }
         
-        private bool _isChasingPlayer = false;
+        private bool _isChasingPlayer;
 
         private void OnValidate() {
             foreach (SteeringBehaviourConfig steeringBehaviour in _defaultSteeringBehaviours)
@@ -82,12 +85,10 @@ namespace Zombies {
 
         private void Steer(Vector2 steering) {
             Velocity += steering * Time.deltaTime;
-            // Velocity = Vector2.ClampMagnitude(Velocity, MaxSpeed);
+            Velocity = Vector2.ClampMagnitude(Velocity, MaxSpeed);
 
             transform.position += (Vector3)Velocity * Time.deltaTime;
-            Debug.DrawLine(transform.position, transform.position + (Vector3)Velocity, Color.green);
-
-            if (Velocity.magnitude <= 0.1f) return;
+            if (Velocity.magnitude <= float.Epsilon) return;
 
             float angle = Mathf.Atan2(Velocity.y, Velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -95,20 +96,20 @@ namespace Zombies {
 
         private Vector2 CalculateSteering(SteeringBehaviourConfig[] steeringBehaviours) {
             Vector2 steering = Vector2.zero;
-
+            Color[] debugColors = { Color.red, Color.yellow, Color.green, Color.cyan, Color.blue };
+            int i = 0;
+            
             foreach (SteeringBehaviourConfig steeringBehaviour in steeringBehaviours) {
                 Vector2 forceToAdd = steeringBehaviour.Behaviour.CalculateSteering(this) * steeringBehaviour.weight;
-                // Debug.Log($"{steeringBehaviour.Behaviour.GetType().Name}: adds {forceToAdd.magnitude}. Remaining: {MaxSpeed - steering.magnitude}");
-                if (!AccumulateForce(ref steering, forceToAdd)) break;
+                if (!AccumulateForce(ref steering, forceToAdd, debugColors[i++])) break;
             }
 
-            // Debug.Log("=========================================");
             return steering;
         }
 
-        private bool AccumulateForce(ref Vector2 accumulatedForce, Vector2 forceToAdd) {
+        private bool AccumulateForce(ref Vector2 accumulatedForce, Vector2 forceToAdd, Color debugColor) {
             float magnitudeSoFar = accumulatedForce.magnitude;
-            float magnitudeRemaining = MaxSpeed - magnitudeSoFar;
+            float magnitudeRemaining = MaxSteerForce - magnitudeSoFar;
 
             if (magnitudeRemaining <= 0f) return false;
 
@@ -118,6 +119,8 @@ namespace Zombies {
                 accumulatedForce += forceToAdd;
             else
                 accumulatedForce += forceToAdd.normalized * magnitudeRemaining;
+            
+            Debug.DrawRay(transform.position, accumulatedForce, debugColor);
 
             return true;
         }
