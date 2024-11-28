@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Unity.Collections;
+using Unity.Jobs;
 using UnityEngine;
 using Utility;
 using Zombies.Environment;
 
 namespace Physics {
     public static class SimplePhysics2D {
-        private static readonly List<Polygon> _closedGeometry = new();
-        private static readonly List<Polygon> _walls = new();
-        private static readonly List<SimpleCircleCollider> _colliders = new();
+        private static readonly List<Polygon> _closedGeometry = new ();
+        private static readonly List<Polygon> _walls = new ();
+        private static readonly List<SimpleCircleCollider> _colliders = new ();
 
         public static void SimulatePhysicsStep() {
             EnsureWallsZeroOverlap();
@@ -22,60 +24,75 @@ namespace Physics {
             if (walls != null)
                 _walls.AddRange(walls);
         }
-        
+
         public static void DeregisterGeometry(Polygon[] closedGeometry, Polygon[] walls) {
             foreach (Polygon polygon in closedGeometry)
                 _closedGeometry.Remove(polygon);
-            
+
             foreach (Polygon polygon in walls)
                 _walls.Remove(polygon);
         }
 
         public static void RegisterCollider(SimpleCircleCollider collider) => _colliders.Add(collider);
         public static void DeregisterCollider(SimpleCircleCollider collider) => _colliders.Remove(collider);
-        
-        public static bool Raycast(Vector2 origin, Vector2 direction, out SimpleRaycastHit2D hit, params SimpleCircleCollider[] ignoreColliders) {
+
+        public static bool Raycast(
+            Vector2 origin,
+            Vector2 direction,
+            out SimpleRaycastHit2D hit,
+            params SimpleCircleCollider[] ignoreColliders
+        ) {
             SimpleRaycastHit2D[] hits = RaycastAll(origin, direction, ignoreColliders);
-            
+
             if (hits.Length == 0) {
                 hit = new SimpleRaycastHit2D();
                 return false;
             }
-            
+
             var minDistance = float.MaxValue;
             hit = new SimpleRaycastHit2D();
-            
+
             foreach (SimpleRaycastHit2D raycastHit2D in hits) {
                 float distance = Vector2.Distance(origin, raycastHit2D.point);
                 if (distance >= minDistance) continue;
                 minDistance = distance;
                 hit = raycastHit2D;
             }
-            
+
             return true;
         }
 
-        public static SimpleRaycastHit2D[] RaycastAll(Vector2 origin, Vector2 direction, params SimpleCircleCollider[] ignoreColliders) {
-            List<SimpleRaycastHit2D> hits = new();
-            
+        public static SimpleRaycastHit2D[] RaycastAll(
+            Vector2 origin,
+            Vector2 direction,
+            params SimpleCircleCollider[] ignoreColliders
+        ) {
+            List<SimpleRaycastHit2D> hits = new ();
+
             foreach (Polygon polygon in _closedGeometry)
                 if (Geometry.LinesIntersect(origin, origin + direction, polygon, true, out Vector2 point))
                     hits.Add(new SimpleRaycastHit2D { point = point });
-            
+
             foreach (Polygon polygon in _walls)
                 if (Geometry.LinesIntersect(origin, origin + direction, polygon, false, out Vector2 point))
                     hits.Add(new SimpleRaycastHit2D { point = point });
-            
+
             foreach (SimpleCircleCollider collider in _colliders) {
                 if (ignoreColliders != null && ignoreColliders.Contains(collider))
                     continue;
 
-                if (Geometry.RayIntersectsCircle(origin, direction, collider.transform.position, collider.radius, out Vector2 intersection1, out Vector2 intersection2)) {
-                    Vector2 point = Vector2.Distance(origin, intersection1) < Vector2.Distance(origin, intersection2) ? intersection1 : intersection2;
+                if (Geometry.RayIntersectsCircle(
+                        origin, direction, collider.transform.position, collider.radius, out Vector2 intersection1,
+                        out Vector2 intersection2
+                    )) {
+                    Vector2 point = Vector2.Distance(origin, intersection1) < Vector2.Distance(origin, intersection2)
+                        ? intersection1
+                        : intersection2;
+
                     hits.Add(new SimpleRaycastHit2D { point = point, transform = collider.transform });
                 }
             }
-            
+
             return hits.ToArray();
         }
 
@@ -84,7 +101,7 @@ namespace Physics {
             _walls.Clear();
             _colliders.Clear();
         }
-        
+
         private static void EnsureWallsZeroOverlap() {
             // foreach (SimpleCircleCollider collider in _colliders) {
             //     foreach (Polygon walls in _walls) {
@@ -101,20 +118,72 @@ namespace Physics {
             //     }
             // }
         }
-        
-        private static void EnsureColliderZeroOverlap() {
-            foreach (SimpleCircleCollider collider1 in _colliders) {
-                foreach (SimpleCircleCollider collider2 in _colliders) {
-                    if (collider1.gameObject.isStatic || collider1 == collider2) continue;
-                    
-                    Vector2 direction = collider2.transform.position - collider1.transform.position;
-                    float overlap = collider1.radius + collider2.radius - direction.magnitude;
-                    float pushFactor = collider2.gameObject.isStatic ? 1f : 0.5f;
-                    
-                    if (overlap >= 0) 
-                        collider1.transform.position -= (Vector3)direction.normalized * overlap * pushFactor;
+
+        private struct EnsureZeroOverlapJob : IJobFor {
+            public NativeArray<Vector2> positions;
+
+            [ReadOnly]
+            public NativeArray<float> radii;
+
+            [ReadOnly]
+            public NativeArray<bool> isStatic;
+
+            public void Execute(int index) {
+                if (isStatic[index]) return;
+                
+                Vector2 currentPosition = positions[index];
+                float currentRadius = radii[index];
+
+                for (var j = 0; j < positions.Length; j++) {
+                    if (j == index) continue;
+
+                    Vector2 otherPosition = positions[j];
+                    float otherRadius = radii[j];
+
+                    Vector2 direction = otherPosition - currentPosition;
+                    float distance = direction.magnitude;
+                    float overlap = currentRadius + otherRadius - distance;
+
+                    if (overlap <= 0) continue;
+
+                    float pushFactor = isStatic[j] ? 1f : 0.5f;
+                    currentPosition -= direction.normalized * overlap * pushFactor;
                 }
+
+                positions[index] = currentPosition;
             }
+        }
+
+        private static void EnsureColliderZeroOverlap() {
+            int count = _colliders.Count;
+
+            var positions = new NativeArray<Vector2>(count, Allocator.TempJob);
+            var radii = new NativeArray<float>(count, Allocator.TempJob);
+            var isStatic = new NativeArray<bool>(count, Allocator.TempJob);
+
+            for (var i = 0; i < count; i++) {
+                SimpleCircleCollider collider = _colliders[i];
+                positions[i] = collider.transform.position;
+                radii[i] = collider.radius;
+                isStatic[i] = collider.gameObject.isStatic;
+            }
+
+            var overlapJob = new EnsureZeroOverlapJob {
+                positions = positions,
+                radii = radii,
+                isStatic = isStatic
+            };
+
+            JobHandle handle = overlapJob.Schedule(count, default);
+            handle.Complete();
+
+            for (var i = 0; i < count; i++)
+                if (!isStatic[i])
+                    _colliders[i].transform.position = positions[i];
+
+            positions.Dispose();
+            radii.Dispose();
+            isStatic.Dispose();
         }
     }
 }

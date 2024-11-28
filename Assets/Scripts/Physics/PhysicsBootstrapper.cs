@@ -12,7 +12,7 @@ namespace Physics {
         internal static void Initialize() {
             PlayerLoopSystem currentPlayerLoop = PlayerLoop.GetCurrentPlayerLoop();
 
-            if (!InsertSimplePhysics2D<FixedUpdate>(ref currentPlayerLoop, 0)) {
+            if (!InsertSimplePhysics2D<PostLateUpdate>(ref currentPlayerLoop, 0)) {
                 Debug.LogWarning("Physics not initialized, unable to register SimplePhysics2D into the Update loop.");
                 return;
             }
@@ -26,7 +26,7 @@ namespace Physics {
             static void OnPlayModeState(PlayModeStateChange state) {
                 if (state == PlayModeStateChange.ExitingPlayMode) {
                     PlayerLoopSystem currentPlayerLoop = PlayerLoop.GetCurrentPlayerLoop();
-                    RemoveSimplePhysics2D<FixedUpdate>(ref currentPlayerLoop);
+                    RemoveSimplePhysics2D<PostLateUpdate>(ref currentPlayerLoop);
                     PlayerLoop.SetPlayerLoop(currentPlayerLoop);
                     
                     SimplePhysics2D.Clear();
