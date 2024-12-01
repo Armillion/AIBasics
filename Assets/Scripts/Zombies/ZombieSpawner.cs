@@ -55,5 +55,7 @@ namespace Zombies {
             _spawnedZombies++;
             zombie.gameObject.name = $"Zombie {_spawnedZombies}";
         }
+
+        private void OnDestroy() => _spawnTimer.Dispose();
     }
 }

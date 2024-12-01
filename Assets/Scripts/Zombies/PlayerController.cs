@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using KBCore.Refs;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Zombies {
@@ -29,6 +30,9 @@ namespace Zombies {
     
         [SerializeField, Min(0f)]
         private float _maxAimDistance = 2f;
+        
+        [field: SerializeField, Self]
+        public Health.Health Health { get; private set; }
     
         public float MaxSpeed { get; private set; }
         public Vector2 Position => transform.position;

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Unity.Cinemachine;
-using Unity.Collections;
-using Unity.Jobs;
 using UnityEngine;
 using Zombies.Steering;
 
@@ -29,6 +25,9 @@ namespace Zombies {
 
         [SerializeField]
         private PlayerController _player;
+
+        [SerializeField, Min(0f)]
+        private float _attackRange = 1f;
 
         [field: SerializeField, Min(0f)]
         public float MaxSpeed { get; private set; } = 2f;
@@ -78,6 +77,7 @@ namespace Zombies {
                 : CalculateSteering(_defaultSteeringBehaviours);
 
             Steer(steering);
+            TryDamagePlayer();
         }
 
         public void Init(ZombieManager zombieManager) {
@@ -125,6 +125,16 @@ namespace Zombies {
             Debug.DrawRay(transform.position, accumulatedForce, debugColor);
 
             return true;
+        }
+        
+        private void TryDamagePlayer() {
+            if (Vector3.Distance(_player.transform.position, transform.position) <= _attackRange)
+                _player.Health.TakeDamage();
+        }
+
+        private void OnDrawGizmosSelected() {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _attackRange);
         }
     }
 }
