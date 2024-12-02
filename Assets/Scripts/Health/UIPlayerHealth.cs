@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 namespace Health {
     public class UIPlayerHealth : MonoBehaviour {
+        private const int MAX_ICONS = 10;
+        
         [SerializeField]
         private Health _playerHealth;
 
@@ -16,9 +18,9 @@ namespace Health {
         private void OnValidate() => this.ValidateRefs();
 
         private void Start() {
-            _healthIcons = new UIHealthIcon[_playerHealth.MaxHealth];
+            _healthIcons = new UIHealthIcon[Mathf.Min(_playerHealth.MaxHealth, MAX_ICONS)];
             
-            for (var i = 0; i < _playerHealth.MaxHealth; i++)
+            for (var i = 0; i < _playerHealth.MaxHealth && i < MAX_ICONS; i++)
                 _healthIcons[i] = Instantiate(_healthIconTemplate, transform);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(transform as RectTransform);
