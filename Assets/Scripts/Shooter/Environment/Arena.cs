@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Physics;
 using UnityEngine;
 using Utility;
 
@@ -35,6 +36,7 @@ namespace Shooter.Environment {
         
         private void Awake() {
             RecreateArena();
+            SimplePhysics2D.RegisterGeometry(_levelGeometry, _walls);
         }
 
         public void RecreateArena() {
@@ -66,6 +68,18 @@ namespace Shooter.Environment {
             (int x, int y) = GetCellIndex(position);
             cellIndex = y * XCellCount + x;
             return IsValidIndex(x, y);
+        }
+        
+        public bool IsStraightPathTraversable(Vector2 start, Vector2 end) {
+            foreach (Polygon wall in _walls)
+                if (Geometry.LinesIntersect(start, end, wall, false, out _))
+                    return false;
+
+            foreach (Polygon wall in _levelGeometry)
+                if (Geometry.LinesIntersect(start, end, wall, true, out _))
+                    return false;
+
+            return true;
         }
         
         private void CreateGrid() {
@@ -137,18 +151,6 @@ namespace Shooter.Environment {
         private bool IsValidIndex(int xIndex, int yIndex)
             => xIndex >= 0 && xIndex < XCellCount && yIndex >= 0 && yIndex < YCellCount;
 
-        private bool IsStraightPathTraversable(Vector2 start, Vector2 end) {
-            foreach (Polygon wall in _walls)
-                if (Geometry.LinesIntersect(start, end, wall, false))
-                    return false;
-
-            foreach (Polygon wall in _levelGeometry)
-                if (Geometry.LinesIntersect(start, end, wall, true))
-                    return false;
-
-            return true;
-        }
-                
         private (int, int) GetCellIndex(Vector2 position) {
             Vector2 localPosition = position - (Vector2)transform.position;
             Vector2 size = _bounds.size;

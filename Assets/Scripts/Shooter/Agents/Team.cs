@@ -13,5 +13,10 @@ namespace Shooter.Agents {
             Team.Terrorist => new Color(0.8f, 0.75f, 0.55f, 1f),
             _ => Color.white
         };
+
+        public static bool IsHostile(this Team team, Team other) {
+            if (team != other) return true;
+            return team == Team.None;
+        }
     }
 }

@@ -29,8 +29,6 @@ namespace Shooter.Agents {
 
         private FrequencyTimer _tickTimer;
 
-        // private void OnValidate() => SetupTickTimer();
-
         private void Awake() {
             if (Instance != null) {
                 Destroy(gameObject);

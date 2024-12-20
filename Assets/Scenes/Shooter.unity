@@ -587,7 +587,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730838798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297d35737c9f7a842bb793d6ffedb0fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 79fa210d225a9964ba0c98fef4f7fcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _levelGeometry:
@@ -768,7 +768,2823 @@ MonoBehaviour:
     - {x: -35, y: -15}
     - {x: -32, y: -15}
   _gridSize: 3
-  <Grid>k__BackingField: []
+  <Grid>k__BackingField:
+  - position: {x: -65.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -26.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -23.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -20.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -17.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -14.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: -11.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -5.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -2.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 0.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 3.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 6.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: 9.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -47.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -11.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -5.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -2.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 0.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 3.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 9.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -44.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -11.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -5.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -2.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 0.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 3.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 6.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 9.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -41.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -44.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -41.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -38.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -35.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -32.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -29.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: -26.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -11.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -8.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -5.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: -2.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 215
+  - position: {x: 0.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 231
+  - position: {x: 3.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: 6.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 209
+  - position: {x: 9.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -38.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -38.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -35.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -32.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -29.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -26.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -11.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -8.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -2.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 0.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 3.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 9.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: 21.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 24.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 27.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 30.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 33.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 36.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 39.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 42.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: 45.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -35.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -38.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -35.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: -32.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 126
+  - position: {x: -29.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -26.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -11.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -8.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -2.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 0.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 3.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 6.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: 9.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 12.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 15.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 18.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 21.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 24.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 27.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 39.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 45.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -32.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -38.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 249
+  - position: {x: -35.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -32.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: -29.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: -26.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -11.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 159
+  - position: {x: -8.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -2.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 0.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 6.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 9.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 15.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 24.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 27.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 39.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 45.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -29.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -38.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -35.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -32.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -29.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 63
+  - position: {x: -26.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 95
+  - position: {x: -8.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -2.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 0.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 29
+  - position: {x: 6.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: 9.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 12.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 15.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 126
+  - position: {x: 18.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 21.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 24.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 27.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 39.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 45.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -26.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -38.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 240
+  - position: {x: -35.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -32.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -29.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -26.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -23.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 125
+  - position: {x: -20.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -17.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -14.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -11.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 189
+  - position: {x: -8.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: -5.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -2.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 0.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 27
+  - position: {x: 6.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 9.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 60
+  - position: {x: 21.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 24.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 27.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 30.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 33.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 36.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 39.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 243
+  - position: {x: 45.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: -23.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -38.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -35.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: -32.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -29.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -26.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -23.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 215
+  - position: {x: -20.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -17.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -14.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: -11.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 219
+  - position: {x: -8.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -2.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 0.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 23
+  - position: {x: 6.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 231
+  - position: {x: 9.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 12.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: 15.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 39.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: 45.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 231
+  - position: {x: 48.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 51.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 54.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 57.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 60.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 63.5, y: -20.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: -65.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -62.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -59.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -56.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -53.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -50.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: -47.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -38.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: -35.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -32.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -29.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -26.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -23.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -20.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -17.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -14.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -11.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 116
+  - position: {x: -8.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 96
+  - position: {x: -5.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -2.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 0.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: 6.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 126
+  - position: {x: 9.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 12.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 39.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 45.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 48.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 51.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 54.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 57.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 60.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 63.5, y: -17.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -65.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 249
+  - position: {x: -38.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -29.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -26.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -23.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -20.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -17.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -14.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -11.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -8.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -5.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -2.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: 0.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: 3.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 6.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 9.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: 15.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 18.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 21.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: 24.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: 27.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 30.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 33.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 36.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 39.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 45.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 48.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 51.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 54.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 57.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 60.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 63.5, y: -14.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -65.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -29.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -26.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: -23.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -2.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 3.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 9.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 15.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 24.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 27.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 39.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 42.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 45.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 48.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 51.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 54.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 57.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 60.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 63.5, y: -11.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -65.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: -47.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: -44.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 243
+  - position: {x: -38.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 159
+  - position: {x: -29.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -26.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 63
+  - position: {x: -23.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -2.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 3.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 9.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 12.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 15.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 24.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 27.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 39.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 42.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 45.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 48.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 51.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 54.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 57.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 60.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 63.5, y: -8.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -65.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -47.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -44.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 245
+  - position: {x: -38.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 100
+  - position: {x: -35.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 76
+  - position: {x: -32.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 92
+  - position: {x: -29.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -26.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -2.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: 0.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 3.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 9.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 15.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: 24.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 27.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 39.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 51.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 54.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 57.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 60.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 63.5, y: -5.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -65.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -47.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: -44.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -5.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -2.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 0.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 3.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 9.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 15.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 24.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 27.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 39.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: 51.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 54.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 57.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 60.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 63.5, y: -2.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -65.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -20.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: -17.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -14.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -11.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -8.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 126
+  - position: {x: -5.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: -2.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: 3.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 6.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 9.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: 15.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 18.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 24.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 159
+  - position: {x: 27.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 30.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 33.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 39.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 0.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 249
+  - position: {x: -20.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -17.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -14.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -11.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 61
+  - position: {x: -2.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 0.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 6.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 135
+  - position: {x: 9.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 12.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 15.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: 18.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 215
+  - position: {x: 21.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 239
+  - position: {x: 24.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 221
+  - position: {x: 27.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 126
+  - position: {x: 30.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 33.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 39.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 3.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -20.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -17.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -14.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -11.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 16
+  - position: {x: -2.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: 0.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 3.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: 6.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 9.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 15.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 24.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 27.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 63
+  - position: {x: 33.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 36.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 39.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 6.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -20.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -17.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -14.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -11.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -2.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 157
+  - position: {x: 0.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 3.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 6.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: 9.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 15.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 18.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 21.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 24.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 240
+  - position: {x: 27.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: 33.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 36.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 39.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 9.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -62.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -59.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -56.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -53.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -50.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -47.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -38.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -23.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -20.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -17.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -14.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -11.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 15
+  - position: {x: -2.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 209
+  - position: {x: 0.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 6.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 9.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 15.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 18.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 21.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 120
+  - position: {x: 24.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 12.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -62.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -59.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -56.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -53.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -50.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -47.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 243
+  - position: {x: -38.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -26.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 159
+  - position: {x: -23.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -20.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -17.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -14.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -11.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -2.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 6.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 9.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 15.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: -38.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 231
+  - position: {x: -35.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -32.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -29.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 207
+  - position: {x: -26.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: -23.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -20.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -17.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -14.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -11.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -8.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -5.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -2.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 6.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 9.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 18.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -44.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -41.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -38.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -35.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -32.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -29.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -26.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: -20.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -17.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -14.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -11.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -8.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: -5.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -2.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 3.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 6.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 9.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 21.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -44.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -41.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -38.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -35.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -32.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 126
+  - position: {x: -29.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: -26.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -5.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -2.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: 0.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 3.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 193
+  - position: {x: 6.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 9.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 24.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 63
+  - position: {x: -26.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -5.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -2.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 0.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: 3.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 6.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 9.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 27.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 247
+  - position: {x: -5.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: -2.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 249
+  - position: {x: 0.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: 3.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 6.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 9.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 30.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -5.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 127
+  - position: {x: -2.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 3.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 9.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 33.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -17.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -14.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -11.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -8.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: -5.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -2.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 0.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 3.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 6.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 9.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: 12.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 241
+  - position: {x: 15.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 36.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: -17.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: -14.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 125
+  - position: {x: -11.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -8.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -5.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -2.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 0.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: 3.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 253
+  - position: {x: 6.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 252
+  - position: {x: 9.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 12.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 15.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 39.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 31
+  - position: {x: -26.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -23.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 255
+  - position: {x: -20.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 249
+  - position: {x: -17.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 7
+  - position: {x: -14.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 215
+  - position: {x: -11.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -8.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -5.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: -2.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 199
+  - position: {x: 0.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 223
+  - position: {x: 3.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 249
+  - position: {x: 6.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 9.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 42.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -65.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -62.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -59.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -56.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -53.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -50.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -47.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -44.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -41.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -38.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -35.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -32.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: -29.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -26.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -23.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -20.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: -17.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 28
+  - position: {x: -14.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -11.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -8.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -5.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: -2.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 0.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 124
+  - position: {x: 3.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 112
+  - position: {x: 6.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 9.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 12.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 15.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 18.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 21.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 24.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 27.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 30.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 33.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 36.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 39.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 42.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 45.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 48.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 51.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 54.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 57.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 60.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
+  - position: {x: 63.5, y: 45.5}
+    <TraversableDirections>k__BackingField: 0
 --- !u!1 &1781443098
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,9 +3618,9 @@ MonoBehaviour:
   _arena: {fileID: 1730838801}
   _agentsConfig:
   - team: 1
-    count: 1
+    count: 5
   - team: 2
-    count: 0
+    count: 5
   <TickSpeed>k__BackingField: 0.5
 --- !u!4 &1781443100
 Transform:
@@ -832,6 +3648,8 @@ GameObject:
   - component: {fileID: 1887687429}
   - component: {fileID: 1887687427}
   - component: {fileID: 1887687428}
+  - component: {fileID: 1887687431}
+  - component: {fileID: 1887687430}
   m_Layer: 0
   m_Name: Agent Template
   m_TagString: Untagged
@@ -851,10 +3669,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7505e0ca3b74af1acdd6b6a201023ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _considerations: []
   _health: {fileID: 1887687428}
+  _detector: {fileID: 1887687431}
   _spriteRenderer: {fileID: 705567958}
   _wanderRadius: 20
+  _angleAccuracy: 5
+  <Collider>k__BackingField: {fileID: 1887687430}
 --- !u!114 &1887687428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,6 +3705,33 @@ Transform:
   - {fileID: 705567957}
   m_Father: {fileID: 1164880578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1887687430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887687426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041a5a702b074a23b2c632ea285a0af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Radius>k__BackingField: 1
+--- !u!114 &1887687431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887687426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e647c0d3ce3e47d599302c6887070d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 1887687427}
+  _detectionRadius: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
