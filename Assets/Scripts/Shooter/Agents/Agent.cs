@@ -16,6 +16,9 @@ namespace Shooter.Agents {
         private static readonly List<Agent> _agents = new();
 
         public static IReadOnlyList<Agent> Agents => _agents;
+
+        [SerializeField]
+        private AgentConfig _agentConfig;
         
         [SerializeField, Self]
         private Health _health;
@@ -51,7 +54,10 @@ namespace Shooter.Agents {
         private StateMachine _stateMachine;
 
 #if UNITY_EDITOR
-        private void OnValidate() => this.ValidateRefs();
+        private void OnValidate() {
+            this.ValidateRefs();
+            SetupAgentSize();
+        }
 #endif
         
         private void Awake() => _stateMachine = new StateMachine();
@@ -61,6 +67,8 @@ namespace Shooter.Agents {
         public void Initialize(Arena arena, Team team) {
             Arena = arena;
             Team = team;
+            
+            SetupAgentSize();
             
             var wanderState = new WanderState(this, Arena, _wanderRadius);
             var attackState = new AttackState(this, _detector.HostileAgents, _angleAccuracy);
@@ -87,6 +95,16 @@ namespace Shooter.Agents {
             Debug.Log("Ouchie!", gameObject);
             _health.TakeDamage(damage);
             if (_health.CurrentHealth <= 0f) Destroy(gameObject);
+        }
+
+        private void SetupAgentSize() {
+            if (!_agentConfig) {
+                Debug.LogError("Agent missing AgentConfig", this);
+                return;
+            }
+            
+            Collider.radius = _agentConfig.Radius;
+            _spriteRenderer.transform.localScale = Vector3.one * _agentConfig.Radius * 2f;
         }
 
         private void OnDrawGizmosSelected() {

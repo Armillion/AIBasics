@@ -17,7 +17,7 @@ namespace Physics {
                     if (collider1 == collider2) continue;
                     
                     Vector2 direction = collider2.transform.position - collider1.transform.position;
-                    float overlap = collider1.Radius + collider2.Radius - direction.magnitude;
+                    float overlap = collider1.radius + collider2.radius - direction.magnitude;
                     
                     if (overlap >= 0) 
                         collider1.transform.position -= (Vector3)direction.normalized * overlap * 0.5f;
@@ -79,7 +79,7 @@ namespace Physics {
 
                 Color randomColor = Random.ColorHSV();
                 Debug.DrawLine(origin, direction, randomColor, AgentManager.Instance.TickSpeed);
-                if (Geometry.RayIntersectsCircle(origin, direction, collider.transform.position, collider.Radius, out Vector2 intersection1, out Vector2 intersection2)) {
+                if (Geometry.RayIntersectsCircle(origin, direction, collider.transform.position, collider.radius, out Vector2 intersection1, out Vector2 intersection2)) {
                     Vector2 point = Vector2.Distance(origin, intersection1) < Vector2.Distance(origin, intersection2) ? intersection1 : intersection2;
                     hits.Add(new SimpleRaycastHit2D { point = point, transform = collider.transform });
                 }

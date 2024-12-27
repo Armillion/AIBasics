@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Physics;
+using Shooter.Agents;
 using UnityEngine;
 using Utility;
 
@@ -12,13 +13,15 @@ namespace Shooter.Environment {
         [SerializeField]
         private Polygon[] _walls = new Polygon[1];
         
-        [SerializeField, Min(0.1f)]
-        private float _gridSize = 1f;
+        [SerializeField]
+        private AgentConfig _agentConfig;
         
         [field: SerializeField]
         public Cell[] Grid { get; private set; }
         public int XCellCount { get; private set; }
         public int YCellCount { get; private set; }
+
+        private float GridSize => _agentConfig ? _agentConfig.Radius * 2f : 1f;
         
         private Bounds _bounds;
 
@@ -85,8 +88,8 @@ namespace Shooter.Environment {
         private void CreateGrid() {
             Vector3 size = _bounds.size;
             Vector3 center = _bounds.center;
-            XCellCount = Mathf.CeilToInt(size.x / _gridSize);
-            YCellCount = Mathf.CeilToInt(size.y / _gridSize);
+            XCellCount = Mathf.CeilToInt(size.x / GridSize);
+            YCellCount = Mathf.CeilToInt(size.y / GridSize);
             Grid = new Cell[XCellCount * YCellCount];
 
             for (var y = 0; y < YCellCount; y++) {
@@ -102,18 +105,31 @@ namespace Shooter.Environment {
         }
 
         private Vector2 GetCellPositionAtIndex(int x, int y, Vector2 center) {
-            float halfSizeX = XCellCount * _gridSize * 0.5f;
-            float halfSizeY = YCellCount * _gridSize * 0.5f;
-            float xPos = center.x - halfSizeX + x * _gridSize + _gridSize * 0.5f;
-            float yPos = center.y - halfSizeY + y * _gridSize + _gridSize * 0.5f;
+            float halfSizeX = XCellCount * GridSize * 0.5f;
+            float halfSizeY = YCellCount * GridSize * 0.5f;
+            float xPos = center.x - halfSizeX + x * GridSize + GridSize * 0.5f;
+            float yPos = center.y - halfSizeY + y * GridSize + GridSize * 0.5f;
             return new Vector2(xPos, yPos);
         }
         
         private MoveDirection GetMoveDirectionAtIndex(int x, int y) {
             Vector2[][] levelGeometry = _levelGeometry.Select(poly => poly.vertices).ToArray();
-
-            if (!Geometry.IsPointInPolygon(Grid[y * XCellCount + x].position, levelGeometry))
+            Vector2 cellPosition = Grid[y * XCellCount + x].position;
+            
+            if (!Geometry.IsPointInPolygon(cellPosition, levelGeometry))
                 return MoveDirection.None;
+
+            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize, levelGeometry)) {
+                // TODO: Disable direction to this cell in neighbouring cells
+                return MoveDirection.None;
+            }
+            
+            Vector2[][] walls = _walls.Select(poly => poly.vertices).ToArray();
+            
+            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize, walls, false)) {
+                // TODO: Disable direction to this cell in neighbouring cells
+                return MoveDirection.None;
+            }
             
             var traversableDirections = MoveDirection.All;
             
@@ -126,10 +142,9 @@ namespace Shooter.Environment {
                     continue;
                 }
                 
-                Vector2 startPosition = Grid[y * XCellCount + x].position;
                 Vector2 endPosition = Grid[yIndex * XCellCount + xIndex].position;
 
-                if (!IsStraightPathTraversable(startPosition, endPosition))
+                if (!IsStraightPathTraversable(cellPosition, endPosition))
                     traversableDirections &= ~testedDirection;
             }
             
@@ -155,8 +170,8 @@ namespace Shooter.Environment {
             Vector2 localPosition = position - (Vector2)transform.position;
             Vector2 size = _bounds.size;
             Vector2 center = _bounds.center;
-            int x = Mathf.FloorToInt((localPosition.x - center.x + size.x * 0.5f) / _gridSize);
-            int y = Mathf.FloorToInt((localPosition.y - center.y + size.y * 0.5f) / _gridSize);
+            int x = Mathf.FloorToInt((localPosition.x - center.x + size.x * 0.5f) / GridSize);
+            int y = Mathf.FloorToInt((localPosition.y - center.y + size.y * 0.5f) / GridSize);
             return (x, y);
         }
     }
