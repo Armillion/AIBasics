@@ -119,14 +119,14 @@ namespace Shooter.Environment {
             if (!Geometry.IsPointInPolygon(cellPosition, levelGeometry))
                 return MoveDirection.None;
 
-            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize, levelGeometry)) {
+            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize * 0.5f, levelGeometry)) {
                 // TODO: Disable direction to this cell in neighbouring cells
                 return MoveDirection.None;
             }
             
             Vector2[][] walls = _walls.Select(poly => poly.vertices).ToArray();
             
-            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize, walls, false)) {
+            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize * 0.5f, walls, false)) {
                 // TODO: Disable direction to this cell in neighbouring cells
                 return MoveDirection.None;
             }

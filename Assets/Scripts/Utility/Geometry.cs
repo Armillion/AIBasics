@@ -138,7 +138,6 @@ namespace Utility {
             intersection2 = Vector2.zero;
 
             Vector2 relativeOrigin = origin - circleCenter;
-            circleRadius *= 0.5f;
 
             float a = Vector2.Dot(direction, direction);
             float b = 2 * Vector2.Dot(direction, relativeOrigin);
