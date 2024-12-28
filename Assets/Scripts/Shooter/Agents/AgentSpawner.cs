@@ -1,4 +1,5 @@
 ﻿using System;
+using Physics;
 using Shooter.Environment;
 using UnityEditor;
 using UnityEngine;
@@ -49,11 +50,14 @@ namespace Shooter.Agents {
         
         private SpawnConfig GetSpawnConfig(Team team) {
             foreach (SpawnConfig config in _spawnConfigs)
-                if (config.team == team)
+                if (config.team == team && !IsSpawnerOccupied(config))
                     return config;
             
             return default;
         }
+        
+        private static bool IsSpawnerOccupied(SpawnConfig config)
+            => SimplePhysics2D.OverlapCircle(config.Position, config.radius);
 
 #if UNITY_EDITOR
         private void OnDrawGizmos() {
