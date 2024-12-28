@@ -60,7 +60,7 @@ namespace Shooter.Agents {
             foreach (SpawnConfig config in _spawnConfigs) {
                 Gizmos.color = config.team.GetColor();
                 Gizmos.DrawSphere(config.Position, config.radius);
-                GizmosLegend.AddLabel(this, config.team.ToString(), config.team.GetColor(), GizmoType.Sphere);
+                GizmosLegend.AddLabel(this, $"{config.team.ToString()} Team Spawner", config.team.GetColor(), GizmoType.Sphere);
             }
         }
 #endif

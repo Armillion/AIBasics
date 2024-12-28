@@ -118,6 +118,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &25571259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 25571260}
+  m_Layer: 0
+  m_Name: Spawn C
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &25571260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25571259}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8000002, y: 36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164880578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &109758003
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109758004}
   m_Layer: 0
-  m_Name: T Spawn
+  m_Name: Spawn B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 236266020}
   m_Layer: 0
-  m_Name: CT Spawn
+  m_Name: Spawn A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,10 +418,16 @@ MonoBehaviour:
   _spawnConfigs:
   - _spawn: {fileID: 236266020}
     radius: 5
-    team: 1
+    team: 0
   - _spawn: {fileID: 109758004}
     radius: 5
-    team: 2
+    team: 0
+  - _spawn: {fileID: 25571260}
+    radius: 3
+    team: 0
+  - _spawn: {fileID: 1575320138}
+    radius: 3
+    team: 0
 --- !u!4 &1164880578
 Transform:
   m_ObjectHideFlags: 0
@@ -407,7 +444,40 @@ Transform:
   - {fileID: 1887687429}
   - {fileID: 236266020}
   - {fileID: 109758004}
+  - {fileID: 25571260}
+  - {fileID: 1575320138}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1575320137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1575320138}
+  m_Layer: 0
+  m_Name: Spawn D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1575320138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575320137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.2, y: -45, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1164880578}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1690568777
 GameObject:
@@ -11937,11 +12007,14 @@ MonoBehaviour:
   _agentSpawner: {fileID: 1164880577}
   _arena: {fileID: 1730838801}
   _agentsConfig:
-  - team: 1
-    count: 5
-  - team: 2
-    count: 5
-  <TickSpeed>k__BackingField: 0.5
+  - team: 0
+    count: 1
+  - team: 0
+    count: 1
+  - team: 0
+    count: 1
+  - team: 0
+    count: 1
 --- !u!4 &1781443100
 Transform:
   m_ObjectHideFlags: 0
@@ -11968,7 +12041,6 @@ GameObject:
   - component: {fileID: 1887687429}
   - component: {fileID: 1887687427}
   - component: {fileID: 1887687428}
-  - component: {fileID: 1887687431}
   - component: {fileID: 1887687430}
   m_Layer: 0
   m_Name: Agent Template
@@ -11991,9 +12063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agentConfig: {fileID: 11400000, guid: 1da8fbffd6a5d3e4f9bad81e3dbfe02e, type: 2}
   _health: {fileID: 1887687428}
-  _detector: {fileID: 1887687431}
   _spriteRenderer: {fileID: 705567958}
-  _wanderRadius: 20
   _angleAccuracy: 5
   <Collider>k__BackingField: {fileID: 1887687430}
 --- !u!114 &1887687428
@@ -12039,20 +12109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 0.75
---- !u!114 &1887687431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887687426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e647c0d3ce3e47d599302c6887070d2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _agent: {fileID: 1887687427}
-  _detectionRadius: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
