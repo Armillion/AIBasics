@@ -76,9 +76,7 @@ namespace Physics {
             foreach (SimpleCircleCollider collider in _colliders) {
                 if (ignoreColliders != null && ignoreColliders.Contains(collider))
                     continue;
-
-                Color randomColor = Random.ColorHSV();
-                Debug.DrawLine(origin, direction, randomColor, AgentManager.Instance.TickSpeed);
+                
                 if (Geometry.RayIntersectsCircle(origin, direction, collider.transform.position, collider.radius, out Vector2 intersection1, out Vector2 intersection2)) {
                     Vector2 point = Vector2.Distance(origin, intersection1) < Vector2.Distance(origin, intersection2) ? intersection1 : intersection2;
                     hits.Add(new SimpleRaycastHit2D { point = point, transform = collider.transform });
