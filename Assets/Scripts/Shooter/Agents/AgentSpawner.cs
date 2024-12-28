@@ -1,7 +1,9 @@
 ﻿using System;
 using Shooter.Environment;
+using UnityEditor;
 using UnityEngine;
-using Utility;
+using Utility.GizmosLegend;
+using GizmoType = Utility.GizmosLegend.GizmoType;
 
 namespace Shooter.Agents {
     public class AgentSpawner : MonoBehaviour {
@@ -58,7 +60,7 @@ namespace Shooter.Agents {
             foreach (SpawnConfig config in _spawnConfigs) {
                 Gizmos.color = config.team.GetColor();
                 Gizmos.DrawSphere(config.Position, config.radius);
-                GizmosLegend.AddLabel(this, config.team.ToString(), config.team.GetColor());
+                GizmosLegend.AddLabel(this, config.team.ToString(), config.team.GetColor(), GizmoType.Sphere);
             }
         }
 #endif

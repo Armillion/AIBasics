@@ -3,7 +3,8 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Utility;
-using Utility.Editor;
+using Utility.GizmosLegend;
+using GizmoType = Utility.GizmosLegend.GizmoType;
 
 namespace Shooter.Environment.Editor {
     [CustomEditor(typeof(Arena), true), CanEditMultipleObjects]
@@ -24,9 +25,9 @@ namespace Shooter.Environment.Editor {
             _gridSizeProperty = typeof(Arena).GetProperty("GridSize", BindingFlags.NonPublic | BindingFlags.Instance);
             _boundsField = typeof(Arena).GetField("_bounds", BindingFlags.NonPublic | BindingFlags.Instance);
             
-            GizmosLegend.AddLabel((Arena)target, "Clockwise Geometry", Color.green);
-            GizmosLegend.AddLabel((Arena)target, "Counter-Clockwise Geometry", Color.red);
-            GizmosLegend.AddLabel((Arena)target, "Walls", Color.blue);
+            GizmosLegend.AddLabel((Arena)target, "Clockwise Geometry", Color.green, GizmoType.LineStrip);
+            GizmosLegend.AddLabel((Arena)target, "Counter-Clockwise Geometry", Color.red, GizmoType.LineStrip);
+            GizmosLegend.AddLabel((Arena)target, "Walls", Color.blue, GizmoType.LineStrip);
         }
 
         private void OnDisable() {
@@ -63,8 +64,8 @@ namespace Shooter.Environment.Editor {
             }
 
             if (_drawCells) {
-                GizmosLegend.AddLabel((Arena)target, "Traversable Cell", Color.gray);
-                GizmosLegend.AddLabel((Arena)target, "Traversable Direction", Color.white);
+                GizmosLegend.AddLabel((Arena)target, "Traversable Cell", Color.gray, GizmoType.WireDisc);
+                GizmosLegend.AddLabel((Arena)target, "Traversable Direction", Color.white, GizmoType.Line);
                 DrawCells(arena);
             } else {
                 GizmosLegend.RemoveLabel((Arena)target, "Traversable Cell");
