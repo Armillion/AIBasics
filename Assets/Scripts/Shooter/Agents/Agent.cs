@@ -2,7 +2,7 @@
 using Physics;
 using Shooter.Environment;
 using UnityEngine;
-using Utility.GizmosLegend;
+using Utility.DescriptiveGizmos;
 
 namespace Shooter.Agents {
     [RequireComponent(typeof(Health))]

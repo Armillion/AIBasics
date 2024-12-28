@@ -3,8 +3,8 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using Utility;
-using Utility.GizmosLegend;
-using GizmoType = Utility.GizmosLegend.GizmoType;
+using Utility.DescriptiveGizmos;
+using GizmoType = Utility.DescriptiveGizmos.GizmoType;
 
 namespace Shooter.Environment.Editor {
     [CustomEditor(typeof(Arena), true), CanEditMultipleObjects]

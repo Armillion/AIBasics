@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.UIElements;
-using GizmoType = Utility.GizmosLegend.GizmoType;
+using GizmoType = Utility.DescriptiveGizmos.GizmoType;
 
 namespace Utility.DescriptiveGizmos.Editor {
     [Overlay(
@@ -26,7 +26,7 @@ namespace Utility.DescriptiveGizmos.Editor {
 
             CreateLegend(root);
 
-            GizmosLegend.GizmosLegend.OnLegendChanged += () => {
+            GizmosLegend.OnLegendChanged += () => {
                 root.Clear();
                 CreateLegend(root);
             };
@@ -37,7 +37,7 @@ namespace Utility.DescriptiveGizmos.Editor {
         private static void CreateLegend(VisualElement root) {
             var indentLevel = 0;
 
-            foreach ((MonoBehaviour obj, Dictionary<string, (Color, GizmoType)> labels) in GizmosLegend.GizmosLegend.Legend) {
+            foreach ((MonoBehaviour obj, Dictionary<string, (Color, GizmoType)> labels) in GizmosLegend.Legend) {
                 Label objLabel = CreateObjectLabel(obj);
                 root.Add(objLabel);
                 indentLevel++;

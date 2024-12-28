@@ -3,8 +3,8 @@ using Physics;
 using Shooter.Environment;
 using UnityEditor;
 using UnityEngine;
-using Utility.GizmosLegend;
-using GizmoType = Utility.GizmosLegend.GizmoType;
+using Utility.DescriptiveGizmos;
+using GizmoType = Utility.DescriptiveGizmos.GizmoType;
 
 namespace Shooter.Agents {
     public class AgentSpawner : MonoBehaviour {

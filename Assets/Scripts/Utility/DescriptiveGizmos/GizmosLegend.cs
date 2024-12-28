@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utility.GizmosLegend {
+namespace Utility.DescriptiveGizmos {
     public static class GizmosLegend {
         private static readonly Dictionary<MonoBehaviour, Dictionary<string, (Color, GizmoType)>> _legend = new ();
 

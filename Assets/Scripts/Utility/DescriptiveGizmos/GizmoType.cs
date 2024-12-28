@@ -1,4 +1,4 @@
-﻿namespace Utility.GizmosLegend {
+﻿namespace Utility.DescriptiveGizmos {
     public enum GizmoType {
         None,
         Box,
