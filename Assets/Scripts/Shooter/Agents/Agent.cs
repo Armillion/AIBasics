@@ -1,4 +1,5 @@
-﻿using KBCore.Refs;
+﻿using System;
+using KBCore.Refs;
 using Physics;
 using Shooter.Environment;
 using UnityEngine;
@@ -75,7 +76,13 @@ namespace Shooter.Agents {
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_angleAccuracy) * Vector2.up * lineLength);
             Gizmos.matrix = Matrix4x4.identity;
             
+#if UNITY_EDITOR
             GizmosLegend.AddLabel(this, "Accuracy", Color.red, GizmoType.Line);
+#endif
         }
+
+#if UNITY_EDITOR
+        private void OnDestroy() => GizmosLegend.Unregister(this);
+#endif
     }
 }

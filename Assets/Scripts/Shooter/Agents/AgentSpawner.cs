@@ -1,4 +1,5 @@
 ﻿using System;
+using KBCore.Refs;
 using Physics;
 using Shooter.Environment;
 using UnityEditor;
@@ -67,6 +68,8 @@ namespace Shooter.Agents {
                 GizmosLegend.AddLabel(this, $"{config.team.ToString()} Team Spawner", config.team.GetColor(), GizmoType.Sphere);
             }
         }
+
+        private void OnDisable() => GizmosLegend.Unregister(this);
 #endif
     }
 }
