@@ -4,7 +4,6 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using Utility;
-using Zombies.Environment;
 
 namespace Physics {
     public static class SimplePhysics2D {
@@ -94,6 +93,14 @@ namespace Physics {
             }
 
             return hits.ToArray();
+        }
+        
+        public static SimpleCircleCollider OverlapCircle(Vector2 position, float radius) {
+            foreach (SimpleCircleCollider collider in _colliders)
+                if (Geometry.IsInsideCircle(collider.transform.position, position, radius + collider.radius))
+                    return collider;
+
+            return null;
         }
 
         public static void Clear() {

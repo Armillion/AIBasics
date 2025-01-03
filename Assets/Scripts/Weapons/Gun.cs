@@ -5,6 +5,7 @@ using KBCore.Refs;
 using Physics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utility;
 using Zombies;
 
 namespace Weapons {

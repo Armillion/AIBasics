@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Utility {
     public static class Geometry {
@@ -69,9 +70,15 @@ namespace Utility {
             return t is >= 0 and <= 1 && u is >= 0 and <= 1;
         }
 
-        public static bool LinesIntersect(Vector2 a, Vector2 b, Vector2[] polygon, bool isClosedShape, out Vector2 point) {
+        public static bool LinesIntersect(
+            Vector2 a,
+            Vector2 b,
+            Vector2[] polygon,
+            bool isClosedShape,
+            out Vector2 point
+        ) {
             point = Vector2.zero;
-            
+
             for (var i = 0; i < polygon.Length - 1; i++) {
                 Vector2 c = polygon[i];
                 Vector2 d = polygon[i + 1];
@@ -91,6 +98,7 @@ namespace Utility {
             v.y = (sin * tx) + (cos * ty);
             return v;
         }
+
         public static bool IsInsideCircle(Vector2 point, Vector2 center, float radius)
             => Vector2.Distance(point, center) <= radius;
 
@@ -102,27 +110,93 @@ namespace Utility {
             out Vector2 intersection1,
             out Vector2 intersection2
         ) {
+            return SolveCircleIntersection(rayOrigin, rayDirection, circleCenter, circleRadius, float.PositiveInfinity, out intersection1, out intersection2);
+        }
+
+        public static bool LineIntersectsCircle(
+            Vector2 lineStart,
+            Vector2 lineEnd,
+            Vector2 circleCenter,
+            float circleRadius,
+            out Vector2 intersection1,
+            out Vector2 intersection2
+        ) {
+            Vector2 lineDirection = lineEnd - lineStart;
+            return SolveCircleIntersection(lineStart, lineDirection, circleCenter, circleRadius, 1.0f, out intersection1, out intersection2);
+        }
+
+        private static bool SolveCircleIntersection(
+            Vector2 origin,
+            Vector2 direction,
+            Vector2 circleCenter,
+            float circleRadius,
+            float maxT,
+            out Vector2 intersection1,
+            out Vector2 intersection2
+        ) {
             intersection1 = Vector2.zero;
             intersection2 = Vector2.zero;
 
-            Vector2 originToCenter = circleCenter - rayOrigin;
+            Vector2 relativeOrigin = origin - circleCenter;
 
-            float projection = Vector2.Dot(originToCenter, rayDirection);
-            Vector2 closestPoint = rayOrigin + projection * rayDirection;
+            float a = Vector2.Dot(direction, direction);
+            float b = 2 * Vector2.Dot(direction, relativeOrigin);
+            float c = Vector2.Dot(relativeOrigin, relativeOrigin) - circleRadius * circleRadius;
 
-            float closestDistSq = (circleCenter - closestPoint).sqrMagnitude;
-            float radiusSq = circleRadius * circleRadius;
+            float discriminant = b * b - 4 * a * c;
 
-            if (closestDistSq > radiusSq)
+            if (discriminant < 0)
                 return false;
 
-            float offset = Mathf.Sqrt(radiusSq - closestDistSq);
+            float sqrtDiscriminant = Mathf.Sqrt(discriminant);
 
-            intersection1 = closestPoint - offset * rayDirection;
-            intersection2 = closestPoint + offset * rayDirection;
+            if (discriminant == 0) {
+                float t = -b / (2 * a);
 
-            return Vector2.Dot(intersection1 - rayOrigin, rayDirection) >= 0 ||
-                   Vector2.Dot(intersection2 - rayOrigin, rayDirection) >= 0;
+                if (t >= 0 && t <= maxT) {
+                    intersection1 = origin + t * direction;
+                    return true;
+                }
+
+                return false;
+            }
+
+            float t1 = (-b + sqrtDiscriminant) / (2 * a);
+            float t2 = (-b - sqrtDiscriminant) / (2 * a);
+
+            var hasIntersection = false;
+
+            if (t1 >= 0 && t1 <= maxT) {
+                intersection1 = origin + t1 * direction;
+                hasIntersection = true;
+            }
+
+            if (t2 >= 0 && t2 <= maxT) {
+                intersection2 = origin + t2 * direction;
+                hasIntersection = true;
+            }
+
+            return hasIntersection;
+        }
+
+        public static bool CircleIntersectsPolygon(Vector2 circleCenter, float circleRadius, Vector2[][] polygons, bool isClosed = true) {
+            foreach (Vector2[] polygon in polygons) {
+                Vector2 wallStart = polygon[^1];
+                Vector2 wallEnd = polygon[0];
+
+                if (isClosed && LineIntersectsCircle(wallStart, wallEnd, circleCenter, circleRadius, out _, out _))
+                    return true;
+
+                for (var i = 1; i < polygon.Length; i++) {
+                    wallStart = polygon[i - 1];
+                    wallEnd = polygon[i];
+
+                    if (LineIntersectsCircle(wallStart, wallEnd, circleCenter, circleRadius, out _, out _))
+                        return true;
+                }
+            }
+
+            return false;
         }
     }
 }
