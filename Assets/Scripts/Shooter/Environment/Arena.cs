@@ -102,6 +102,10 @@ namespace Shooter.Environment {
             for (var y = 0; y < YCellCount; y++)
                 for (var x = 0; x < XCellCount; x++)
                     Grid[y * XCellCount + x].TraversableDirections = GetMoveDirectionAtIndex(x, y);
+            
+            for (var y = 0; y < YCellCount; y++)
+                for (var x = 0; x < XCellCount; x++)
+                    CheckCellForAgentCollision(x, y);
         }
 
         private Vector2 GetCellPositionAtIndex(int x, int y, Vector2 center) {
@@ -118,18 +122,6 @@ namespace Shooter.Environment {
             
             if (!Geometry.IsPointInPolygon(cellPosition, levelGeometry))
                 return MoveDirection.None;
-
-            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize * 0.5f, levelGeometry)) {
-                // TODO: Disable direction to this cell in neighbouring cells
-                return MoveDirection.None;
-            }
-            
-            Vector2[][] walls = _walls.Select(poly => poly.vertices).ToArray();
-            
-            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize * 0.5f, walls, false)) {
-                // TODO: Disable direction to this cell in neighbouring cells
-                return MoveDirection.None;
-            }
             
             var traversableDirections = MoveDirection.All;
             
@@ -173,6 +165,35 @@ namespace Shooter.Environment {
             int x = Mathf.FloorToInt((localPosition.x - center.x + size.x * 0.5f) / GridSize);
             int y = Mathf.FloorToInt((localPosition.y - center.y + size.y * 0.5f) / GridSize);
             return (x, y);
+        }
+
+        private void CheckCellForAgentCollision(int x, int y) {
+            Vector2[][] levelGeometry = _levelGeometry.Select(poly => poly.vertices).ToArray();
+            int cellIndex = y * XCellCount + x;
+            Vector2 cellPosition = Grid[cellIndex].position;
+            
+            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize * 0.5f, levelGeometry))
+                MarkCellNotTraversable(x, y);
+            
+            Vector2[][] walls = _walls.Select(poly => poly.vertices).ToArray();
+            
+            if (Geometry.CircleIntersectsPolygon(cellPosition, GridSize * 0.5f, walls, false))
+                MarkCellNotTraversable(x, y);
+        }
+
+        private void MarkCellNotTraversable(int x, int y) {
+            int index = y * XCellCount + x;
+            Grid[index].TraversableDirections = MoveDirection.None;
+            
+            foreach (MoveDirection testedDirection in Enum.GetValues(typeof(MoveDirection))) {
+                if (testedDirection is MoveDirection.None or MoveDirection.All) continue;
+                (int xIndex, int yIndex) = GetIndexInMoveDirection(testedDirection, x, y);
+
+                if (!IsValidIndex(xIndex, yIndex)) continue;
+                
+                int adjacentIndex = yIndex * XCellCount + xIndex;
+                Grid[adjacentIndex].TraversableDirections &= ~testedDirection.Opposite();
+            }
         }
     }
 }
