@@ -6,6 +6,7 @@ using UnityEngine;
 using Utility.DescriptiveGizmos;
 
 namespace Shooter.Agents {
+    [SelectionBase]
     [RequireComponent(typeof(Health))]
     [RequireComponent(typeof(SimpleCircleCollider))]
     public class Agent : MonoBehaviour {
@@ -65,6 +66,10 @@ namespace Shooter.Agents {
             
             if (_spriteRenderer)
                 _spriteRenderer.transform.localScale = Vector3.one * _agentConfig.Radius * 2f;
+        }
+
+        public void OnSimpleTrigger(SimpleCircleCollider other) {
+            
         }
 
         private void OnDrawGizmosSelected() {

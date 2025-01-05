@@ -134,6 +134,11 @@ namespace Physics {
 
             [ReadOnly]
             public NativeArray<bool> isStatic;
+            
+            [ReadOnly]
+            public NativeArray<bool> isTrigger;
+
+            public NativeList<(int, int)> contacts;
 
             public void Execute(int index) {
                 if (isStatic[index]) return;
@@ -152,6 +157,8 @@ namespace Physics {
                     float overlap = currentRadius + otherRadius - distance;
 
                     if (overlap <= 0) continue;
+                    contacts.Add((index, j));
+                    if (isTrigger[index] || isTrigger[j]) continue;
 
                     float pushFactor = isStatic[j] ? 1f : 0.5f;
                     currentPosition -= direction.normalized * overlap * pushFactor;
@@ -167,18 +174,23 @@ namespace Physics {
             var positions = new NativeArray<Vector2>(count, Allocator.TempJob);
             var radii = new NativeArray<float>(count, Allocator.TempJob);
             var isStatic = new NativeArray<bool>(count, Allocator.TempJob);
+            var isTrigger = new NativeArray<bool>(count, Allocator.TempJob);
+            var contacts = new NativeList<(int, int)>(count, Allocator.TempJob);
 
             for (var i = 0; i < count; i++) {
                 SimpleCircleCollider collider = _colliders[i];
                 positions[i] = collider.transform.position;
                 radii[i] = collider.radius;
                 isStatic[i] = collider.gameObject.isStatic;
+                isTrigger[i] = collider.isTrigger;
             }
 
             var overlapJob = new EnsureZeroOverlapJob {
                 positions = positions,
                 radii = radii,
-                isStatic = isStatic
+                isStatic = isStatic,
+                isTrigger = isTrigger,
+                contacts = contacts
             };
 
             JobHandle handle = overlapJob.Schedule(count, default);
@@ -188,9 +200,26 @@ namespace Physics {
                 if (!isStatic[i])
                     _colliders[i].transform.position = positions[i];
 
+            foreach ((int, int) contactPair in contacts) {
+                SimpleCircleCollider collider1 = _colliders[contactPair.Item1];
+                SimpleCircleCollider collider2 = _colliders[contactPair.Item2];
+
+                switch (collider1.isTrigger) {
+                    case true when !collider2.isTrigger:
+                        collider1.OnTrigger(collider2);
+                        break;
+
+                    case false when collider2.isTrigger:
+                        collider2.OnTrigger(collider1);
+                        break;
+                }
+            }
+
             positions.Dispose();
             radii.Dispose();
             isStatic.Dispose();
+            isTrigger.Dispose();
+            contacts.Dispose();
         }
     }
 }

@@ -70,7 +70,7 @@ namespace Shooter {
 
         private static List<int> GetTraversableNeighbours(Cell[] grid, int index, int gridWidth) {
             MoveDirection traversableDirections = grid[index].TraversableDirections;
-            List<int> neighbours = new();
+            List<int> neighbours = new(8);
             
             if (traversableDirections.HasFlag(MoveDirection.North))
                 neighbours.Add(index + gridWidth);
