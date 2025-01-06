@@ -32,7 +32,7 @@ namespace Zombies {
         private float _maxAimDistance = 2f;
         
         [field: SerializeField, Self]
-        public Health.Health Health { get; private set; }
+        public Health Health { get; private set; }
     
         public float MaxSpeed { get; private set; }
         public Vector2 Position => transform.position;

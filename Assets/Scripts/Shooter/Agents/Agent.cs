@@ -51,7 +51,7 @@ namespace Shooter.Agents {
             SetupAgentSize();
         }
 
-        public void TakeDamage(float damage) {
+        public void TakeDamage(int damage) {
             _health.TakeDamage(damage);
             if (_health.CurrentHealth <= 0f) Destroy(gameObject);
         }
