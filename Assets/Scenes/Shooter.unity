@@ -12062,7 +12062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _agentConfig: {fileID: 11400000, guid: 1da8fbffd6a5d3e4f9bad81e3dbfe02e, type: 2}
-  _health: {fileID: 1887687428}
+  <Health>k__BackingField: {fileID: 1887687428}
   _spriteRenderer: {fileID: 705567958}
   _angleAccuracy: 5
   <Collider>k__BackingField: {fileID: 1887687430}
@@ -12075,11 +12075,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1887687426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702e8b56d4c844e4a231e76f5a410ff3, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ccfb68a1af178347808a3f40fcc4050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
-  <CurrentHealth>k__BackingField: 0
+  <CurrentHealth>k__BackingField: 100
+  <MaxArmor>k__BackingField: 100
+  <CurrentArmor>k__BackingField: 100
+  <InvulnerabilityPeriod>k__BackingField: 0
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1887687429
 Transform:
   m_ObjectHideFlags: 0

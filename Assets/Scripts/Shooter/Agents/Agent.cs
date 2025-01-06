@@ -13,8 +13,8 @@ namespace Shooter.Agents {
         [SerializeField]
         private AgentConfig _agentConfig;
         
-        [SerializeField, Self]
-        private Health _health;
+        [field: SerializeField, Self]
+        public Health Health { get; private set; }
 
         [SerializeField, Child]
         private SpriteRenderer _spriteRenderer;
@@ -50,26 +50,17 @@ namespace Shooter.Agents {
             Team = team;
             SetupAgentSize();
         }
-
-        public void TakeDamage(int damage) {
-            _health.TakeDamage(damage);
-            if (_health.CurrentHealth <= 0f) Destroy(gameObject);
-        }
-
+        
         private void SetupAgentSize() {
             if (!_agentConfig) {
                 Debug.LogError("Agent missing AgentConfig", this);
                 return;
             }
-            
+
             Collider.radius = _agentConfig.Radius;
-            
+
             if (_spriteRenderer)
                 _spriteRenderer.transform.localScale = Vector3.one * _agentConfig.Radius * 2f;
-        }
-
-        public void OnSimpleTrigger(SimpleCircleCollider other) {
-            
         }
 
         private void OnDrawGizmosSelected() {

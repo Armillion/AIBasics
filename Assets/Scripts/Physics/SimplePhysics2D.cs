@@ -10,12 +10,13 @@ namespace Physics {
         private static readonly List<Polygon> _closedGeometry = new ();
         private static readonly List<Polygon> _walls = new ();
         private static readonly List<SimpleCircleCollider> _colliders = new ();
+        private static readonly List<SimpleCircleCollider> _collidersToRemove = new ();
 
         public static void SimulatePhysicsStep() {
             EnsureWallsZeroOverlap();
             EnsureColliderZeroOverlap();
+            RemoveDeregisteredColliders();
         }
-
         public static void RegisterGeometry(Polygon[] closedGeometry, Polygon[] walls) {
             if (closedGeometry != null)
                 _closedGeometry.AddRange(closedGeometry);
@@ -32,8 +33,19 @@ namespace Physics {
                 _walls.Remove(polygon);
         }
 
-        public static void RegisterCollider(SimpleCircleCollider collider) => _colliders.Add(collider);
-        public static void DeregisterCollider(SimpleCircleCollider collider) => _colliders.Remove(collider);
+        public static void RegisterCollider(SimpleCircleCollider collider) {
+            _colliders.Add(collider);
+            _collidersToRemove.Remove(collider);
+        }
+
+        public static void DeregisterCollider(SimpleCircleCollider collider) => _collidersToRemove.Add(collider);
+        
+        private static void RemoveDeregisteredColliders() {
+            foreach (SimpleCircleCollider collider in _collidersToRemove)
+                _colliders.Remove(collider);
+
+            _collidersToRemove.Clear();
+        }
 
         public static bool Raycast(
             Vector2 origin,
@@ -203,6 +215,9 @@ namespace Physics {
             foreach ((int, int) contactPair in contacts) {
                 SimpleCircleCollider collider1 = _colliders[contactPair.Item1];
                 SimpleCircleCollider collider2 = _colliders[contactPair.Item2];
+                
+                if (!collider1.enabled || !collider2.enabled)
+                    continue;
 
                 switch (collider1.isTrigger) {
                     case true when !collider2.isTrigger:
