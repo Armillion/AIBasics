@@ -52,19 +52,19 @@ namespace Shooter.Environment {
             CreateGrid();
         }
 
-        public bool TryGetValidCellPosition(ref Vector2 position) {
+        public int SnapPositionToCell(ref Vector2 position) {
             (int x, int y) = GetCellIndex(position);
 
             if (!IsValidIndex(x, y))
-                return false;
+                return -1;
 
             int index = y * XCellCount + x;
             
             if (Grid[index].TraversableDirections == MoveDirection.None)
-                return false;
+                return -1;
             
             position = Grid[index].position;
-            return true;
+            return index;
         }
 
         public bool TryGetCellIndex(Vector2 position, out int cellIndex) {
@@ -84,7 +84,7 @@ namespace Shooter.Environment {
 
             return true;
         }
-        
+
         private void CreateGrid() {
             Vector3 size = _bounds.size;
             Vector3 center = _bounds.center;

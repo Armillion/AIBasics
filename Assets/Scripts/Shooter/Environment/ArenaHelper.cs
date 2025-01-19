@@ -6,7 +6,8 @@ namespace Shooter.Environment {
         public static Vector2 GetRandomPointInsideArena(this Arena arena, Vector2 position, float radius, int maxAttempts = 10) {
             for (var i = 0; i < maxAttempts; i++) {
                 Vector2 randomPoint = position + Random.insideUnitCircle * radius;
-                if (!arena.TryGetValidCellPosition(ref randomPoint)) continue;
+                int cellIndex = arena.SnapPositionToCell(ref randomPoint);
+                if (cellIndex == -1) continue;
                 return randomPoint;
             }
             

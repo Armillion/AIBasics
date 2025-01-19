@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using KBCore.Refs;
 using Physics;
+using Shooter.Agents.States;
 using Shooter.Environment;
+using Shooter.FSM;
 using UnityEngine;
 using Utility.DescriptiveGizmos;
 
@@ -10,6 +13,8 @@ namespace Shooter.Agents {
     [RequireComponent(typeof(Health))]
     [RequireComponent(typeof(SimpleCircleCollider))]
     public class Agent : MonoBehaviour {
+        public static List<Agent> AllAgents { get; } = new List<Agent>();
+        
         [SerializeField]
         private AgentConfig _agentConfig;
         
@@ -24,6 +29,8 @@ namespace Shooter.Agents {
         
         [field: SerializeField, Self]
         public SimpleCircleCollider Collider { get; private set; }
+        
+        public int ArenaCellIndex { get; private set; }
 
         public Team Team {
             get => _team;
@@ -37,6 +44,8 @@ namespace Shooter.Agents {
 
         private Team _team;
         private Arena _arena;
+        
+        private StateMachine _stateMachine;
 
 #if UNITY_EDITOR
         private void OnValidate() {
@@ -45,12 +54,19 @@ namespace Shooter.Agents {
         }
 #endif
 
-        public void Initialize(Arena arena, Team team) {
+        private void Update() {
+            _stateMachine.Update();
+        }
+
+        public void Initialize(Arena arena, int arenaCellIndex, Team team) {
             _arena = arena;
+            ArenaCellIndex = arenaCellIndex;
             Team = team;
             SetupAgentSize();
+            SetupStateMachine();
+            AllAgents.Add(this);
         }
-        
+
         private void SetupAgentSize() {
             if (!_agentConfig) {
                 Debug.LogError("Agent missing AgentConfig", this);
@@ -63,6 +79,14 @@ namespace Shooter.Agents {
                 _spriteRenderer.transform.localScale = Vector3.one * _agentConfig.Radius * 2f;
         }
 
+        private void SetupStateMachine() {
+            _stateMachine = new StateMachine();
+            
+            var wanderState = new WanderState(this, _arena, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed, _agentConfig.WanderRadius);
+            _stateMachine.AddAnyTransition(wanderState, new FuncPredicate(() => true));
+            _stateMachine.SetState(wanderState);
+        }
+
         private void OnDrawGizmosSelected() {
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
 
@@ -72,13 +96,20 @@ namespace Shooter.Agents {
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_angleAccuracy) * Vector2.up * lineLength);
             Gizmos.matrix = Matrix4x4.identity;
             
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, _agentConfig.WanderRadius);
+            
 #if UNITY_EDITOR
             GizmosLegend.AddLabel(this, "Accuracy", Color.red, GizmoType.Line);
+            GizmosLegend.AddLabel(this, "Wander Radius", Color.cyan, GizmoType.Sphere);
 #endif
         }
 
+        private void OnDestroy() {
+            AllAgents.Remove(this);
 #if UNITY_EDITOR
-        private void OnDestroy() => GizmosLegend.Unregister(this);
+            GizmosLegend.Unregister(this);
 #endif
+        }
     }
 }

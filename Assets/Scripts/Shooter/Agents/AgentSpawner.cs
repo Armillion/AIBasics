@@ -31,11 +31,13 @@ namespace Shooter.Agents {
         public void SpawnAgent(Arena arena, Team team) {
             for (var i = 0; i < MAX_SPAWN_ATTEMPTS; i++) {
                 Vector2 position = GetRandomSpawnPosition(team);
-                if (!arena.TryGetValidCellPosition(ref position)) continue;
+                int cellIndex = arena.SnapPositionToCell(ref position);
+                
+                if (cellIndex == -1) continue;
                 
                 Agent agent = Instantiate(_agentTemplate, position, Quaternion.identity);
                 agent.gameObject.SetActive(true);
-                agent.Initialize(arena, team);
+                agent.Initialize(arena, cellIndex, team);
                 return;
             }
             
@@ -64,7 +66,7 @@ namespace Shooter.Agents {
         private void OnDrawGizmos() {
             foreach (SpawnConfig config in _spawnConfigs) {
                 Gizmos.color = config.team.GetColor();
-                Gizmos.DrawSphere(config.Position, config.radius);
+                Gizmos.DrawWireSphere(config.Position, config.radius);
                 GizmosLegend.AddLabel(this, $"{config.team.ToString()} Team Spawner", config.team.GetColor(), GizmoType.Sphere);
             }
         }

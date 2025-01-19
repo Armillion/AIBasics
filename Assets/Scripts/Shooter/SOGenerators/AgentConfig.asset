@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: AgentConfig
   m_EditorClassIdentifier: 
   <Radius>k__BackingField: 0.75
+  <WanderRadius>k__BackingField: 20
+  <MoveSpeed>k__BackingField: 5
+  <RotationSpeed>k__BackingField: 270
