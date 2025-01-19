@@ -4,6 +4,7 @@ using Physics;
 using Shooter.Agents.States;
 using Shooter.Environment;
 using Shooter.FSM;
+using Shooter.Weapons;
 using UnityEngine;
 using Utility.DescriptiveGizmos;
 
@@ -12,19 +13,19 @@ namespace Shooter.Agents {
     [RequireComponent(typeof(Health))]
     [RequireComponent(typeof(SimpleCircleCollider))]
     public class Agent : MonoBehaviour {
-        public static List<Agent> AllAgents { get; } = new List<Agent>();
+        public static List<Agent> AllAgents { get; } = new();
         
         [SerializeField]
         private AgentConfig _agentConfig;
         
         [field: SerializeField, Self]
         public Health Health { get; private set; }
-
+        
+        [SerializeField, Child]
+        private Weapon _weapon;
+        
         [SerializeField, Child]
         private SpriteRenderer _spriteRenderer;
-
-        [SerializeField, Min(0f)]
-        private float _angleAccuracy = 2f;
         
         [field: SerializeField, Self]
         public SimpleCircleCollider Collider { get; private set; }
@@ -90,12 +91,6 @@ namespace Shooter.Agents {
 
         private void OnDrawGizmosSelected() {
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
-
-            const float lineLength = 5f;
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _angleAccuracy) * Vector2.up * lineLength);
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_angleAccuracy) * Vector2.up * lineLength);
-            
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
@@ -105,7 +100,6 @@ namespace Shooter.Agents {
             Gizmos.DrawWireSphere(transform.position, _agentConfig.WanderRadius);
             
 #if UNITY_EDITOR
-            GizmosLegend.AddLabel(this, "Accuracy", Color.red, GizmoType.Line);
             GizmosLegend.AddLabel(this, "Vision Cone", Color.yellow, GizmoType.Line);
             GizmosLegend.AddLabel(this, "Wander Radius", Color.cyan, GizmoType.Sphere);
 #endif
