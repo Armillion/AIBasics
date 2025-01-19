@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using KBCore.Refs;
 using Physics;
 using Shooter.Agents.States;
@@ -30,8 +29,6 @@ namespace Shooter.Agents {
         [field: SerializeField, Self]
         public SimpleCircleCollider Collider { get; private set; }
         
-        public int ArenaCellIndex { get; private set; }
-
         public Team Team {
             get => _team;
 
@@ -45,6 +42,7 @@ namespace Shooter.Agents {
         private Team _team;
         private Arena _arena;
         
+        private AgentDetector _agentDetector;
         private StateMachine _stateMachine;
 
 #if UNITY_EDITOR
@@ -55,15 +53,18 @@ namespace Shooter.Agents {
 #endif
 
         private void Update() {
-            _stateMachine.Update();
+            _agentDetector?.Update();
+            _stateMachine?.Update();
         }
 
-        public void Initialize(Arena arena, int arenaCellIndex, Team team) {
+        public void Initialize(Arena arena, Team team) {
             _arena = arena;
-            ArenaCellIndex = arenaCellIndex;
             Team = team;
+            
             SetupAgentSize();
+            _agentDetector = new AgentDetector(this, _agentConfig.VisionConeAngle);
             SetupStateMachine();
+            
             AllAgents.Add(this);
         }
 
@@ -94,6 +95,10 @@ namespace Shooter.Agents {
             Gizmos.color = Color.red;
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _angleAccuracy) * Vector2.up * lineLength);
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_angleAccuracy) * Vector2.up * lineLength);
+            
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
             Gizmos.matrix = Matrix4x4.identity;
             
             Gizmos.color = Color.cyan;
@@ -101,6 +106,7 @@ namespace Shooter.Agents {
             
 #if UNITY_EDITOR
             GizmosLegend.AddLabel(this, "Accuracy", Color.red, GizmoType.Line);
+            GizmosLegend.AddLabel(this, "Vision Cone", Color.yellow, GizmoType.Line);
             GizmosLegend.AddLabel(this, "Wander Radius", Color.cyan, GizmoType.Sphere);
 #endif
         }

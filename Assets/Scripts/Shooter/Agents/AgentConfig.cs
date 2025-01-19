@@ -14,5 +14,8 @@ namespace Shooter.Agents {
         
         [field: SerializeField, Min(0f)]
         public float RotationSpeed { get; private set; } = 180f;
+        
+        [field: SerializeField, Min(0f)]
+        public float VisionConeAngle { get; private set; } = 45f;
     }
 }

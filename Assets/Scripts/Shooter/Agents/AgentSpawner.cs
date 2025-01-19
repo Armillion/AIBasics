@@ -37,7 +37,7 @@ namespace Shooter.Agents {
                 
                 Agent agent = Instantiate(_agentTemplate, position, Quaternion.identity);
                 agent.gameObject.SetActive(true);
-                agent.Initialize(arena, cellIndex, team);
+                agent.Initialize(arena, team);
                 return;
             }
             

@@ -16,3 +16,4 @@ MonoBehaviour:
   <WanderRadius>k__BackingField: 20
   <MoveSpeed>k__BackingField: 5
   <RotationSpeed>k__BackingField: 270
+  <VisionConeAngle>k__BackingField: 45
