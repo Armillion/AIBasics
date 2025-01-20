@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Physics;
 using Shooter.Environment;
 using UnityEngine;
 
 namespace Shooter.Agents {
+    [Serializable]
     public class AgentDetector {
         public IReadOnlyCollection<Agent> Agents => _agents;
 
@@ -31,6 +33,8 @@ namespace Shooter.Agents {
         private readonly Arena _arena;
         private readonly HashSet<Agent> _agents = new();
         private readonly float _visionConeAngle;
+
+        public List<Agent> AgentsList;
         
         public AgentDetector(Agent agent, float visionConeAngle) {
             _agent = agent;
@@ -53,7 +57,9 @@ namespace Shooter.Agents {
                 _agents.Remove(agent);
 
             foreach (Agent agent in _agents)
-                Debug.DrawLine(_agent.transform.position, agent.transform.position, Color.red);
+                Debug.DrawLine(_agent.transform.position, agent.transform.position, Color.yellow);
+            
+            AgentsList = new List<Agent>(_agents);
         }
         
         private bool IsAgentVisible(Agent agent) {

@@ -73,7 +73,25 @@ namespace Shooter.Environment {
             return IsValidIndex(x, y);
         }
         
-        public bool IsStraightPathTraversable(Vector2 start, Vector2 end) {
+        public Vector2 GetNeighbouringCellPosition(Vector2 position) {
+            (int x, int y) = GetCellIndex(position);
+            Cell cell = Grid[y * XCellCount + x];
+            
+            if (cell.TraversableDirections == MoveDirection.None)
+                return position;
+            
+            MoveDirection randomDirection;
+            
+            do {
+                int randomBitShift = UnityEngine.Random.Range(0, 7);
+                randomDirection = (MoveDirection)(1 << randomBitShift);
+            } while ((randomDirection & cell.TraversableDirections) == MoveDirection.None);
+            
+            (int xIndex, int yIndex) = GetIndexInMoveDirection(randomDirection, x, y);
+            return IsValidIndex(xIndex, yIndex) ? Grid[yIndex * XCellCount + xIndex].position : position;
+        }
+
+        private bool IsStraightPathTraversable(Vector2 start, Vector2 end) {
             foreach (Polygon wall in _walls)
                 if (Geometry.LinesIntersect(start, end, wall, false, out _))
                     return false;

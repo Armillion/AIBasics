@@ -1,4 +1,5 @@
-﻿using ImprovedTimers;
+﻿using System;
+using ImprovedTimers;
 using Physics;
 using UnityEngine;
 using Utility.DescriptiveGizmos;
@@ -14,9 +15,9 @@ namespace Shooter.Weapons {
         [field: SerializeField, Min(0f)]
         protected float angleAccuracy = 2f;
 
-        protected CountdownTimer FireRateTimer;
+        protected CountdownTimer fireRateTimer;
 
-        private void Start() => FireRateTimer = new CountdownTimer(fireRate);
+        private void Start() => fireRateTimer = new CountdownTimer(fireRate);
 
         public abstract void Shoot(Vector3 origin, Vector3 direction, params SimpleCircleCollider[] ignoreColliders);
 
@@ -33,5 +34,9 @@ namespace Shooter.Weapons {
             GizmosLegend.AddLabel(this, "Accuracy", Color.red, GizmoType.Line);
 #endif
         }
+
+#if UNITY_EDITOR
+        private void OnDestroy() => GizmosLegend.Unregister(this);
+#endif
     }
 }

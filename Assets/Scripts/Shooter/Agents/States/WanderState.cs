@@ -19,15 +19,18 @@ namespace Shooter.Agents.States {
                 return;
         
             Vector2 destination = _path![_pathIndex];
+            Vector3 agentPosition = agent.transform.position;
             
-            if (Vector2.Distance(agent.transform.position, destination) <= float.Epsilon)
+            if (Vector2.Distance(agentPosition, destination) <= float.Epsilon)
                 _pathIndex++;
             
             for (int i = _pathIndex; i < _path!.Count - 1; i++)
                 Debug.DrawLine(_path[i], _path[i + 1], Color.cyan, 0.1f);
 
-            agent.transform.position = Vector2.MoveTowards(agent.transform.position, destination, moveSpeed * Time.deltaTime);
-            agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, Quaternion.LookRotation(Vector3.forward, destination - (Vector2) agent.transform.position), rotationSpeed * Time.deltaTime);
+            agent.transform.position = Vector2.MoveTowards(agentPosition, destination, moveSpeed * Time.deltaTime);
+            
+            var lookRotation = Quaternion.LookRotation(Vector3.forward, destination - (Vector2)agentPosition);
+            agent.transform.rotation = Quaternion.RotateTowards(agent.transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
         
         private bool FindNewWanderDestination() {

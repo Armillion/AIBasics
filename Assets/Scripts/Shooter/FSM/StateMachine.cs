@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Shooter.FSM {
     public class StateMachine {
+        public string CurrentState => _current.State.GetType().Name;
+        
         private StateNode _current;
         private readonly Dictionary<Type, StateNode> _nodes = new();
         private readonly HashSet<ITransition> _anyTransitions = new();

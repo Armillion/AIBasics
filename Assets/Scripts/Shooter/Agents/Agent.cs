@@ -5,8 +5,10 @@ using Shooter.Agents.States;
 using Shooter.Environment;
 using Shooter.FSM;
 using Shooter.Weapons;
+using UnityEditor;
 using UnityEngine;
 using Utility.DescriptiveGizmos;
+using GizmoType = Utility.DescriptiveGizmos.GizmoType;
 
 namespace Shooter.Agents {
     [SelectionBase]
@@ -43,6 +45,7 @@ namespace Shooter.Agents {
         private Team _team;
         private Arena _arena;
         
+        [SerializeField]
         private AgentDetector _agentDetector;
         private StateMachine _stateMachine;
 
@@ -68,6 +71,11 @@ namespace Shooter.Agents {
             
             AllAgents.Add(this);
         }
+        
+        public void Shoot(Agent target) {
+            Vector3 direction = target.transform.position - transform.position;
+            _weapon.Shoot(transform.position, direction, Collider);
+        }
 
         private void SetupAgentSize() {
             if (!_agentConfig) {
@@ -85,15 +93,23 @@ namespace Shooter.Agents {
             _stateMachine = new StateMachine();
             
             var wanderState = new WanderState(this, _arena, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed, _agentConfig.WanderRadius);
-            _stateMachine.AddAnyTransition(wanderState, new FuncPredicate(() => true));
+            var attackState = new AttackState(this, _arena, _agentDetector, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed);
+            
+            _stateMachine.AddTransition(wanderState, attackState, new FuncPredicate(() => _agentDetector.Agents.Count > 0));
+            _stateMachine.AddTransition(attackState, wanderState, new FuncPredicate(() => _agentDetector.Agents.Count == 0));
+            
             _stateMachine.SetState(wanderState);
         }
 
         private void OnDrawGizmosSelected() {
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
+            
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
             Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
+            
+            Handles.Label(transform.position + Vector3.up * 1.5f, _stateMachine?.CurrentState);
+            
             Gizmos.matrix = Matrix4x4.identity;
             
             Gizmos.color = Color.cyan;
