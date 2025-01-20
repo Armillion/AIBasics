@@ -2,6 +2,7 @@
 using KBCore.Refs;
 using Physics;
 using Shooter.Agents;
+using TMPro;
 using UnityEngine;
 using Utility.DescriptiveGizmos;
 
@@ -15,6 +16,9 @@ namespace Shooter.Weapons {
         
         [SerializeField]
         private int _currentAmmo;
+        
+        [SerializeField]
+        private TMP_Text _ammoText;
 
         public int CurrentAmmo {
             get => _currentAmmo;
@@ -39,6 +43,7 @@ namespace Shooter.Weapons {
 
         protected void FireSingleBulletWithSpread(Vector3 origin, Vector3 direction) {
             CurrentAmmo--;
+            _ammoText.text = CurrentAmmo.ToString();
             
             Vector3 spread = Random.insideUnitCircle * _config.AngleAccuracy;
             direction = Quaternion.Euler(spread) * direction;

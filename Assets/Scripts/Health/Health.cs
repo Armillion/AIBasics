@@ -18,6 +18,7 @@ public class Health : MonoBehaviour {
     [field: SerializeField, Min(0f)]
     public float InvulnerabilityPeriod { get; private set; } = 0.2f;
 
+    public UnityEvent onHealthChanged;
     public UnityEvent<object> onDamageTaken;
     public UnityEvent onDeath;
     
@@ -42,10 +43,12 @@ public class Health : MonoBehaviour {
             int armorDamage = Mathf.Min(amount, CurrentArmor);
             CurrentArmor -= armorDamage;
             amount -= armorDamage;
+            onHealthChanged?.Invoke();
             onDamageTaken?.Invoke(dealer);
         }
 
         CurrentHealth -= Mathf.Min(amount, CurrentHealth);
+        onHealthChanged?.Invoke();
         onDamageTaken?.Invoke(dealer);
     
         if (CurrentHealth <= 0)
@@ -55,7 +58,13 @@ public class Health : MonoBehaviour {
             _invulnerabilityTimer.Start();
     }
     
-    public void Heal(int amount) => CurrentHealth = Mathf.Min(CurrentHealth + amount, MaxHealth);
-    
-    public void RestoreArmor(int amount) => CurrentArmor = Mathf.Min(CurrentArmor + amount, MaxArmor);
+    public void Heal(int amount) {
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, MaxHealth);
+        onHealthChanged?.Invoke();
+    }
+
+    public void RestoreArmor(int amount) {
+        CurrentArmor = Mathf.Min(CurrentArmor + amount, MaxArmor);
+        onHealthChanged?.Invoke();
+    }
 }
