@@ -10,18 +10,20 @@ namespace Shooter.Weapons {
         private float burstRate = 0.1f;
         
         public override async void Shoot(Vector3 origin, Vector3 direction) {
-            if (fireRateTimer.IsRunning) return;
+            if (CurrentAmmo <= 0 || fireRateTimer.IsRunning) return;
             fireRateTimer.Start();
 
             for (var i = 0; i < burstCount; i++) {
-                Vector3 spread = Random.insideUnitCircle * angleAccuracy;
+                CurrentAmmo--;
+                
+                Vector3 spread = Random.insideUnitCircle * _config.AngleAccuracy;
                 direction = Quaternion.Euler(spread) * direction;
                 
                 if (!SimplePhysics2D.Raycast(origin, direction, out SimpleRaycastHit2D hit, _owner.Collider)) return;
                 Debug.DrawLine(origin, hit.point, Color.red, 0.1f);
                 if (!hit.transform || !hit.transform.TryGetComponent(out Health health)) return;
                 
-                health.TakeDamage(damage, _owner);
+                health.TakeDamage(_config.Damage, _owner);
                 await Awaitable.WaitForSecondsAsync(burstRate);
             }
         }

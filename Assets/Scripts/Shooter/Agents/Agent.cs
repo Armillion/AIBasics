@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using KBCore.Refs;
 using Physics;
 using Shooter.Agents.States;
 using Shooter.Environment;
 using Shooter.FSM;
+using Shooter.Pickups.PickupStrategies;
 using Shooter.Weapons;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utility.DescriptiveGizmos;
 using GizmoType = Utility.DescriptiveGizmos.GizmoType;
 
@@ -22,10 +25,10 @@ namespace Shooter.Agents {
         
         [field: SerializeField, Self]
         public Health Health { get; private set; }
-        
-        [SerializeField, Child]
-        private Weapon _weapon;
-        
+
+        [field: SerializeField, Child]
+        public Weapon Weapon { get; private set; }
+
         [SerializeField, Child]
         private SpriteRenderer _spriteRenderer;
         
@@ -74,7 +77,7 @@ namespace Shooter.Agents {
         
         public void Shoot(Agent target) {
             Vector3 direction = target.transform.position - transform.position;
-            _weapon.Shoot(transform.position, direction);
+            Weapon.Shoot(transform.position, direction);
         }
 
         private void SetupAgentSize() {
@@ -104,19 +107,44 @@ namespace Shooter.Agents {
             
             var wanderState = new WanderState(this, _arena, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed, _agentConfig.WanderRadius);
             var attackState = new AttackState(this, _arena, _agentDetector, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed);
+            var collectHealthPickupState = new CollectPickupState<HealAgentStrategy>(this, _arena, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed);
+            var collectArmorPickupState = new CollectPickupState<RestoreArmorStrategy>(this, _arena, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed);
+            var collectAmmoPickupState = new CollectPickupState<RefillAmmoStrategy>(this, _arena, _agentConfig.RotationSpeed, _agentConfig.MoveSpeed);
             
-            _stateMachine.AddTransition(wanderState, attackState, new FuncPredicate(() => _agentDetector.Agents.Count > 0));
-            _stateMachine.AddTransition(attackState, wanderState, new FuncPredicate(() => _agentDetector.Agents.Count == 0));
+            _stateMachine.AddTransition(attackState, collectHealthPickupState, new FuncPredicate(() => Health.CurrentTotalHitPoints < _agentConfig.HitPointsPanicThreshold));
+            _stateMachine.AddTransition(attackState, collectAmmoPickupState, new FuncPredicate(() => Weapon.CurrentAmmo == 0));
+
+            var hasDetectedAgentsPredicate = new FuncPredicate(() => _agentDetector.HasDetectedAgents);
+            _stateMachine.AddTransition(wanderState, attackState, hasDetectedAgentsPredicate);
+            _stateMachine.AddTransition(collectHealthPickupState, attackState, new FuncPredicate(() => hasDetectedAgentsPredicate.Evaluate() && Health.CurrentTotalHitPoints >= _agentConfig.HitPointsPanicThreshold));
+            _stateMachine.AddTransition(collectAmmoPickupState, attackState, new FuncPredicate(() => hasDetectedAgentsPredicate.Evaluate() && Weapon.CurrentAmmo > 0));
+            _stateMachine.AddTransition(collectArmorPickupState, attackState, hasDetectedAgentsPredicate);
+            
+            _stateMachine.AddTransition(collectHealthPickupState, attackState, new FuncPredicate(() => !collectHealthPickupState.IsAnyPickupAvailable));
+            _stateMachine.AddTransition(collectAmmoPickupState, attackState, new FuncPredicate(() => !collectAmmoPickupState.IsAnyPickupAvailable));
+            _stateMachine.AddTransition(collectArmorPickupState, attackState, new FuncPredicate(() => !collectArmorPickupState.IsAnyPickupAvailable));
+            
+            _stateMachine.AddTransition(wanderState, collectHealthPickupState, new FuncPredicate(() => Health.HealthNormalized < .95f && collectHealthPickupState.IsAnyPickupAvailable));
+            _stateMachine.AddTransition(wanderState, collectAmmoPickupState, new FuncPredicate(() => Weapon.CurrentAmmo < Health.MaxHealth / (float)Weapon.Damage * 1.75f && collectAmmoPickupState.IsAnyPickupAvailable));
+            _stateMachine.AddTransition(wanderState, collectArmorPickupState, new FuncPredicate(() => Health.ArmorNormalized < .8f && collectArmorPickupState.IsAnyPickupAvailable));
+            
+            _stateMachine.AddTransition(collectHealthPickupState, wanderState, new FuncPredicate(() => Health.HealthNormalized >= .95f));
+            _stateMachine.AddTransition(collectAmmoPickupState, wanderState, new FuncPredicate(() => Weapon.CurrentAmmo >= Health.MaxHealth / (float)Weapon.Damage * 1.75f));
+            _stateMachine.AddTransition(collectArmorPickupState, wanderState, new FuncPredicate(() => Health.ArmorNormalized >= .8f));
+            
+            _stateMachine.AddTransition(attackState, wanderState, new FuncPredicate(() => !_agentDetector.HasDetectedAgents));
             
             _stateMachine.SetState(wanderState);
         }
+
+        private void OnDrawGizmos() => Handles.Label(transform.position + Vector3.up * 1.5f, _stateMachine?.CurrentState);
 
         private void OnDrawGizmosSelected() {
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
             
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * float.MaxValue);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * float.MaxValue);
             
             Handles.Label(transform.position + Vector3.up * 1.5f, _stateMachine?.CurrentState);
             

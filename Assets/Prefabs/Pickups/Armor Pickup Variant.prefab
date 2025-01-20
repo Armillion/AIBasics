@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: '_visuals.Array.data[1]'
       value: 
       objectReference: {fileID: 2229909431813253136}
+    - target: {fileID: 950510298606600051, guid: 30a13252680ff5346ab8140d11641e08, type: 3}
+      propertyPath: <Strategy>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f61459c90b7a3745914f1dbaa0868a1, type: 2}
     - target: {fileID: 6772686544460712287, guid: 30a13252680ff5346ab8140d11641e08, type: 3}
       propertyPath: m_Color.a
       value: 0.2509804
@@ -141,11 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890536106305370707, guid: 30a13252680ff5346ab8140d11641e08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -13
       objectReference: {fileID: 0}
     - target: {fileID: 6890536106305370707, guid: 30a13252680ff5346ab8140d11641e08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.75
       objectReference: {fileID: 0}
     - target: {fileID: 6890536106305370707, guid: 30a13252680ff5346ab8140d11641e08, type: 3}
       propertyPath: m_LocalPosition.z

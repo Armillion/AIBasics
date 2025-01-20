@@ -20,6 +20,12 @@ public class Health : MonoBehaviour {
 
     public UnityEvent<object> onDamageTaken;
     public UnityEvent onDeath;
+    
+    public float HealthNormalized => (float) CurrentHealth / MaxHealth;
+    public float ArmorNormalized => (float) CurrentArmor / MaxArmor;
+    public int CurrentTotalHitPoints => CurrentHealth + CurrentArmor;
+    public int TotalHitPointsMax => MaxHealth + MaxArmor;
+    public float TotalHitPointsNormalized => (float) CurrentTotalHitPoints / TotalHitPointsMax;
 
     private CountdownTimer _invulnerabilityTimer; 
     

@@ -6,26 +6,27 @@ using Shooter.Environment;
 using UnityEngine;
 
 namespace Shooter.Agents {
-    [Serializable]
     public class AgentDetector {
-        public IReadOnlyCollection<Agent> Agents => _agents.Concat(_aggressorAgents).ToArray();
-
+        public bool HasDetectedAgents => _agents.Count > 0 || _aggressorAgents.Count > 0;
+        
         public Agent Closest {
             get {
-                if (Agents.Count == 0) return null;
-                
+                if (!HasDetectedAgents) return null;
+
                 Agent closestAgent = null;
                 float closestDistance = float.MaxValue;
+
+                IEnumerable<Agent> allAgents = _agents.Concat(_aggressorAgents);
                 
-                foreach (Agent agent in Agents) {
+                foreach (Agent agent in allAgents) {
                     float distance = Vector2.Distance(_agent.transform.position, agent.transform.position);
-                    
+
                     if (distance < closestDistance) {
                         closestAgent = agent;
                         closestDistance = distance;
                     }
                 }
-                
+
                 return closestAgent;
             }
         }
@@ -36,8 +37,6 @@ namespace Shooter.Agents {
         private readonly float _visionConeAngle;
         private readonly HashSet<Agent> _aggressorAgents = new();
 
-        public List<Agent> detectedAgents;
-        
         public AgentDetector(Agent agent, float visionConeAngle) {
             _agent = agent;
             _visionConeAngle = visionConeAngle;
@@ -65,8 +64,6 @@ namespace Shooter.Agents {
 
             foreach (Agent agent in _agents)
                 Debug.DrawLine(_agent.transform.position, agent.transform.position, Color.yellow);
-            
-            detectedAgents = Agents.ToList();
         }
         
         public void AddAggressorAgents(Agent aggressorAgents) {

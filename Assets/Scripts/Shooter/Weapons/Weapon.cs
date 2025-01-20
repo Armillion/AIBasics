@@ -11,30 +11,40 @@ namespace Shooter.Weapons {
         [SerializeField, Parent]
         protected Agent _owner;
         
-        [field: SerializeField, Min(0f)]
-        private float fireRate = 1f;
+        [field: SerializeField]
+        protected WeaponConfig _config;
         
-        [field: SerializeField, Min(0)]
-        protected int damage = 15;
-        
-        [field: SerializeField, Range(0f, 180f)]
-        protected float angleAccuracy = 2f;
+        [SerializeField]
+        private int _currentAmmo;
 
+        public int CurrentAmmo {
+            get => _currentAmmo;
+            set => _currentAmmo = Mathf.Min(_config.MaxAmmo, value);
+        }
+
+        public int MaxAmmo => _config.MaxAmmo;
+        public int Damage => _config.Damage;
+        
         protected CountdownTimer fireRateTimer;
 
         private void OnValidate() => this.ValidateRefs();
 
-        private void Start() => fireRateTimer = new CountdownTimer(fireRate);
+        private void Start() {
+            CurrentAmmo = _config.MaxAmmo;
+            fireRateTimer = new CountdownTimer(_config.FireRate);
+        }
 
         public abstract void Shoot(Vector3 origin, Vector3 direction);
-
+        
         private void OnDrawGizmosSelected() {
+            if (!_config) return;
+            
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
 
             const float lineLength = 5f;
             Gizmos.color = Color.red;
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, angleAccuracy) * Vector2.up * lineLength);
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -angleAccuracy) * Vector2.up * lineLength);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _config.AngleAccuracy) * Vector2.up * lineLength);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_config.AngleAccuracy) * Vector2.up * lineLength);
             Gizmos.matrix = Matrix4x4.identity;
 
 #if UNITY_EDITOR

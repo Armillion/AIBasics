@@ -1,4 +1,6 @@
-﻿using ImprovedTimers;
+﻿using System;
+using System.Collections.Generic;
+using ImprovedTimers;
 using JetBrains.Annotations;
 using KBCore.Refs;
 using Physics;
@@ -6,13 +8,16 @@ using PrimeTween;
 using Shooter.Agents;
 using Shooter.Pickups.PickupStrategies;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityUtils;
 
 namespace Shooter.Pickups {
     [RequireComponent(typeof(SimpleCircleCollider))]
     public class Pickup : MonoBehaviour {
-        [SerializeField]
-        private PickupStrategy _strategy;
+        public static IReadOnlyList<Pickup> AllPickups => _allPickups;
+        
+        [field: SerializeField]
+        public PickupStrategy Strategy { get; private set; }
         
         [SerializeField, Min(0)]
         private int _effectValue = 10;
@@ -29,14 +34,15 @@ namespace Shooter.Pickups {
         [SerializeField]
         private SpriteRenderer[] _visuals;
         
+        private static List<Pickup> _allPickups = new();
         private static readonly int _spinnerPropertyId = Shader.PropertyToID("_Arc2");
         
         private Material RespawnSpinnerMaterial => _respawnSpinner.material;
         
-        private bool Enabled {
+        public bool Enabled {
             get => _collider.enabled;
             
-            set {
+            private set {
                 _collider.enabled = value;
                 
                 foreach (SpriteRenderer visual in _visuals)
@@ -56,19 +62,21 @@ namespace Shooter.Pickups {
             _respawnTimer.OnTimerStop += () => Enabled = true;
         }
 
+        private void Start() => _allPickups.Add(this);
+
         private void AnimateRespawnSpinner() {
             RespawnSpinnerMaterial.SetFloat(_spinnerPropertyId, 360f);
             Tween.MaterialProperty(RespawnSpinnerMaterial, _spinnerPropertyId, 0f, _respawnDuration, Ease.OutSine);
         }
 
         [UsedImplicitly]
-        public virtual void OnSimpleTrigger(SimpleCircleCollider other) {
-            if (!_strategy) {
+        public void OnSimpleTrigger(SimpleCircleCollider other) {
+            if (!Strategy) {
                 Debug.LogWarning("No strategy assigned to pickup", this);
                 return;
             }
             
-            if (!other.TryGetComponent(out Agent agent) || !_strategy.ApplyEffect(agent, _effectValue))
+            if (!other.TryGetComponent(out Agent agent) || !Strategy.ApplyEffect(agent, _effectValue))
                 return;
 
             _respawnTimer.Start();

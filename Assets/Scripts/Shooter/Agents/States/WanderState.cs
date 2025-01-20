@@ -7,13 +7,18 @@ namespace Shooter.Agents.States {
     public class WanderState : AgentBaseState {
         private readonly float _wanderRadius;
         private Vector2 _destination;
-        private List<Vector2> _path;
+        private List<Vector2> _path = new();
         private int _pathIndex;
 
         public WanderState(Agent agent, Arena arena, float rotationSpeed, float moveSpeed, float wanderRadius) : base(agent, arena, rotationSpeed, moveSpeed) {
             _wanderRadius = wanderRadius;
         }
-        
+
+        public override void OnEnter() {
+            base.OnEnter();
+            _path.Clear();
+        }
+
         public override void Update() {
             if ((_path == null || _pathIndex >= _path.Count - 1) && !FindNewWanderDestination())
                 return;
