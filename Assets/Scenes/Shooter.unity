@@ -429,9 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3451d764ba48c0943d6838d072a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _owner: {fileID: 1887687427}
   fireRate: 1
   damage: 15
-  angleAccuracy: 10
+  angleAccuracy: 15
 --- !u!1 &1164880576
 GameObject:
   m_ObjectHideFlags: 0
@@ -12110,11 +12111,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _agentConfig: {fileID: 11400000, guid: 1da8fbffd6a5d3e4f9bad81e3dbfe02e, type: 2}
   <Health>k__BackingField: {fileID: 1887687428}
-  _weapon: {fileID: 0}
+  _weapon: {fileID: 1024894331}
   _spriteRenderer: {fileID: 705567958}
   <Collider>k__BackingField: {fileID: 1887687430}
   _agentDetector:
-    AgentsList: []
+    detectedAgents: []
 --- !u!114 &1887687428
 MonoBehaviour:
   m_ObjectHideFlags: 0

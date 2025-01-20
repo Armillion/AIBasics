@@ -29,7 +29,7 @@ public class UIPlayerHealth : MonoBehaviour {
         UpdateHealth();
     }
 
-    private void UpdateHealth() {
+    private void UpdateHealth(object dealer = null) {
         for (var i = 0; i < _healthIcons.Length; i++) {
             _healthIcons[i].Show(i < _playerHealth.CurrentHealth);
             _healthIcons[i].Flash(_playerHealth.InvulnerabilityPeriod);

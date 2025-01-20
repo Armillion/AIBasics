@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Physics;
 using Shooter.Environment;
 using UnityEngine;
@@ -7,16 +8,16 @@ using UnityEngine;
 namespace Shooter.Agents {
     [Serializable]
     public class AgentDetector {
-        public IReadOnlyCollection<Agent> Agents => _agents;
+        public IReadOnlyCollection<Agent> Agents => _agents.Concat(_aggressorAgents).ToArray();
 
         public Agent Closest {
             get {
-                if (_agents.Count == 0) return null;
+                if (Agents.Count == 0) return null;
                 
                 Agent closestAgent = null;
                 float closestDistance = float.MaxValue;
                 
-                foreach (Agent agent in _agents) {
+                foreach (Agent agent in Agents) {
                     float distance = Vector2.Distance(_agent.transform.position, agent.transform.position);
                     
                     if (distance < closestDistance) {
@@ -33,8 +34,9 @@ namespace Shooter.Agents {
         private readonly Arena _arena;
         private readonly HashSet<Agent> _agents = new();
         private readonly float _visionConeAngle;
+        private readonly HashSet<Agent> _aggressorAgents = new();
 
-        public List<Agent> AgentsList;
+        public List<Agent> detectedAgents;
         
         public AgentDetector(Agent agent, float visionConeAngle) {
             _agent = agent;
@@ -42,7 +44,12 @@ namespace Shooter.Agents {
         }
         
         public void Update() {
-            List<Agent> agentsToRemove = new();
+            var agentsToRemove = _aggressorAgents.Where(IsAgentVisible).ToList();
+
+            foreach (Agent agent in agentsToRemove)
+                _aggressorAgents.Remove(agent);
+
+            agentsToRemove.Clear();
             
             foreach (Agent agent in Agent.AllAgents) {
                 if (agent == _agent) continue;
@@ -59,9 +66,14 @@ namespace Shooter.Agents {
             foreach (Agent agent in _agents)
                 Debug.DrawLine(_agent.transform.position, agent.transform.position, Color.yellow);
             
-            AgentsList = new List<Agent>(_agents);
+            detectedAgents = Agents.ToList();
         }
         
+        public void AddAggressorAgents(Agent aggressorAgents) {
+            if (aggressorAgents)
+                _aggressorAgents.Add(aggressorAgents);
+        }
+
         private bool IsAgentVisible(Agent agent) {
             Vector2 direction = agent.transform.position - _agent.transform.position;
             float angle = Vector2.Angle(_agent.transform.up, direction);

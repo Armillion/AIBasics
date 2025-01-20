@@ -1,25 +1,32 @@
 ﻿using System;
 using ImprovedTimers;
+using KBCore.Refs;
 using Physics;
+using Shooter.Agents;
 using UnityEngine;
 using Utility.DescriptiveGizmos;
 
 namespace Shooter.Weapons {
     public abstract class Weapon : MonoBehaviour {
+        [SerializeField, Parent]
+        protected Agent _owner;
+        
         [field: SerializeField, Min(0f)]
         private float fireRate = 1f;
         
         [field: SerializeField, Min(0)]
         protected int damage = 15;
         
-        [field: SerializeField, Min(0f)]
+        [field: SerializeField, Range(0f, 180f)]
         protected float angleAccuracy = 2f;
 
         protected CountdownTimer fireRateTimer;
 
+        private void OnValidate() => this.ValidateRefs();
+
         private void Start() => fireRateTimer = new CountdownTimer(fireRate);
 
-        public abstract void Shoot(Vector3 origin, Vector3 direction, params SimpleCircleCollider[] ignoreColliders);
+        public abstract void Shoot(Vector3 origin, Vector3 direction);
 
         private void OnDrawGizmosSelected() {
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);

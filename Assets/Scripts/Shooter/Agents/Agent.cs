@@ -66,7 +66,7 @@ namespace Shooter.Agents {
             Team = team;
             
             SetupAgentSize();
-            _agentDetector = new AgentDetector(this, _agentConfig.VisionConeAngle);
+            SetupAgentDetector();
             SetupStateMachine();
             
             AllAgents.Add(this);
@@ -74,7 +74,7 @@ namespace Shooter.Agents {
         
         public void Shoot(Agent target) {
             Vector3 direction = target.transform.position - transform.position;
-            _weapon.Shoot(transform.position, direction, Collider);
+            _weapon.Shoot(transform.position, direction);
         }
 
         private void SetupAgentSize() {
@@ -87,6 +87,16 @@ namespace Shooter.Agents {
 
             if (_spriteRenderer)
                 _spriteRenderer.transform.localScale = Vector3.one * _agentConfig.Radius * 2f;
+        }
+        
+        private void SetupAgentDetector() {
+            if (!_agentConfig) {
+                Debug.LogError("Agent missing AgentConfig", this);
+                return;
+            }
+
+            _agentDetector = new AgentDetector(this, _agentConfig.VisionConeAngle);
+            Health.onDamageTaken.AddListener(attacker => _agentDetector.AddAggressorAgents(attacker as Agent));
         }
 
         private void SetupStateMachine() {
