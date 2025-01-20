@@ -1,5 +1,4 @@
-﻿using System;
-using ImprovedTimers;
+﻿using ImprovedTimers;
 using KBCore.Refs;
 using Physics;
 using Shooter.Agents;
@@ -25,6 +24,8 @@ namespace Shooter.Weapons {
         public int MaxAmmo => _config.MaxAmmo;
         public int Damage => _config.Damage;
         
+        protected bool CanFire => CurrentAmmo > 0 && !fireRateTimer.IsRunning;
+        
         protected CountdownTimer fireRateTimer;
 
         private void OnValidate() => this.ValidateRefs();
@@ -35,6 +36,19 @@ namespace Shooter.Weapons {
         }
 
         public abstract void Shoot(Vector3 origin, Vector3 direction);
+
+        protected void FireSingleBulletWithSpread(Vector3 origin, Vector3 direction) {
+            CurrentAmmo--;
+            
+            Vector3 spread = Random.insideUnitCircle * _config.AngleAccuracy;
+            direction = Quaternion.Euler(spread) * direction;
+                
+            if (!SimplePhysics2D.Raycast(origin, direction, out SimpleRaycastHit2D hit, _owner.Collider)) return;
+            Debug.DrawLine(origin, hit.point, Color.red, 0.1f);
+            if (!hit.transform || !hit.transform.TryGetComponent(out Health health)) return;
+                
+            health.TakeDamage(_config.Damage, _owner);
+        }
         
         private void OnDrawGizmosSelected() {
             if (!_config) return;

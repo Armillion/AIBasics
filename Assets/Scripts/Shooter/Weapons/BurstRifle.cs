@@ -1,5 +1,4 @@
-﻿using Physics;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Shooter.Weapons {
     public class BurstRifle : Weapon {
@@ -10,20 +9,11 @@ namespace Shooter.Weapons {
         private float burstRate = 0.1f;
         
         public override async void Shoot(Vector3 origin, Vector3 direction) {
-            if (CurrentAmmo <= 0 || fireRateTimer.IsRunning) return;
+            if (!CanFire) return;
             fireRateTimer.Start();
 
             for (var i = 0; i < burstCount; i++) {
-                CurrentAmmo--;
-                
-                Vector3 spread = Random.insideUnitCircle * _config.AngleAccuracy;
-                direction = Quaternion.Euler(spread) * direction;
-                
-                if (!SimplePhysics2D.Raycast(origin, direction, out SimpleRaycastHit2D hit, _owner.Collider)) return;
-                Debug.DrawLine(origin, hit.point, Color.red, 0.1f);
-                if (!hit.transform || !hit.transform.TryGetComponent(out Health health)) return;
-                
-                health.TakeDamage(_config.Damage, _owner);
+                FireSingleBulletWithSpread(origin, direction);
                 await Awaitable.WaitForSecondsAsync(burstRate);
             }
         }
