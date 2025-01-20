@@ -35,7 +35,7 @@ namespace Shooter.Agents {
         private readonly Arena _arena;
         private readonly HashSet<Agent> _agents = new();
         private readonly float _visionConeAngle;
-        private readonly HashSet<Agent> _aggressorAgents = new();
+        private readonly HashSet<Agent> _aggressorAgents = new(); // Agents that shot this agent, but are not in the cone of vision
 
         public AgentDetector(Agent agent, float visionConeAngle) {
             _agent = agent;
@@ -43,22 +43,23 @@ namespace Shooter.Agents {
         }
         
         public void Update() {
-            var agentsToRemove = _aggressorAgents.Where(IsAgentVisible).ToList();
-
-            foreach (Agent agent in agentsToRemove)
-                _aggressorAgents.Remove(agent);
-
-            agentsToRemove.Clear();
+            RemoveVisibleAggressorAgents();
+            var agentsToRemove = _agents.Where(agent => !agent).ToList();
             
             foreach (Agent agent in Agent.AllAgents) {
                 if (agent == _agent) continue;
+
+                if (!agent) {
+                    agentsToRemove.Add(agent);
+                    continue;
+                }
 
                 if (IsAgentVisible(agent))
                     _agents.Add(agent);
                 else if (!IsAgentVisible(agent) && _agents.Contains(agent))
                     agentsToRemove.Add(agent);
             }
-            
+
             foreach (Agent agent in agentsToRemove)
                 _agents.Remove(agent);
 
@@ -69,6 +70,13 @@ namespace Shooter.Agents {
         public void AddAggressorAgents(Agent aggressorAgents) {
             if (aggressorAgents)
                 _aggressorAgents.Add(aggressorAgents);
+        }
+        
+        private void RemoveVisibleAggressorAgents() { 
+            var agentsToRemove = _aggressorAgents.Where(IsAgentVisible).ToList();
+
+            foreach (Agent agent in agentsToRemove)
+                _aggressorAgents.Remove(agent);
         }
 
         private bool IsAgentVisible(Agent agent) {

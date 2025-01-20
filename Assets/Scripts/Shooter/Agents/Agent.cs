@@ -48,7 +48,6 @@ namespace Shooter.Agents {
         private Team _team;
         private Arena _arena;
         
-        [SerializeField]
         private AgentDetector _agentDetector;
         private StateMachine _stateMachine;
 
@@ -73,6 +72,7 @@ namespace Shooter.Agents {
             SetupStateMachine();
             
             AllAgents.Add(this);
+            Health.onDeath.AddListener(DestroySelf);
         }
         
         public void Shoot(Agent target) {
@@ -137,14 +137,19 @@ namespace Shooter.Agents {
             _stateMachine.SetState(wanderState);
         }
 
+        private void DestroySelf() {
+            AllAgents.Remove(this);
+            Destroy(gameObject);
+        }
+
         private void OnDrawGizmos() => Handles.Label(transform.position + Vector3.up * 1.5f, _stateMachine?.CurrentState);
 
         private void OnDrawGizmosSelected() {
             Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, Vector3.one);
             
             Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * float.MaxValue);
-            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * float.MaxValue);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, _agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
+            Gizmos.DrawLine(Vector3.zero, Quaternion.Euler(0, 0, -_agentConfig.VisionConeAngle * 0.5f) * Vector2.up * 1000f);
             
             Handles.Label(transform.position + Vector3.up * 1.5f, _stateMachine?.CurrentState);
             

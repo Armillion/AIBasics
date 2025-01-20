@@ -181,7 +181,7 @@ namespace Physics {
         }
 
         private static void EnsureColliderZeroOverlap() {
-            int count = _colliders.Count;
+            int count = _colliders.Count(collider => collider);
 
             var positions = new NativeArray<Vector2>(count, Allocator.TempJob);
             var radii = new NativeArray<float>(count, Allocator.TempJob);
@@ -191,6 +191,7 @@ namespace Physics {
 
             for (var i = 0; i < count; i++) {
                 SimpleCircleCollider collider = _colliders[i];
+                if (!collider) continue;
                 positions[i] = collider.transform.position;
                 radii[i] = collider.radius;
                 isStatic[i] = collider.gameObject.isStatic;
@@ -209,7 +210,7 @@ namespace Physics {
             handle.Complete();
 
             for (var i = 0; i < count; i++)
-                if (!isStatic[i])
+                if (_colliders[i] && !isStatic[i])
                     _colliders[i].transform.position = positions[i];
 
             foreach ((int, int) contactPair in contacts) {

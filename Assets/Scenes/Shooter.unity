@@ -12720,11 +12720,11 @@ MonoBehaviour:
   - team: 0
     count: 1
   - team: 0
-    count: 0
+    count: 1
   - team: 0
-    count: 0
+    count: 1
   - team: 0
-    count: 0
+    count: 1
 --- !u!4 &1781443100
 Transform:
   m_ObjectHideFlags: 0
