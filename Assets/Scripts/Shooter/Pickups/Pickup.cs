@@ -24,6 +24,7 @@ namespace Shooter.Pickups {
         
         [SerializeField, Min(float.Epsilon)]
         private float _respawnDuration = 10f;
+        public bool _isRespawning = false;
         
         [SerializeField, Self]
         private SimpleCircleCollider _collider;
@@ -59,7 +60,7 @@ namespace Shooter.Pickups {
 
         private void Awake() {
             _respawnTimer = new CountdownTimer(_respawnDuration);
-            _respawnTimer.OnTimerStop += () => Enabled = true;
+            _respawnTimer.OnTimerStop += () => { Enabled = true; _isRespawning = false; };
         }
 
         private void Start() => _allPickups.Add(this);
@@ -81,6 +82,7 @@ namespace Shooter.Pickups {
 
             _respawnTimer.Start();
             Enabled = false;
+            _isRespawning = true;
             AnimateRespawnSpinner();
         }
     }

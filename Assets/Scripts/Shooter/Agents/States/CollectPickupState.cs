@@ -64,7 +64,7 @@ namespace Shooter.Agents.States {
             float closestDistance = float.MaxValue;
             
             foreach (Pickup pickup in _pickupsCache) {
-                if (!pickup.Enabled) continue;
+                if (!pickup.Enabled || pickup._isRespawning) continue;
                 float distance = Vector2.Distance(agent.transform.position, pickup.transform.position);
                 
                 if (distance < closestDistance) {
